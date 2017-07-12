@@ -2,10 +2,10 @@
 
 
 <%
-	String indexpath = request.getContextPath();
-	String indexBase = request.getScheme() + "://"
+	String headpath = request.getContextPath();
+	String headBase = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
-			+ indexpath + "/";
+			+ headpath + "/";
 %>
 
 
@@ -14,22 +14,28 @@
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="<%=indexBase%>index">SaleHouse</a>
+					<a class="navbar-brand" href="<%=headBase%>">SaleHouse</a>
 				</div>
 				<div>
 					<div style="float:left;">
 						<ul class="nav navbar-nav">
-							<li><a href="<%=indexBase%>">首页</a></li>
-							<li><a href="<%=indexBase + ""%>">二手房</a></li>
-							<li><a href="<%=indexBase + ""%>">新房</a></li>
-
-							<li><a href="<%=indexBase%>">租房</a></li>
+							<li><a href="<%=headBase%>">首页</a></li>
+							<li><a>|</a></li>
+							<li><a href="<%=headBase + ""%>">二手房</a></li>
+							<li><a>|</a></li>
+							<li><a href="<%=headBase + ""%>">新房</a></li>
+							<li><a>|</a></li>
+							<li><a href="<%=headBase%>">租房</a></li>
+							<li><a>|</a></li>
+							<li><a href="<%=headBase%>">经纪人</a></li>
+							<li><a>|</a></li>
+							<li><a href="<%=headBase%>">指南</a></li>
 						</ul>
 					</div>
 					<div style="float:right;">
 						<ul class="nav navbar-nav">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">登录/注册${status} <b class="caret"></b>
+								data-toggle="dropdown">登录 / 注册${status} <b class="caret"></b>
 							</a>
 								<ul class="dropdown-menu">
 									<li><a href="${account_login_link}">登录${ account_Login}</a></li>
