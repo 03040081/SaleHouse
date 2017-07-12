@@ -1,28 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'footer.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
-  </head>
-  
-  <body>
-    This is my JSP page. <br>
-  </body>
-</html>
+<div class="panel-footer">
+	<hr />
+	<p class="text-center">
+		<a style="margin-right: 3%;">友情链接</a> <a style="margin-right: 3%;">隐私声明</a>
+		<a style="margin-right: 3%;">加入我们</a> <a style="margin-right: 3%;">网站地图</a>
+		<a style="margin-right: 3%;">联系我们</a> <a style="margin-right: 3%;">关于我们</a>
+		<a style="margin-right: 3%;">诚信举报</a> <a style="margin-right: 3%;">常见问题</a>
+		<a style="margin-right: 3%;">用户反馈</a> <a style="margin-right: 3%;">经纪人登录</a>
+	</p>
+	<br />
+	<hr />
+	<p class="text-center">Lewis | © Copyright©2010-2017 SaleHouse 版权所有</p>
+	<p class="text-center">@Powered By Lewis</p>
+</div>
