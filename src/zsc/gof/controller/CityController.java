@@ -20,8 +20,6 @@ public class CityController {
 	public  ModelAndView index() {
 		City city = cityService.queryCityById(1);
 		
-		System.out.printf("%d %s %d\n",city.getCityId(),city.getCityName(),city.getCityId());
-		
 		return new ModelAndView("index");
 	}
 }
