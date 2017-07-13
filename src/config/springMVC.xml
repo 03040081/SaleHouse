@@ -21,7 +21,8 @@
     <mvc:annotation-driven />
      
     <mvc:default-servlet-handler />
- 
+ 	<!-- 配置默认首页 -->
+ 	<mvc:view-controller path="/" view-name="forward:/index" />  
  	<!-- 资源访问 -->
  	
  	<mvc:resources location="/static/image/" mapping="/static/image/*"/>

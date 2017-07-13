@@ -21,4 +21,10 @@ public class CityServiceImpl implements CityService{
 		return cityDao.queryCity();
 	}
 
+
+	@Override
+	public City queryCityById(int id) {
+		return cityDao.quertCityById(id);
+	}
+
 }
