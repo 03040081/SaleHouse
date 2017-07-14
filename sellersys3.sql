@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50614
 File Encoding         : 65001
 
-Date: 2017-07-13 08:43:08
+Date: 2017-07-14 15:01:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -31,6 +31,7 @@ CREATE TABLE `city` (
 -- ----------------------------
 -- Records of city
 -- ----------------------------
+INSERT INTO `city` VALUES ('1', '深圳', '1');
 
 -- ----------------------------
 -- Table structure for house
@@ -42,20 +43,21 @@ CREATE TABLE `house` (
   `houseType` int(10) NOT NULL,
   `houseArea` double(5,0) NOT NULL,
   `housePrice` decimal(5,0) NOT NULL,
-  `downPay` decimal(5,0) NOT NULL COMMENT '首付',
-  `monthPay` decimal(10,0) NOT NULL COMMENT '月供',
   `buildId` int(10) NOT NULL,
   `state` int(1) NOT NULL DEFAULT '0',
+  `houseInfo` varchar(50) NOT NULL,
   PRIMARY KEY (`houseId`),
   KEY `buildId` (`buildId`),
   KEY `houseType` (`houseType`),
   CONSTRAINT `HouseToHousetype` FOREIGN KEY (`houseType`) REFERENCES `housetype` (`htypeId`),
   CONSTRAINT `HouseToPremises` FOREIGN KEY (`buildId`) REFERENCES `premises` (`buildId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of house
 -- ----------------------------
+INSERT INTO `house` VALUES ('1', '鹏盛村', '1', '31', '183', '1', '0', '1室1厅1卫');
+INSERT INTO `house` VALUES ('2', '5345', '1', '21', '545', '1', '0', '1室1厅1卫');
 
 -- ----------------------------
 -- Table structure for houseimg
@@ -68,11 +70,14 @@ CREATE TABLE `houseimg` (
   PRIMARY KEY (`imgId`),
   KEY `houseId` (`houseId`),
   CONSTRAINT `HouseimgToHouse` FOREIGN KEY (`houseId`) REFERENCES `house` (`houseId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of houseimg
 -- ----------------------------
+INSERT INTO `houseimg` VALUES ('1', '1', '131321');
+INSERT INTO `houseimg` VALUES ('2', '1', '69465465');
+INSERT INTO `houseimg` VALUES ('3', '2', '5454');
 
 -- ----------------------------
 -- Table structure for housetype
@@ -82,11 +87,12 @@ CREATE TABLE `housetype` (
   `htypeId` int(10) NOT NULL AUTO_INCREMENT,
   `typeName` varchar(150) NOT NULL,
   PRIMARY KEY (`htypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of housetype
 -- ----------------------------
+INSERT INTO `housetype` VALUES ('1', '住宅');
 
 -- ----------------------------
 -- Table structure for orderinfo
@@ -127,16 +133,18 @@ CREATE TABLE `premises` (
   `buildType` int(10) NOT NULL COMMENT '建筑类型',
   `developer` varchar(150) DEFAULT NULL COMMENT '开发商',
   `regionId` int(10) NOT NULL,
+  `iconUrl` varchar(100) NOT NULL,
   PRIMARY KEY (`buildId`),
   KEY `regionId` (`regionId`),
   KEY `buildType` (`buildType`),
   CONSTRAINT `PremisesToPremisetype` FOREIGN KEY (`buildType`) REFERENCES `premisetype` (`btypeId`),
   CONSTRAINT `PremisesToRegion` FOREIGN KEY (`regionId`) REFERENCES `region` (`regionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of premises
 -- ----------------------------
+INSERT INTO `premises` VALUES ('1', '鹏盛村', '2017-07-12', '2017-07-14', '2698', '70', '2.85-2.85元/㎡元/㎡', '150000', '38000', '福田福田区八卦岭八卦一路39号', '1', '深圳鹏盛地产实业有限公司', '1', '');
 
 -- ----------------------------
 -- Table structure for premisesimg
@@ -149,11 +157,13 @@ CREATE TABLE `premisesimg` (
   PRIMARY KEY (`imgId`),
   KEY `buildId` (`buildId`),
   CONSTRAINT `PremisesimgToPremises` FOREIGN KEY (`buildId`) REFERENCES `premises` (`buildId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of premisesimg
 -- ----------------------------
+INSERT INTO `premisesimg` VALUES ('1', '1', '41531');
+INSERT INTO `premisesimg` VALUES ('2', '1', 'rterwer');
 
 -- ----------------------------
 -- Table structure for premisetype
@@ -163,11 +173,12 @@ CREATE TABLE `premisetype` (
   `btypeId` int(10) NOT NULL AUTO_INCREMENT,
   `typeName` varchar(150) NOT NULL,
   PRIMARY KEY (`btypeId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of premisetype
 -- ----------------------------
+INSERT INTO `premisetype` VALUES ('1', '住宅');
 
 -- ----------------------------
 -- Table structure for province
@@ -177,7 +188,7 @@ CREATE TABLE `province` (
   `provinceId` int(10) NOT NULL AUTO_INCREMENT,
   `provinceName` varchar(50) NOT NULL COMMENT '省份',
   PRIMARY KEY (`provinceId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of province
@@ -200,6 +211,7 @@ CREATE TABLE `region` (
 -- ----------------------------
 -- Records of region
 -- ----------------------------
+INSERT INTO `region` VALUES ('1', '福田', '1');
 
 -- ----------------------------
 -- Table structure for roleinfo
