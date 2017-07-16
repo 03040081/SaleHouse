@@ -11,6 +11,12 @@ import zsc.gof.entity.City;
 
 public interface CityDao {
 	
+	/**
+	 * @author lewis
+	 * @param
+	 * @return 返回查询的City数组对象
+	 * */
+	
 	public List<City> queryCity();
 	
 	

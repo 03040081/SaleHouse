@@ -24,9 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM premises AS p 
 		<where>
 			<if test="min!=null">
-			AND
-			p.regionId IN(SELECT regionId FROM house WHERE housePrice BETWEEN #{min} AND #{max}) 
-		
+				AND
+				p.regionId IN(SELECT regionId FROM house WHERE housePrice BETWEEN #{min} AND #{max}) 
 			</if>
 			<if test="regionId!=null">
 				AND
