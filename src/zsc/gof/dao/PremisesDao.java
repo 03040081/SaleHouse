@@ -15,6 +15,9 @@ public interface PremisesDao {
 	/**
 	 * @author lewis
 	 * @param 动态多个查询参数
+	 * 			map可包含以下Key-Value参数：
+	 * 						
+	 * 
 	 * @return 根据多个条件查询楼盘的列表
 	 */
 	public List<Premises> search(Map map);

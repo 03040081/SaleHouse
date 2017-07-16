@@ -20,16 +20,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<select id="search" parameterType="Map" resultMap="premisesList">
-		SELECT * FROM subject 
+		
+		SELECT * FROM premises AS p 
 		<where>
-			<if test="name!=null">
-			
+			<if test="min!=null">
+			AND
+			p.regionId IN(SELECT regionId FROM house WHERE housePrice BETWEEN #{min} AND #{max}) 
+		
 			</if>
-			<if test="classHour!=null">
-			
+			<if test="regionId!=null">
+				AND
+				p.regionId = #{regionId} 
 			</if>
-			<if test="greadeId!=null">
-				AND gradeId= #{gradeId}
+			<if test="housetype!=null">
+				AND
+				p.regionId IN (SELECT regionId FROM house WHERE housetype = #{housetype} ) 
+			</if>
+			<if test="typeName!=null">
+				AND 
+				p.buildType IN(SELECT btypeid FROM premisetype WHERE typeName = #{typeName})	
 			</if>
 		</where>
 	</select>
