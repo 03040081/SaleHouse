@@ -5,7 +5,10 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import zsc.gof.entity.Userinfo;
-
+/**
+ * @author lewis
+ *	用户数据访问层
+ */
 public interface UserDao {
 	
 	

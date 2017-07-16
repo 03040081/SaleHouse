@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zsc.gof.dao.PremisesDao">
+	<resultMap type="Premises" id="premisesList">
+		<id property="buildId" column="buildId"/>
+		<result property="buildName" column="buildName"/>
+		<result property="inOpen" column="inOpen"/>
+		<result property="inLive" column="inLive"/>
+		<result property="households" column="households"/>
+		<result property="propertyRight" column="propertyRight"/>
+		<result property="propertyCosts" column="propertyCosts"/>
+		<result property="buildArea" column="buildArea"/>
+		<result property="floorArea" column="floorArea"/>
+		<result property="buildAddress" column="buildAddress"/>
+		<result property="developer" column="developer"/>
+		<result property="premisetype" column="premisetype"/>
+		<association property="region" column="gradeId" select="zsc.gof.dao.RegionDao.queryRegionById"/>
+	</resultMap>
+	
+	
+	<select id="search" parameterType="Map" resultMap="premisesList">
+		SELECT * FROM subject 
+		<where>
+			<if test="name!=null">
+			
+			</if>
+			<if test="classHour!=null">
+			
+			</if>
+			<if test="greadeId!=null">
+				AND gradeId= #{gradeId}
+			</if>
+		</where>
+	</select>
+</mapper>

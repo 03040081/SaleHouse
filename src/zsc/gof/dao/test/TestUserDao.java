@@ -13,7 +13,7 @@ import zsc.gof.entity.Userinfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"/config/application*.xml"})
-public class UserDaoTest {
+public class TestUserDao {
 	
 	@Autowired
 	private UserDao dao ;
