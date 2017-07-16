@@ -13,6 +13,13 @@ public interface CityDao {
 	
 	public List<City> queryCity();
 	
+	
+	
+	/**
+	 * @author lewis
+	 * @param 城市id
+	 * @return 返回查询的City对象
+	 * */
 	@Select("SELECT * FROM city WHERE cityid = #{id}")
 	@Results({
 		@Result(id=true,column="cityId",property="cityId"),
