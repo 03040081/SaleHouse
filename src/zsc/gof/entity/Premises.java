@@ -1,6 +1,7 @@
 package zsc.gof.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Premises {
 	private int buildId;
@@ -19,7 +20,15 @@ public class Premises {
 	private Premisetype premisetype;//buildType
 	private Region region;
 	private String iconUrl;
+	private List<Premisesimg> premisesimg;
 	
+
+	public List<Premisesimg> getPremisesimg() {
+		return premisesimg;
+	}
+	public void setPremisesimg(List<Premisesimg> premisesimg) {
+		this.premisesimg = premisesimg;
+	}
 	public String getIconUrl() {
 		return iconUrl;
 	}
