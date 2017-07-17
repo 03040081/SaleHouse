@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2017-07-17 15:33:18
+Date: 2017-07-17 19:24:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -102,7 +102,7 @@ INSERT INTO `housetype` VALUES ('2', '教育');
 -- ----------------------------
 DROP TABLE IF EXISTS `orderinfo`;
 CREATE TABLE `orderinfo` (
-  `orderId` int(10) NOT NULL,
+  `orderId` int(10) NOT NULL AUTO_INCREMENT,
   `userId` int(10) NOT NULL,
   `buildId` int(10) NOT NULL,
   `orderTime` datetime NOT NULL,
@@ -112,11 +112,15 @@ CREATE TABLE `orderinfo` (
   KEY `buildId` (`buildId`),
   CONSTRAINT `OrderinfoToPremises` FOREIGN KEY (`buildId`) REFERENCES `premises` (`buildId`),
   CONSTRAINT `OrderinfoToUserinfo` FOREIGN KEY (`userId`) REFERENCES `userinfo` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of orderinfo
 -- ----------------------------
+INSERT INTO `orderinfo` VALUES ('1', '1', '1', '2017-07-17 11:11:11', '1');
+INSERT INTO `orderinfo` VALUES ('2', '1', '1', '2017-07-17 11:11:11', '1');
+INSERT INTO `orderinfo` VALUES ('3', '1', '1', '2017-07-17 11:11:11', '1');
+INSERT INTO `orderinfo` VALUES ('4', '1', '1', '2017-07-17 11:11:11', '1');
 
 -- ----------------------------
 -- Table structure for premises

@@ -51,6 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				p.buildAddress LIKE #{keyword} OR p.buildName LIKE #{keyword}
 			</if>
 		</where>
+		
 	</select>
 	
 	<select id="queryPremisesById" parameterType="int" resultMap="premisesList">

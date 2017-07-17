@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import zsc.gof.entity.Role;
 import zsc.gof.entity.Userinfo;
 /**
  * @author lewis
@@ -39,7 +38,7 @@ public interface UserDao {
 	 * 查询用户信息
 	 * @author lewis
 	 * @param 用户对象
-	 * @return 数据库查询到的行数
+	 * @return 数据库查询到的对象
 	 * */
 
 	@Select("SELECT * FROM userinfo AS u WHERE u.password = #{password} AND u.username = #{username} ")
