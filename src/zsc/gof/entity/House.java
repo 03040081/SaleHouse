@@ -13,8 +13,14 @@ public class House {
 	
 	private Housetype housetype;
 	private Premises premises;//楼盘
+	private HouseImg houseimg;
 	
-	
+	public HouseImg getHouseimg() {
+		return houseimg;
+	}
+	public void setHouseimg(HouseImg houseimg) {
+		this.houseimg = houseimg;
+	}
 	public int getHouseId() {
 		return houseId;
 	}

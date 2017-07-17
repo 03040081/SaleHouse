@@ -1,6 +1,6 @@
 package zsc.gof.entity;
 
-public class Houseimg {
+public class HouseImg {
 	private int imgId;
 	private int houseId;
 	private String imgUrl;
