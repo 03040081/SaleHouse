@@ -20,6 +20,7 @@ public class TestPremisesDao {
 	
 	@Test public void testqueryPremisesById(){
 		Premises premises = dao.queryPremisesById(1);
+		premises.getBuildAddress();
 		System.out.println(premises.getRegion().getCity().getProvince().getProvinceName());
 	}
 	
