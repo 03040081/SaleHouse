@@ -26,8 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<where>
 			<if test="min!=null">
 				<!-- 房屋价格查询 -->
-				AND
-				p.regionId IN(SELECT regionId FROM house WHERE housePrice BETWEEN #{min} AND #{max}) 
+				<if test="max!=null">
+					AND
+					p.regionId IN(SELECT regionId FROM house WHERE housePrice BETWEEN #{min} AND #{max}) 
+				</if>
 			</if>
 			<if test="regionId!=null">
 				<!-- 区域查询 -->
@@ -48,10 +50,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="keyword!=null">
 			<!-- 关键字模糊查询 -->
 				AND 
-				p.buildAddress LIKE #{keyword} OR p.buildName LIKE #{keyword}
+				p.buildAddress LIKE #{keyword} OR p.buildName LIKE #{keyword} 
+			</if>
+			<if test="pageIndex!=null">
+			<!-- 分页-->
+				<if test="pageSize!=null">
+					LIMIT  ${pageIndex} , ${pageSize}
+				</if>
 			</if>
 		</where>
-		
 	</select>
 	
 	<select id="queryPremisesById" parameterType="int" resultMap="premisesList">

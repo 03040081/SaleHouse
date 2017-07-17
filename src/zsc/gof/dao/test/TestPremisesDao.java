@@ -32,6 +32,8 @@ public class TestPremisesDao {
 		map.put("housetype","1");
 		map.put("typeName", "公寓");
 		map.put("keyword", "%GZ%");
+		map.put("pageSize","0");
+		map.put("pageIndex","0");
 		List<Premises> premises= dao.search(map);
 		System.out.println(premises.size());
 	}
