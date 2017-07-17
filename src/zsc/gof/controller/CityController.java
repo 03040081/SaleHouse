@@ -17,7 +17,7 @@ public class CityController {
 	@Autowired//自动装配(即自动创建对象)
 	CityService cityService;
 	
-	@RequestMapping("/index")
+	@RequestMapping("/index1")
 	public  ModelAndView index() {
 		City city = cityService.queryCityById(1);
 		
