@@ -47,9 +47,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="keyword!=null">
 			<!-- 关键字模糊查询 -->
 				AND 
-				p.buildAddress LIKE #{keyword} 
+				p.buildAddress LIKE #{keyword} OR p.buildName LIKE #{keyword}
 			</if>
-			
 		</where>
 	</select>
 	
