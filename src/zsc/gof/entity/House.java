@@ -1,24 +1,23 @@
 package zsc.gof.entity;
 
+import java.util.List;
+
 public class House {
 	private int houseId;
 	private String houseName;
-	//private int houseType;
 	private double houseArea;
 	private double housePrice;
 	private double downPay;
 	private double monthPay;
-	//private int buildId;
 	private int state;
-	
 	private Housetype housetype;
-	private Premises premises;//楼盘
-	private HouseImg houseimg;
+	private List<HouseImg> houseimg;
 	
-	public HouseImg getHouseimg() {
+	
+	public List<HouseImg> getHouseimg() {
 		return houseimg;
 	}
-	public void setHouseimg(HouseImg houseimg) {
+	public void setHouseimg(List<HouseImg> houseimg) {
 		this.houseimg = houseimg;
 	}
 	public int getHouseId() {
@@ -69,12 +68,7 @@ public class House {
 	public void setHousetype(Housetype housetype) {
 		this.housetype = housetype;
 	}
-	public Premises getPremises() {
-		return premises;
-	}
-	public void setPremises(Premises premises) {
-		this.premises = premises;
-	}
+	
 	
 	
 }
