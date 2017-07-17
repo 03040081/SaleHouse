@@ -6,6 +6,6 @@ import zsc.gof.entity.Province;
 
 public interface ProvinceDao {
 	
-	@Select("SELECT * FROM province WHERE  provinceId = #{id};")
+	@Select("SELECT * FROM province WHERE  provinceId = #{id}")
 	public Province queryProvinceById(int id);
 }
