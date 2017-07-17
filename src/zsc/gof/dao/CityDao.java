@@ -11,8 +11,21 @@ import zsc.gof.entity.City;
 
 public interface CityDao {
 	
+	/**
+	 * @author lewis
+	 * @param
+	 * @return 返回查询的City数组对象
+	 * */
+	
 	public List<City> queryCity();
 	
+	
+	
+	/**
+	 * @author lewis
+	 * @param 城市id
+	 * @return 返回查询的City对象
+	 * */
 	@Select("SELECT * FROM city WHERE cityid = #{id}")
 	@Results({
 		@Result(id=true,column="cityId",property="cityId"),
