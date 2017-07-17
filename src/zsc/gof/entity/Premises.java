@@ -18,7 +18,14 @@ public class Premises {
 	//private int regionId;////////////////////
 	private Premisetype premisetype;//buildType
 	private Region region;
+	private String iconUrl;
 	
+	public String getIconUrl() {
+		return iconUrl;
+	}
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
+	}
 	public int getBuildId() {
 		return buildId;
 	}
