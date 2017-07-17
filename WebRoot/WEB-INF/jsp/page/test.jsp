@@ -9,10 +9,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'list.jsp' starting page</title>
-
+    <title>My JSP 'test.jsp' starting page</title>
   </head>
-  <body>
   
+  <body>
+    <form action="newpremises">
+    <input name="condition" type="text">
+    <input name="" type="submit">
+    </form>
   </body>
 </html>
