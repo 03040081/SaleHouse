@@ -1,16 +1,19 @@
 package zsc.gof.dao;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import zsc.gof.entity.Role;
 import zsc.gof.entity.Userinfo;
 /**
  * @author lewis
  *	用户数据访问层
  */
 public interface UserDao {
-	
 	
 	
 	/** 
@@ -38,8 +41,17 @@ public interface UserDao {
 	 * @param 用户对象
 	 * @return 数据库查询到的行数
 	 * */
-	@Select("SELECT count(userId) FROM userinfo AS u WHERE u.password = #{password} AND u.username = #{username} ")
-	public int login(Userinfo userinfo); 
-	
+
+	@Select("SELECT * FROM userinfo AS u WHERE u.password = #{password} AND u.username = #{username} ")
+	@Results({
+		@Result(id=true,column="userId",property="userId"),
+		@Result(column="username",property="username"),
+		@Result(column="password",property="password"),
+		@Result(column="locked",property="locked"),
+		@Result(column="faceing",property="faceing"),
+		@Result(column="role",property="role",
+		one=@One(select="zsc.gof.dao.RoleDao.queryRoleByRoleId")),
+	})
+	public Userinfo login(Userinfo userinfo); 
 	
 }

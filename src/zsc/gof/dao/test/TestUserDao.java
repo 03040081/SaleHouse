@@ -34,9 +34,9 @@ public class TestUserDao {
 	@Test
 	public void testLogin(){
 		Userinfo userinfo = new Userinfo();
-		userinfo.setUsername("tomcat");
-		userinfo.setPassword("123");
-		System.out.println(dao.login(userinfo));
+		userinfo.setUsername("TOM");
+		userinfo.setPassword("TOM");
+		System.out.println(dao.login(userinfo).getRole().getRoleName());
 	}
 	
 	@Test

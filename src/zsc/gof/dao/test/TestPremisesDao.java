@@ -33,6 +33,6 @@ public class TestPremisesDao {
 		map.put("typeName", "公寓");
 		map.put("keyword", "%GZ%");
 		List<Premises> premises= dao.search(map);
-		System.out.println(premises.get(0).getRegion().getCity().getProvince().getProvinceName());
+		System.out.println(premises.size());
 	}
 }
