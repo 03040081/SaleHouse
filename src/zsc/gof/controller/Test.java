@@ -21,10 +21,10 @@ public class Test {
 	@RequestMapping("/fileUpload")
 	public String fileUpload(@RequestParam("file") MultipartFile[] files,HttpServletRequest request)throws Exception {
 		
-		/*String buildName=request.getParameter("buildName");
+		String buildName=request.getParameter("buildName");
+		System.out.println(buildName);
 		
-		
-		Premises premises=new Premises();
+		/*Premises premises=new Premises();
 		premises.setBuildName(buildName);
 		premises.setInOpen(inOpen);
 		premises.setInLive(inLive);

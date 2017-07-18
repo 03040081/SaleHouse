@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +33,15 @@ public class SecondCer {
 	@Autowired
 	HousetypeBiz houtyBiz;
 	@Autowired
-	HttpSession session;
+	HttpServletRequest request;
+	/*@Autowired
+	HttpSession session;*/
 	@Autowired
 	PremiseBiz premiseBiz;
-	@Autowired
+	/*@Autowired
 	PageModel<Premises> listPre;
 	@Autowired
-	Map<String, String> map;
+	Map<String, String> map;*/
 /*	@Autowired
 	Map<String, String> map;*/
 	/*
@@ -49,6 +52,10 @@ public class SecondCer {
 	@RequestMapping("/search")
 	public ModelAndView listCondition(@RequestParam("cityId")int cityId,
 			@RequestParam("keyword")String keyword,@RequestParam("pageIndex")int pageIndex){
+		PageModel<Premises> listPre=new PageModel<Premises>();
+		Map<String, String>map=new HashMap<String, String>();
+		
+		HttpSession session=request.getSession();
 		List<Region> listReg=regBiz.listRegById(cityId);
 		List<Premisetype> listPret=pretyBiz.listPremisetypes();
 		List<Housetype> listHout=houtyBiz.listHousetypes();
@@ -82,13 +89,17 @@ public class SecondCer {
 	@RequestMapping("/changecity")
 	public ModelAndView changeCity(@RequestParam("cityId") int cityId,
 			@RequestParam("keyword")String keyword){
+		PageModel<Premises> listPre=new PageModel<Premises>();
+		HttpSession session=request.getSession();
+		Map<String, String> map=new HashMap<String, String>();
+		
 		List<Region> listRegions=regBiz.listRegById(cityId);
 		session.setAttribute("region", listRegions);
 		//listPre.setPageIndex(1);
 		//listPre.setPageSize(12);
 		//listPre.setToltalRecords(premiseBiz.totalPremises());
 		
-		Map<String, String> map=new HashMap<String, String>();
+		
 		map.put("keyword", keyword);
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
@@ -108,8 +119,10 @@ public class SecondCer {
 			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
 			@RequestParam("buildType")String buildType,@RequestParam("pageIndex")int pageIndex){
 		/////////////缺少分页函数
+		PageModel<Premises> listPre=new PageModel<Premises>();
+		HttpSession session=request.getSession();
+		Map<String, String> map=new HashMap<String, String>();
 		
-		//Map<String, String> map=new HashMap<String, String>();
 		map.put("keyword", keyword);
 		map.put("min", min);
 		map.put("max", max);
@@ -130,6 +143,10 @@ public class SecondCer {
 			@RequestParam("min")String min,@RequestParam("max")String max,
 			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
 			@RequestParam("buildType")String buildType){
+		PageModel<Premises> listPre=new PageModel<Premises>();
+		HttpSession session=request.getSession();
+		Map<String, String> map=new HashMap<String, String>();
+		
 		map.put("keyword", keyword);
 		map.put("min", min);
 		map.put("max", max);
@@ -148,6 +165,10 @@ public class SecondCer {
 			@RequestParam("min")String min,@RequestParam("max")String max,
 			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
 			@RequestParam("buildType")String buildType){
+		PageModel<Premises> listPre=new PageModel<Premises>();
+		HttpSession session=request.getSession();
+		Map<String, String> map=new HashMap<String, String>();
+		
 		map.put("keyword", keyword);
 		map.put("min", min);
 		map.put("max", max);

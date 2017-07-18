@@ -29,7 +29,7 @@
  	<mvc:resources location="/static/css/" mapping="/static/css/**"/>
  	<mvc:resources location="/static/js/" mapping="/static/js/**"/>
  	<mvc:resources location="/static/fonts/" mapping="/static/fonts/**"/>
- 
+ 	<mvc:resources location="/upload/" mapping="/upload/**"/>
     <!-- 视图定位 -->
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">

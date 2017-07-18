@@ -19,11 +19,11 @@ public class UserInfoCer {
 	
 	@Autowired
 	UserInfoBiz Biz;
-	@Autowired
+	/*@Autowired
 	Userinfo userinfo;
 	@Autowired
 	Role role;
-	
+	*/
 	@Autowired
 	UserInfoBiz userInfoBiz;
 	
@@ -33,6 +33,7 @@ public class UserInfoCer {
 		/*
 		 * if 登录
 		 */
+		Userinfo userinfo=null;
 		Cookie[] cookies=request.getCookies();
 		if(cookies!=null){
 			for (int i = 0; i < cookies.length; i++) {
@@ -76,9 +77,9 @@ public class UserInfoCer {
 	@RequestMapping("/register")
 	public String register(@RequestParam("username")String username,@RequestParam("password")String password,
 			@RequestParam("locked")int locked,@RequestParam("faceing")String faceing,@RequestParam("roleId")int roleId){
-		
+		Userinfo userinfo=new Userinfo();
+		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
-		
 		if(user<=0){
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);
