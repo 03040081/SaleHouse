@@ -21,7 +21,7 @@ public interface UserDao {
 	 * @param 用户对象
 	 * @return 数据库影响的行数
 	 * */
-	@Update("UPDATE userinfo SET username = #{username},password = #{password},locked = #{locked},faceing = #{faceing},role = #{role.roleId} WHERE userId = #{userId}")
+	@Update("UPDATE userinfo SET username = #{username},password = #{password},locked = #{locked},faceimg = #{faceing},role = #{role.roleId} WHERE userId = #{userId}")
 	public int updateInfo(Userinfo userinfo);
 	
 	
@@ -31,7 +31,7 @@ public interface UserDao {
 	 * @param 用户对象
 	 * @return 数据库影响的行数
 	 * */
-	@Insert("INSERT INTO userinfo(username,password,locked,faceing,role) VALUES(#{username},#{password},#{locked},#{faceing},#{role.roleId})")
+	@Insert("INSERT INTO userinfo(username,password,locked,faceimg,role)  VALUES(#{username},#{password},#{locked},#{faceing},#{role.roleId})")
 	public int register(Userinfo userinfo);
 	
 	/**
@@ -47,7 +47,7 @@ public interface UserDao {
 		@Result(column="username",property="username"),
 		@Result(column="password",property="password"),
 		@Result(column="locked",property="locked"),
-		@Result(column="faceing",property="faceing"),
+		@Result(column="faceimg",property="faceing"),
 		@Result(column="role",property="role",
 		one=@One(select="zsc.gof.dao.RoleDao.queryRoleByRoleId")),
 	})
@@ -65,7 +65,7 @@ public interface UserDao {
 		@Result(column="username",property="username"),
 		@Result(column="password",property="password"),
 		@Result(column="locked",property="locked"),
-		@Result(column="faceing",property="faceing"),
+		@Result(column="faceimg",property="faceing"),
 		@Result(column="role",property="role",
 		one=@One(select="zsc.gof.dao.RoleDao.queryRoleByRoleId")),
 	})

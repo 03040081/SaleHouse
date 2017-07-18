@@ -21,7 +21,7 @@ public class TestUserDao {
 	@Test
 	public void testrRegister(){
 		Userinfo userinfo = new Userinfo();
-		userinfo.setUsername("tomcat");
+		userinfo.setUsername("cat");
 		userinfo.setPassword("123");
 		userinfo.setFaceing("sanm");
 		userinfo.setLocked(1);
@@ -34,16 +34,16 @@ public class TestUserDao {
 	@Test
 	public void testLogin(){
 		Userinfo userinfo = new Userinfo();
-		userinfo.setUsername("TOM");
-		userinfo.setPassword("TOM");
-		System.out.println(dao.login(userinfo).getRole().getRoleName());
+		userinfo.setUsername("1234");
+		userinfo.setPassword("1234");
+		System.out.println(dao.login(userinfo).getUsername());
 	}
 	
 	@Test
 	public void testrUpdate(){
 		Userinfo userinfo = new Userinfo();
 		userinfo.setUserId(4);
-		userinfo.setUsername("tomcat");
+		userinfo.setUsername("cat");
 		userinfo.setPassword("123");
 		userinfo.setFaceing("haha");
 		userinfo.setLocked(1);

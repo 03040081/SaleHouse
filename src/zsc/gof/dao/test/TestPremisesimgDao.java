@@ -13,6 +13,6 @@ import zsc.gof.dao.PremisesimgDao;
 public class TestPremisesimgDao {
 	@Autowired PremisesimgDao dao;
 	@Test public void test(){
-		System.out.println(dao.queryPremisesimgByBuildId(1).get(1).getImgUrl());
+		System.out.println(dao.queryPremisesimgByBuildId(1118).get(0).getImgUrl());
 	}
 }

@@ -17,6 +17,6 @@ public class TestHouseDao {
 	@Autowired HouseDao dao;
 	@Test public void test(){
 		List<House> houses = dao.queryHouseByBuildId(1);
-		System.out.println(houses.get(0).getHouseimg().get(0).getHouseId());
+		System.out.println(houses.size());
 	}
 }

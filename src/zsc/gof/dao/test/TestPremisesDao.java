@@ -45,7 +45,7 @@ public class TestPremisesDao {
 //		map.put("regionId","2");
 //		map.put("housetype","1");
 //		map.put("buildType", "1");
-		map.put("keyword", "%GdsfsfZ%");
+		map.put("keyword", "%村%");
 		int premises= dao.queryTotalRecord(map);
 		System.out.println(premises);
 	}

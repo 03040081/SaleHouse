@@ -20,7 +20,7 @@ public class TestRegionDao {
 	@Test
 	public void testqueryRegionById(){
 		Region region = dao.queryRegionById(1);
-		System.out.println(region.getCity().getCityName());
+		System.out.println(region.getRegionName());
 	}
 	
 }

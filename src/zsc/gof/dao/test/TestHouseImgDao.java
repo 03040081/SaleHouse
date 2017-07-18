@@ -18,7 +18,7 @@ public class TestHouseImgDao {
 	@Autowired HouseImgDao dao;
 	
 	@Test public void testHouseImg(){
-		List<HouseImg> imgs = dao.queryHouseImgByHouseId(1);
-		System.out.println(imgs.get(1).getImgUrl());
+		List<HouseImg> imgs = dao.queryHouseImgByHouseId(222);
+		System.out.println(imgs.size());
 	}
 }

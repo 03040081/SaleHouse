@@ -14,6 +14,6 @@ public class TestHouseTypeDao {
 	@Autowired HouseTypeDao dao;
 	
 	@Test public void test(){
-		System.out.println(dao.queryHouseTypeByHouseTypeId(1).getTypeName());
+		System.out.println(dao.queryHouseTypeByHouseTypeId(6).getTypeName());
 	}
 }

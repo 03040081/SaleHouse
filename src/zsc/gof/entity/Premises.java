@@ -1,18 +1,30 @@
 package zsc.gof.entity;
 
-import java.util.Date;
 import java.util.List;
 
 public class Premises {
+	public String getInOpen() {
+		return inOpen;
+	}
+	public void setInOpen(String inOpen) {
+		this.inOpen = inOpen;
+	}
+	public String getInLive() {
+		return inLive;
+	}
+	public void setInLive(String inLive) {
+		this.inLive = inLive;
+	}
+
 	private int buildId;
 	private String buildName;
-	private Date inOpen; 
-	private Date inLive;
+	private String inOpen; 
+	private String inLive;
 	private int households;
 	private int propertyRight;
 	private String propertyCosts;
-	private double buildArea;
-	private double floorArea;
+	private String buildArea;
+	private String floorArea;
 	private String buildAddress;
 	//private int buildType;////////////////////////////////
 	private String developer;
@@ -23,6 +35,18 @@ public class Premises {
 	private List<Premisesimg> premisesimg;
 	
 
+	public String getBuildArea() {
+		return buildArea;
+	}
+	public void setBuildArea(String buildArea) {
+		this.buildArea = buildArea;
+	}
+	public String getFloorArea() {
+		return floorArea;
+	}
+	public void setFloorArea(String floorArea) {
+		this.floorArea = floorArea;
+	}
 	public List<Premisesimg> getPremisesimg() {
 		return premisesimg;
 	}
@@ -47,18 +71,7 @@ public class Premises {
 	public void setBuildName(String buildName) {
 		this.buildName = buildName;
 	}
-	public Date getInOpen() {
-		return inOpen;
-	}
-	public void setInOpen(Date inOpen) {
-		this.inOpen = inOpen;
-	}
-	public Date getInLive() {
-		return inLive;
-	}
-	public void setInLive(Date inLive) {
-		this.inLive = inLive;
-	}
+	
 	public int getHouseholds() {
 		return households;
 	}
@@ -77,18 +90,7 @@ public class Premises {
 	public void setPropertyCosts(String propertyCosts) {
 		this.propertyCosts = propertyCosts;
 	}
-	public double getBuildArea() {
-		return buildArea;
-	}
-	public void setBuildArea(double buildArea) {
-		this.buildArea = buildArea;
-	}
-	public double getFloorArea() {
-		return floorArea;
-	}
-	public void setFloorArea(double floorArea) {
-		this.floorArea = floorArea;
-	}
+	
 	public String getBuildAddress() {
 		return buildAddress;
 	}
