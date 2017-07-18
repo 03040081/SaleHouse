@@ -26,14 +26,14 @@ public class TestPremisesDao {
 	
 	@Test public void testsearch(){
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("min", "100");
-		map.put("max", "200");
-		map.put("regionId","2");
-		map.put("housetype","1");
+//		map.put("min", "100");
+//		map.put("max", "200");
+//		map.put("regionId","2");
+//		map.put("housetype","1");
 		map.put("buildType", "1");
-		map.put("keyword", "%GZ%");
-		map.put("pageSize","10");
-		map.put("pageIndex","0");
+//		map.put("keyword", "%GZ%");
+//		map.put("pageSize","10");
+//		map.put("pageIndex","0");
 		List<Premises> premises= dao.search(map);
 		System.out.println(premises.size());
 	}

@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				AND
 				p.regionId IN (SELECT regionId FROM house WHERE housetype = #{housetype} ) 
 			</if>
-			<if test="typeName!=null">
+			<if test="buildType!=null">
 				<!-- 类型查询 -->
 				AND 
 				p.buildType = #{buildType}	
