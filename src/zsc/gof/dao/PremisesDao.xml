@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="buildAddress" column="buildAddress"/>
 		<result property="developer" column="developer"/>
 		<result property="iconUrl" column="iconUrl"/>
-		<!-- <association property="premisetype" column="buildType" select=""/> -->
+		<association property="premisetype" column="buildType" select="zsc.gof.dao.PremisetypeDao.queryPremisetypeBybuildType"/>
 		<association property="region" column="regionId" select="zsc.gof.dao.RegionDao.queryRegionById"/>
 		<collection property="premisesimg" column="buildId" select="zsc.gof.dao.PremisesimgDao.queryPremisesimgByBuildId"/>
 		
@@ -68,8 +68,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
-	<select id="queryPremisesById" parameterType="int" resultMap="premisesList">
-		SELECT * FROM premises AS p WHERE p.regionId = #{id};
+	<select id="queryPremisesByBuildId" parameterType="int" resultMap="premisesList">
+			SELECT * FROM premises AS p WHERE p.buildId = #{id};
 	</select>
 	
 	<select id="queryTotalRecord" parameterType="Map" resultType="java.lang.Integer">
