@@ -2,8 +2,13 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
 <mapper namespace="zsc.gof.dao.PremisesDao">
 	<resultMap type="Premises" id="premisesList">
+	
+	
 		<id property="buildId" column="buildId"/>
 		<result property="buildName" column="buildName"/>
 		<result property="inOpen" column="inOpen"/>
@@ -15,9 +20,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="floorArea" column="floorArea"/>
 		<result property="buildAddress" column="buildAddress"/>
 		<result property="developer" column="developer"/>
-		<result property="premisetype" column="premisetype"/>
+		<result property="iconUrl" column="iconUrl"/>
+		<!-- <association property="premisetype" column="buildType" select=""/> -->
 		<association property="region" column="regionId" select="zsc.gof.dao.RegionDao.queryRegionById"/>
-		<association property="premisesimg" column="buildId" select="zsc.gof.dao.PremisesimgDao.queryPremisesimgByBuildId"></association>
+		<collection property="premisesimg" column="buildId" select="zsc.gof.dao.PremisesimgDao.queryPremisesimgByBuildId"/>
+		
 	</resultMap>
 	
 	<select id="search" parameterType="Map" resultMap="premisesList">

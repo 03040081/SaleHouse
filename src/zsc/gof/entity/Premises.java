@@ -21,7 +21,7 @@ public class Premises {
 	private String inOpen; 
 	private String inLive;
 	private int households;
-	private int propertyRight;
+	private String propertyRight;
 	private String propertyCosts;
 	private String buildArea;
 	private String floorArea;
@@ -35,6 +35,12 @@ public class Premises {
 	private List<Premisesimg> premisesimg;
 	
 
+	public String getPropertyRight() {
+		return propertyRight;
+	}
+	public void setPropertyRight(String propertyRight) {
+		this.propertyRight = propertyRight;
+	}
 	public String getBuildArea() {
 		return buildArea;
 	}
@@ -78,12 +84,7 @@ public class Premises {
 	public void setHouseholds(int households) {
 		this.households = households;
 	}
-	public int getPropertyRight() {
-		return propertyRight;
-	}
-	public void setPropertyRight(int propertyRight) {
-		this.propertyRight = propertyRight;
-	}
+	
 	public String getPropertyCosts() {
 		return propertyCosts;
 	}
