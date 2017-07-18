@@ -11,6 +11,11 @@ public interface PremiseBiz {
 	 */
 	public List<Premises> find(Map map);
 	/*
+	 * 定位
+	 * 查找楼盘
+	 */
+	public Premises findOne(int buildId);
+	/*
 	 * 添加楼盘信息
 	 */
 	public int addPremise(Premises premises);
@@ -22,4 +27,8 @@ public interface PremiseBiz {
 	 * 删除楼盘信息
 	 */
 	public int deletePremises(int buildId);
+	/*
+	 * 计算楼盘数量
+	 */
+	public int totalPremises();
 }

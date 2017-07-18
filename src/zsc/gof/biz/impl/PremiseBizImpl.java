@@ -40,5 +40,17 @@ public class PremiseBizImpl implements PremiseBiz {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int totalPremises() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Premises findOne(int buildId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

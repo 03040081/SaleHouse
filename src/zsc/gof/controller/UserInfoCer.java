@@ -11,24 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import zsc.gof.biz.UserInfoBiz;
+import zsc.gof.entity.Role;
 import zsc.gof.entity.Userinfo;
 
 @Controller
-public class Login {
-	
-	/*@Autowired
-	HttpServletRequest request;
+public class UserInfoCer {
 	
 	@Autowired
-	HttpServletResponse response;*/
-	@Autowired
-	UserInfoBiz userInfoBiz;
+	UserInfoBiz Biz;
 	@Autowired
 	Userinfo userinfo;
+	@Autowired
+	Role role;
 	
-	/*
-	 * 登录 并且使用Cookie实现自动登录
-	 */
+	@Autowired
+	UserInfoBiz userInfoBiz;
+	
 	@RequestMapping("/loginU")
 	public String Login(@RequestParam("username") String username,@RequestParam("password") String password,
 			HttpServletRequest request,HttpServletResponse response){
@@ -70,5 +68,36 @@ public class Login {
 	public void logout(HttpServletRequest request){
 		HttpSession session=request.getSession();
 		session.invalidate();
+	}
+	
+	/*
+	 * 注册用户
+	 */
+	@RequestMapping("/register")
+	public String register(@RequestParam("username")String username,@RequestParam("password")String password,
+			@RequestParam("locked")int locked,@RequestParam("faceing")String faceing,@RequestParam("roleId")int roleId){
+		
+		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
+		
+		if(user<=0){
+			userinfo.setUsername(username);
+			userinfo.setPassword(password);
+			///userinfo.setLocked(locked);默认值
+			userinfo.setFaceing(faceing);
+			role.setRoleId(roleId);
+			userinfo.setRole(role);
+			Biz.register(userinfo);
+			return "loginU";
+		}else{
+			return "register";
+		}
+	}
+	
+	
+	
+	@RequestMapping("/updateUser")
+	public String updateUser(Userinfo userinfo){
+		userInfoBiz.update(userinfo);
+		return "userinfo";
 	}
 }
