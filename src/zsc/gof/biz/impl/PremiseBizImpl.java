@@ -22,5 +22,23 @@ public class PremiseBizImpl implements PremiseBiz {
 		
 		return premisesDao.search(map);
 	}
+
+	@Override
+	public int addPremise(Premises premises) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updatePremises(Premises premises) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deletePremises(int buildId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }
