@@ -1,0 +1,88 @@
+#promo {
+  text-align:center;
+  padding:40px;
+  padding-top:60px;
+  background:url(../images/demo/author-6.jpg);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+@media (max-width:1199px) {
+  #promo {
+    padding:20px;
+  }
+}
+
+#promo .jumbotron {
+  border-radius:20px;
+  padding:40px;
+  background-color:rgba(255,255,255,0.3);
+  max-width:800px;
+  margin:auto auto;
+  
+  height: 380px;
+}
+
+#promo .search_box {
+  text-align:left;
+}
+
+#promo .search_box span {
+  padding-right:20px;
+  font-size:18px;
+  cursor:default;
+  font-weight:bolder;
+  margin-left:20px;
+}
+
+#promo .search_box .ipt_box {
+  border-radius:2px 0 0 2px;
+  padding-left:18px;
+}
+
+#promo .search_box .ipt_box a {
+  text-decoration:none;
+  outline:0;
+}
+
+#promo .search_box .ipt_box .fl {
+  float:left;
+}
+
+#promo .search_box .ipt_box .seek {
+	background: none;
+	line-height: 50px;
+	font-size: 18px;
+	padding: 15px;
+	
+}
+
+#promo .search_box .ipt_box .ipt_button {
+  border-radius:0 2px 2px 0;
+  /*width:24px;*/
+  /*height:24px;*/
+ position: absolute;
+}
+
+#promo .search_box .ipt_box .ipt_button .icons {
+  overflow:hidden;
+  display:block;
+  line-height:0;
+  background-image:url(../images/search.png);
+  background-repeat:no-repeat;
+  height:60px;
+  margin-top:-8px;
+  margin-left:10px;
+
+}
+
+#portfolio .row-0-gutter .mg .pd{
+	padding: 5px;
+	border: 10px solid hsla(0,0%,100%,.5); 
+	background: rgb(227,191,154);
+	background-clip: padding-box;
+	
+}
+
+
+
