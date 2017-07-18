@@ -11,4 +11,6 @@ public interface UserInfoBiz {
 	public int register(Userinfo userinfo);
 	
 	public int update(Userinfo userinfo); 
+	
+	public int judgeUser(String username);
 }

@@ -26,4 +26,10 @@ public class UserInfoBizImpl implements UserInfoBiz {
 		return 0;
 	}
 
+	@Override
+	public int judgeUser(String username) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

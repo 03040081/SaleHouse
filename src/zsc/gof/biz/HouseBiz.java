@@ -12,7 +12,7 @@ public interface HouseBiz {
 	 * 搜索
 	 * 房子均价
 	 */
-	public List<House> listHouse();
+	public List<House> listHouse(int buildId);
 	
 	public int addHouse(House house);
 	

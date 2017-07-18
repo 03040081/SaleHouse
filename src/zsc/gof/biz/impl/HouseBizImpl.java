@@ -12,7 +12,7 @@ public class HouseBizImpl implements HouseBiz {
 
 	
 	@Override
-	public List<House> listHouse() {
+	public List<House> listHouse(int buildId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
