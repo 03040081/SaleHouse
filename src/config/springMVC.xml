@@ -25,10 +25,10 @@
  	<mvc:view-controller path="/" view-name="forward:/index" />  
  	<!-- 资源访问 -->
  	
- 	<mvc:resources location="/static/image/" mapping="/static/image/**"/>
- 	<mvc:resources location="/static/image/demo/" mapping="/static/image/demo/**"/>
- 	<mvc:resources location="/static/image/house/" mapping="/static/image/house/**"/>
- 	<mvc:resources location="/static/image/staff/" mapping="/static/image/staff/**"/>
+ 	<mvc:resources location="/static/images/" mapping="/images/**"/>
+ 	<mvc:resources location="/static/images/demo/" mapping="/images/demo/**"/>
+ 	<mvc:resources location="/static/images/house/" mapping="/images/house/**"/>
+ 	<mvc:resources location="/static/images/staff/" mapping="/images/staff/**"/>
  	<mvc:resources location="/static/css/" mapping="/static/css/**"/>
  	<mvc:resources location="/static/js/" mapping="/static/js/**"/>
  	<mvc:resources location="/static/fonts/" mapping="/static/fonts/**"/>
