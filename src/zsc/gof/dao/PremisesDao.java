@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 
+
+import org.apache.ibatis.annotations.Select;
+
 import zsc.gof.entity.Premises;
 
 /**
@@ -33,7 +36,7 @@ public interface PremisesDao {
 	 * @param 动态多个查询参数
 	 * @return 根据区域id条件查询楼盘的列表
 	 */
-	public Premises queryPremisesById(int id);
+	public Premises queryPremisesById(int regionId);
 	
 	/**
 	 * @author lewis
@@ -49,4 +52,7 @@ public interface PremisesDao {
 	 * @return 根据多个条件查询楼盘的总记录数大小
 	 */
 	public int queryTotalRecord(Map map);
+	
+	@Select("SELECT * FROM `premises` AS p WHERE p.buildId =#{id}")
+	public Premises queryPremisesByBuildId(int id);
 }
