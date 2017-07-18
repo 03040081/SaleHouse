@@ -83,6 +83,111 @@
 	background-clip: padding-box;
 	
 }
+#Search_Bar {
+ /* width:800px;*/
+  background-color:rgb(75,210,202);
+  height:60px;
+}
+
+#Search_Bar .search-form {
+  padding-top:13px;
+  padding-bottom:10px;
+  text-align:center;
+  max-width:500px;
+  margin:0 auto;
+  margin-left:23px;
+  float:left;
+}
+
+.find-hourse {
+  font-size:20px;
+  font-weight:300;
+  color:#465765;
+  margin-right: 20px;
+}
+
+.find-hourse i {
+  padding-top:16px;
+  margin-left:20px;
+  padding-right: 10px;
+}
+
+#Search_List {
+  clear:both;
+ /* text-align:center;*/
+  height:400px;
+  width:1250px;
+  margin:0 auto;
+  background:url(../img/loft.jpg);
+  background-size:cover;
+  background-repeat:round;
+  padding:60px;
+  padding-top:40px;
+}
+
+#Search_List, .Search_Conditon::before {
+  /*background:url(../img/loft.jpg)0 / cover fixed;
+  background-repeat:round;*/
+}
+
+.Search_Condition {
+  position:relative;
+  background-image: url(../img/sd.jpg);
+  opacity: 0.9;
+ /* background:hsla(0,0%,100%,.8);*/
+  height: 330px;
+}
+
+
+#Search_List .Search_Condition p{
+	font-size: 18px;
+	font-weight: bolder;
+	padding-top: 15px;
+	padding-left: 15px;
+	clear: both;
+}
+#Search_List .Search_Condition hr{
+	clear: both;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid antiquewhite;
+}
+.Search_Condition ul{
+	list-style-type: none;
+}
+.Search_Condition li{
+	float: left;
+	padding-left: 20px;
+}
+.Search_Condition .headlight a{
+	color: #f9dd16;
+}
+#Search_Tag{
+	height: 25px;
+	width: 1250px;
+	background: goldenrod;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 3px;
+	padding-left: 60px;
+}
+#Search_Tag ul{
+	list-style-type: none;
+	display: inline;
+}
+#Search_Tag ul li{
+	float: left;
+	padding-right: 5px;
+}
+#Search_Result{
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 1250px;
+}
+
+
+
+
 
 
 
