@@ -114,5 +114,12 @@ public class Premises {
 		this.region = region;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Premises [buildId=" + buildId + ", buildName=" + buildName + ", inOpen=" + inOpen + ", inLive=" + inLive
+				+ ", households=" + households + ", propertyRight=" + propertyRight + ", propertyCosts=" + propertyCosts
+				+ ", buildArea=" + buildArea + ", floorArea=" + floorArea + ", buildAddress=" + buildAddress
+				+ ", developer=" + developer + ", premisetype=" + premisetype + ", region=" + region + ", iconUrl="
+				+ iconUrl + "]";
+	}
 }
