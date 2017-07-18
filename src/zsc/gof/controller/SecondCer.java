@@ -137,7 +137,9 @@ public class SecondCer {
 		modelAndView.addObject(listPre);
 		return modelAndView;
 	}
-	
+	/*
+	 * 上一页
+	 */
 	@RequestMapping("/previousPage")
 	public ModelAndView previousPage(@RequestParam("keyword")String keyword,
 			@RequestParam("min")String min,@RequestParam("max")String max,
@@ -160,6 +162,9 @@ public class SecondCer {
 		modelAndView.addObject("listPre",listPre);
 		return modelAndView;
 	}
+	/*
+	 * 下一页
+	 */
 	@RequestMapping("/nextPage")
 	public ModelAndView nextPage(@RequestParam("keyword")String keyword,
 			@RequestParam("min")String min,@RequestParam("max")String max,

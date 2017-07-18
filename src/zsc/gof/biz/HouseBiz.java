@@ -17,5 +17,6 @@ public interface HouseBiz {
 	public int addHouse(House house);
 	
 	public int updateHouse(House house);
+	
 	public int deleteHouse(int id);
 }

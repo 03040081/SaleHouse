@@ -9,4 +9,8 @@ public interface PremiseimgBiz {
 	public void addPremisimg(List<Premisesimg> list);
 	
 	public void updatePremisimg(List<Premisesimg> list);
+	
+	public void deletePremisimg(int buildId);
+	
+	public List<Premisesimg> listPremiseImg(int buildId);
 }
