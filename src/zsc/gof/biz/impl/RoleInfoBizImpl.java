@@ -4,8 +4,11 @@ import java.util.List;
 
 import javax.management.relation.RoleInfo;
 
+import org.springframework.stereotype.Service;
+
 import zsc.gof.biz.RoleInfoBiz;
 
+@Service
 public class RoleInfoBizImpl implements RoleInfoBiz {
 
 	@Override
