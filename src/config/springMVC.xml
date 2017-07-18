@@ -25,9 +25,10 @@
  	<mvc:view-controller path="/" view-name="forward:/index" />  
  	<!-- 资源访问 -->
  	
- 	<mvc:resources location="/static/image/" mapping="/static/image/*"/>
- 	<mvc:resources location="/static/css/" mapping="/static/image/*"/>
- 	<mvc:resources location="/static/js/" mapping="/static/image/*"/>
+ 	<mvc:resources location="/static/image/" mapping="/static/image/**"/>
+ 	<mvc:resources location="/static/css/" mapping="/static/css/**"/>
+ 	<mvc:resources location="/static/js/" mapping="/static/js/**"/>
+ 	<mvc:resources location="/static/fonts/" mapping="/static/fonts/**"/>
  
     <!-- 视图定位 -->
     <bean
