@@ -1,6 +1,7 @@
 package zsc.gof.dao.test;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,4 +30,9 @@ public class TestOrderDao {
 		orderinfo.setState(1);
 		dao.insertOrder(orderinfo);
 	}
+	@Test public void test2(){
+		List<Orderinfo> list=dao.queryOrderinfoByUserId(1);
+		System.out.println(list.size());
+	}
+	
 }

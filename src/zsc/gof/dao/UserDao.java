@@ -53,4 +53,21 @@ public interface UserDao {
 	})
 	public Userinfo login(Userinfo userinfo); 
 	
+	
+	/**
+	 * @author lewis
+	 * @param 用户id
+	 * @return 返回对应id的用户
+	 * */
+	@Select("SELECT * FROM userinfo AS u WHERE u.userId = #{id}")
+	@Results({
+		@Result(id=true,column="userId",property="userId"),
+		@Result(column="username",property="username"),
+		@Result(column="password",property="password"),
+		@Result(column="locked",property="locked"),
+		@Result(column="faceing",property="faceing"),
+		@Result(column="role",property="role",
+		one=@One(select="zsc.gof.dao.RoleDao.queryRoleByRoleId")),
+	})
+	public Userinfo queryUserInfoByUserId(int userId);
 }
