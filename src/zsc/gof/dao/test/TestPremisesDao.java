@@ -21,7 +21,7 @@ public class TestPremisesDao {
 	@Test public void testqueryPremisesById(){
 		Premises premises = dao.queryPremisesById(1);
 		System.out.println(premises.getBuildAddress());
-		System.out.println(premises.getPremisesimg().get(0).getImgUrl());
+		
 	}
 	
 	@Test public void testsearch(){
@@ -30,7 +30,7 @@ public class TestPremisesDao {
 //		map.put("max", "200");
 //		map.put("regionId","2");
 //		map.put("housetype","1");
-		map.put("buildType", "1");
+//		map.put("buildType", "1");
 //		map.put("keyword", "%GZ%");
 //		map.put("pageSize","10");
 //		map.put("pageIndex","0");
@@ -45,7 +45,7 @@ public class TestPremisesDao {
 //		map.put("regionId","2");
 //		map.put("housetype","1");
 //		map.put("buildType", "1");
-		map.put("keyword", "%村%");
+		map.put("keyword", "%");
 		int premises= dao.queryTotalRecord(map);
 		System.out.println(premises);
 	}

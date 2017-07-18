@@ -22,16 +22,16 @@ public class TestOrderDao {
 		Orderinfo orderinfo = new Orderinfo();
 		orderinfo.setOrderTime(new Date());
 		Premises premises = new Premises();
-		premises.setBuildId(1);
+		premises.setBuildId(220);
 		orderinfo.setPremises(premises);
 		Userinfo userinfo = new Userinfo();
-		userinfo.setUserId(1);
+		userinfo.setUserId(3);
 		orderinfo.setUserinfo(userinfo);
 		orderinfo.setState(1);
 		dao.insertOrder(orderinfo);
 	}
 	@Test public void test2(){
-		List<Orderinfo> list=dao.queryOrderinfoByUserId(1);
+		List<Orderinfo> list=dao.queryOrderinfoByUserId(3);
 		System.out.println(list.size());
 	}
 	

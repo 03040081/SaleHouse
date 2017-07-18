@@ -13,6 +13,6 @@ public interface PremisesimgDao {
 	 * @param 楼盘id
 	 * @return 楼盘图片
 	 * */
-	@Select("SELECT * FROM premisesimg AS p WHERE p.buildId = #{id}")
+	@Select("SELECT * FROM premisesimg AS pimg WHERE pimg.buildId = #{id}")
 	public List<Premisesimg> queryPremisesimgByBuildId(int id);
 }

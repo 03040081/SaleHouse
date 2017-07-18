@@ -16,7 +16,7 @@ import zsc.gof.entity.House;
 public class TestHouseDao {
 	@Autowired HouseDao dao;
 	@Test public void test(){
-		List<House> houses = dao.queryHouseByBuildId(1);
+		List<House> houses = dao.queryHouseByBuildId(727);
 		System.out.println(houses.size());
 	}
 }

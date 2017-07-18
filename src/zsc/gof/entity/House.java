@@ -4,16 +4,20 @@ import java.util.List;
 
 public class House {
 	private int houseId;
-	private String houseName;
+	private String houseDesc;
 	private double houseArea;
 	private double housePrice;
-	private double downPay;
-	private double monthPay;
 	private int state;
 	private Housetype housetype;
 	private List<HouseImg> houseimg;
 	
 	
+	public String getHouseDesc() {
+		return houseDesc;
+	}
+	public void setHouseDesc(String houseDesc) {
+		this.houseDesc = houseDesc;
+	}
 	public List<HouseImg> getHouseimg() {
 		return houseimg;
 	}
@@ -26,12 +30,7 @@ public class House {
 	public void setHouseId(int houseId) {
 		this.houseId = houseId;
 	}
-	public String getHouseName() {
-		return houseName;
-	}
-	public void setHouseName(String houseName) {
-		this.houseName = houseName;
-	}
+
 	public double getHouseArea() {
 		return houseArea;
 	}
@@ -43,18 +42,6 @@ public class House {
 	}
 	public void setHousePrice(double housePrice) {
 		this.housePrice = housePrice;
-	}
-	public double getDownPay() {
-		return downPay;
-	}
-	public void setDownPay(double downPay) {
-		this.downPay = downPay;
-	}
-	public double getMonthPay() {
-		return monthPay;
-	}
-	public void setMonthPay(double monthPay) {
-		this.monthPay = monthPay;
 	}
 	public int getState() {
 		return state;
