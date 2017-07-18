@@ -42,7 +42,7 @@ public class PremisesCer {
 	public ModelAndView addPremises(@RequestParam("file") MultipartFile[] files,
 			@RequestParam("buildName") String buildName, @RequestParam("inOpen") String inOpen,
 			@RequestParam("inLive") String inLive, @RequestParam("households") int households,
-			@RequestParam("propertyRight") int propertyRight, @RequestParam("propertyCosts") String propertyCosts,
+			@RequestParam("propertyRight") String propertyRight, @RequestParam("propertyCosts") String propertyCosts,
 			@RequestParam("buildArea") String buildArea, @RequestParam("floorArea") String floorArea,
 			@RequestParam("buildAddress") String buildAddress, @RequestParam("buildType") int buildType,
 			@RequestParam("developer") String developer, @RequestParam("regionId") int regionId,HttpServletRequest request)throws Exception {
@@ -104,7 +104,7 @@ public class PremisesCer {
 			@RequestParam("buildId") int buildId,
 			@RequestParam("buildName") String buildName, @RequestParam("inOpen") String inOpen,
 			@RequestParam("inLive") String inLive, @RequestParam("households") int households,
-			@RequestParam("propertyRight") int propertyRight, @RequestParam("propertyCosts") String propertyCosts,
+			@RequestParam("propertyRight") String propertyRight, @RequestParam("propertyCosts") String propertyCosts,
 			@RequestParam("buildArea") String buildArea, @RequestParam("floorArea") String floorArea,
 			@RequestParam("buildAddress") String buildAddress, @RequestParam("buildType") int buildType,
 			@RequestParam("developer") String developer, @RequestParam("regionId") int regionId,HttpServletRequest request)throws Exception {
