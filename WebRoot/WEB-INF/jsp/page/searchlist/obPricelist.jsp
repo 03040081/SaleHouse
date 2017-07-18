@@ -31,7 +31,7 @@
 <body>
 	
 	<!--navbar-Start-->
-	<%@include file="../model/NewHead.jsp"%>
+	<%@include file="../../model/NewHead.jsp"%>
 	<!--nav-bar End-->
 	<div id="Search_Bar">
 		<form class="search-form">
@@ -147,7 +147,7 @@
 
 	<hr>
 	<!-- footer-Start -->
-	<%@include file="../model/NewFooter.jsp"%>
+	<%@include file="../../model/NewFooter.jsp"%>
 	<!-- footer-End -->
 
 
