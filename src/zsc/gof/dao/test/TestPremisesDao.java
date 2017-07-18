@@ -37,4 +37,16 @@ public class TestPremisesDao {
 		List<Premises> premises= dao.search(map);
 		System.out.println(premises.size());
 	}
+	
+	@Test public void testsearchRecord(){
+		Map<String, String> map = new HashMap<String, String>();
+//		map.put("min", "100");
+//		map.put("max", "200");
+//		map.put("regionId","2");
+//		map.put("housetype","1");
+//		map.put("buildType", "1");
+		map.put("keyword", "%GdsfsfZ%");
+		int premises= dao.queryTotalRecord(map);
+		System.out.println(premises);
+	}
 }

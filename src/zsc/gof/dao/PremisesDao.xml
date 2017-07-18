@@ -65,5 +65,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM premises AS p WHERE p.regionId = #{id};
 	</select>
 	
+	<select id="queryTotalRecord" parameterType="Map" resultType="java.lang.Integer">
+		 SELECT COUNT(buildId) FROM premises AS p 
+		<where>
+			<if test="min!=null">
+				<!-- 房屋价格查询 -->
+				<if test="max!=null">
+					AND
+					p.regionId IN(SELECT regionId FROM house WHERE housePrice BETWEEN #{min} AND #{max}) 
+				</if>
+			</if>
+			<if test="regionId!=null">
+				<!-- 区域查询 -->
+				AND
+				p.regionId = #{regionId} 
+			</if>
+			<if test="housetype!=null">
+				<!-- 户型查询 -->
+				AND
+				p.regionId IN (SELECT regionId FROM house WHERE housetype = #{housetype} ) 
+			</if>
+			<if test="buildType!=null">
+				<!-- 类型查询 -->
+				AND 
+				p.buildType = #{buildType}	
+			</if>
+			<if test="keyword!=null">
+			<!-- 关键字模糊查询 -->
+				AND 
+				p.buildAddress LIKE #{keyword} OR p.buildName LIKE #{keyword} 
+			</if>
+		</where>
+	</select>
 	
 </mapper>
