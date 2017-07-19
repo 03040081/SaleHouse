@@ -1,12 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-
-<head>
+<!DOCTYPE html>
+<html>
+	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="favicon.ico">
-		<title>SaleHome-page</title>
+		<title>SaleHome-Page</title>
 		<!-- Bootstrap core CSS -->
 		<link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -24,7 +25,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link href="<%=basePath%>static/css/animate.css" rel="stylesheet">
 		<link href="<%=basePath%>static/css/style.css" rel="stylesheet">
 		<link href="<%=basePath%>static/css/styles.css" rel="stylesheet">
+		
+		<script type="text/javascript">
+			function search(){ 
+				var a = document.getElementById('condition').value;
+				if (a != null && a != "")
+					location.href = "Search?condition=" + a;
+			}
+		</script>
 	</head>
+	
 	<body id="page-top">
 		<!-- Navigation -->
 		<nav class="navbar navbar-default navbar-fixed-top">
@@ -90,8 +100,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<span class="cur" data-type="rent">找租房</span>
 					</p>
 					<div class="ipt_box">
-						<input type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名">
-						<a href="#" class="ipt_button fl" style="width:90px;height:50px;"> <i class="icons"> </i></a>
+						<input id="condition" type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名" required="required">
+						<a href="#" class="ipt_button fl" onclick="search()" style="width:90px;height:40px;"> <i class="icons"> </i></a>
 					</div>
 				</div>
 			</div>
@@ -518,6 +528,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<!-- Bootstrap core JavaScript
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="<%=basePath%>static/js/homeJs.js"></script>
 		<script src="<%=basePath%>static/js/jquery.min.js"></script>
 		<script src="<%=basePath%>static/js/jquery.easing.min.js"></script>
 		<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
