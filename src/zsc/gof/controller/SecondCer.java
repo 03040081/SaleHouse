@@ -34,16 +34,9 @@ public class SecondCer {
 	HousetypeBiz houtyBiz;
 	@Autowired
 	HttpServletRequest request;
-	/*@Autowired
-	HttpSession session;*/
 	@Autowired
 	PremiseBiz premiseBiz;
-	/*@Autowired
-	PageModel<Premises> listPre;
-	@Autowired
-	Map<String, String> map;*/
-/*	@Autowired
-	Map<String, String> map;*/
+	
 	/*
 	 * 从首页跳转到第二个页面
 	 * 缺少分页函数
@@ -62,28 +55,31 @@ public class SecondCer {
 		session.setAttribute("region", listReg);
 		session.setAttribute("premistype", listPret);
 		session.setAttribute("housetype", listHout);
+		
+		
+		
 		///////////////////////////////////////////////////////////////////
 		//每页12条数据
 		listPre.setPageSize(12);
 		//从第一页开始
 		listPre.setPageIndex(1);
-		//楼盘总记录数
-		listPre.setToltalRecords(premiseBiz.totalPremises());
+		
 		///////////////////////////////////////////////////////////////////
 		//Map<String, String> map=new HashMap<String, String>();
 		map.put("keyword", keyword);
-		map.put("pageIndex", String.valueOf((pageIndex-1)*listPre.getPageSize()));
+		listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		map.put("pageIndex", "0");
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
 		//map.put("cityId", String.valueOf(cityId));
-		
 		listPre.setList(premiseBiz.find(map));
 		ModelAndView modelAndView=new ModelAndView("index2");
-		modelAndView.addObject("list", listPre);
+		modelAndView.addObject("pagePre", listPre);
+		modelAndView.addObject("totalPage",listPre.getTotalPage());
 		return modelAndView;
 	}
 	/*
 	 * 切换城市
-	 * 然后跳转至首页
+	 * 然后跳转至列表查询页面
 	 * 
 	 */
 	@RequestMapping("/changecity")
@@ -95,18 +91,18 @@ public class SecondCer {
 		
 		List<Region> listRegions=regBiz.listRegById(cityId);
 		session.setAttribute("region", listRegions);
-		//listPre.setPageIndex(1);
-		//listPre.setPageSize(12);
-		//listPre.setToltalRecords(premiseBiz.totalPremises());
-		
-		
+		listPre.setPageIndex(1);
+		listPre.setPageSize(12);
 		map.put("keyword", keyword);
+		listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
+		
 		listPre.setList(premiseBiz.find(map));
 		//List<Premises> list=premiseBiz.find(map);
 		ModelAndView modelAndView=new ModelAndView("index2");
-		modelAndView.addObject(listPre);
+		modelAndView.addObject("pagePre",listPre);
+		modelAndView.addObject("totalPage",listPre.getTotalPage());
 		return modelAndView;
 	}
 	/* 切 换
@@ -117,11 +113,13 @@ public class SecondCer {
 	public ModelAndView changeCondition(@RequestParam("keyword")String keyword,
 			@RequestParam("min")String min,@RequestParam("max")String max,
 			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
-			@RequestParam("buildType")String buildType,@RequestParam("pageIndex")int pageIndex){
+			@RequestParam("buildType")String buildType){
 		/////////////缺少分页函数
 		PageModel<Premises> listPre=new PageModel<Premises>();
 		HttpSession session=request.getSession();
 		Map<String, String> map=new HashMap<String, String>();
+		listPre.setPageIndex(0);
+		listPre.setPageSize(12);
 		
 		map.put("keyword", keyword);
 		map.put("min", min);
@@ -129,12 +127,14 @@ public class SecondCer {
 		map.put("regionId", regionId);
 		map.put("housetype", housetype);
 		map.put("buildType", buildType);
-		map.put("pageIndex", String.valueOf((pageIndex-1)*listPre.getPageSize()));
+		listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		map.put("pageIndex", String.valueOf(listPre.getPageIndex()));//修改查询条件时，从第0条数据开始查询返回
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
 		listPre.setList(premiseBiz.find(map));
 		//List<Premises> list=premiseBiz.find(map);
 		ModelAndView modelAndView=new ModelAndView("/index2");
-		modelAndView.addObject(listPre);
+		modelAndView.addObject("pagePre",listPre);
+		modelAndView.addObject("totalPage",listPre.getTotalPage());
 		return modelAndView;
 	}
 	/*
@@ -144,10 +144,12 @@ public class SecondCer {
 	public ModelAndView previousPage(@RequestParam("keyword")String keyword,
 			@RequestParam("min")String min,@RequestParam("max")String max,
 			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
-			@RequestParam("buildType")String buildType){
+			@RequestParam("buildType")String buildType,@RequestParam("pageIndex")int pageIndex){
 		PageModel<Premises> listPre=new PageModel<Premises>();
 		HttpSession session=request.getSession();
 		Map<String, String> map=new HashMap<String, String>();
+		listPre.setPageIndex(pageIndex);//设置当前页
+		listPre.setPageSize(12);
 		
 		map.put("keyword", keyword);
 		map.put("min", min);
@@ -155,11 +157,14 @@ public class SecondCer {
 		map.put("regionId", regionId);
 		map.put("housetype", housetype);
 		map.put("buildType", buildType);
+		listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((listPre.getPreviousPage()-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
 		listPre.setList(premiseBiz.find(map));
+		
 		ModelAndView modelAndView=new ModelAndView("index2");
-		modelAndView.addObject("listPre",listPre);
+		modelAndView.addObject("pagePre",listPre);
+		modelAndView.addObject("totalPage",listPre.getTotalPage());
 		return modelAndView;
 	}
 	/*
@@ -169,10 +174,12 @@ public class SecondCer {
 	public ModelAndView nextPage(@RequestParam("keyword")String keyword,
 			@RequestParam("min")String min,@RequestParam("max")String max,
 			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
-			@RequestParam("buildType")String buildType){
+			@RequestParam("buildType")String buildType,@RequestParam("pageIndex") int pageIndex){
 		PageModel<Premises> listPre=new PageModel<Premises>();
 		HttpSession session=request.getSession();
 		Map<String, String> map=new HashMap<String, String>();
+		listPre.setPageIndex(pageIndex);//设置当前页
+		listPre.setPageSize(12);
 		
 		map.put("keyword", keyword);
 		map.put("min", min);
@@ -180,11 +187,15 @@ public class SecondCer {
 		map.put("regionId", regionId);
 		map.put("housetype", housetype);
 		map.put("buildType", buildType);
+		listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((listPre.getNextPage()-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
+		
 		listPre.setList(premiseBiz.find(map));
+		
 		ModelAndView modelAndView=new ModelAndView("index2");
-		modelAndView.addObject("listPre",listPre);
+		modelAndView.addObject("pagePre",listPre);
+		modelAndView.addObject("totalPage",listPre.getTotalPage());
 		return modelAndView;
 	}
 	

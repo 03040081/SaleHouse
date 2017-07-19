@@ -22,4 +22,6 @@ public interface CityBiz {
 	public int updateCity(City city);
 	
 	public int deleteCity(int id);
+	
+	public List<City> listCitys();
 }
