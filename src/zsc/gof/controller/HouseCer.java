@@ -46,6 +46,24 @@ public class HouseCer {
 		modelAndView.addObject("listHouses", listHouses);
 		return modelAndView;
 	}
+	
+	/*
+	 * 后台
+	 * 添加房子
+	 */
+	/*@RequestMapping("/addHouse")
+	public ModelAndView addHouse(@RequestParam("file") MultipartFile[] files,
+			@RequestParam("houseDesc")String houseDesc,@RequestParam("houseType")int houseTypeId,
+			@RequestParam("houseArea")double houseArea,@RequestParam("housePrice")double housePrice,
+			@RequestParam("buildId")int buildId,HttpServletRequest request){
+		House house=new House();
+		house.setHouseArea(houseArea);
+		house.setHouseDesc(houseDesc);
+		house.setHousePrice(housePrice);
+		Housetype housetype=new Housetype();
+		housetype.setHtypeId(houseTypeId);
+		house.setHousetype(housetype);
+	}*/
 	/*
 	 * 后台
 	 * 修改房子信息
