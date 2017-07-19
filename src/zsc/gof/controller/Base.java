@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller//标志为控制器
 public class Base {
-	@RequestMapping("/index")//访问地址
+	@RequestMapping("/Home")//访问地址
 	public  ModelAndView index() {
 		return new ModelAndView("Homepage");
 	}
