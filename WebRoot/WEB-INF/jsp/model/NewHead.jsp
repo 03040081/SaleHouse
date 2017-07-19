@@ -30,7 +30,7 @@
 				</ul>
 				<p class="navbar-text navbar-right actions">
 					<a class="navbar-link login" href="#">登陆</a> <a
-						class="btn btn-default action-button" role="button" href="#">注销</a>
+						class="btn btn-default action-button" role="button" href="#" style="background-color: rgb(255,199,1);">注销</a>
 				</p>
 			</div>
 		</div>

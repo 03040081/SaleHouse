@@ -63,7 +63,7 @@
   width:100px;
   height:74px;
   margin-top: -5px;
-  ourline:none;
+  outline:none;
 }
 
 #promo .search_box .ipt_box .ipt_button .icons {
@@ -118,24 +118,19 @@
 #Search_List {
   clear:both;
  /* text-align:center;*/
-  height:400px;
-  width:1250px;
+  height:742px;
+  width:1280px;
   margin:0 auto;
-  background:url(../img/loft.jpg);
+  background:url(../imgages/loft.jpg);
   background-size:cover;
   background-repeat:round;
   padding:60px;
   padding-top:40px;
 }
 
-#Search_List, .Search_Conditon::before {
-  /*background:url(../img/loft.jpg)0 / cover fixed;
-  background-repeat:round;*/
-}
-
 .Search_Condition {
   position:relative;
-  background-image: url(../img/sd.jpg);
+  background-image: url(../images/sd.jpg);
   opacity: 0.9;
  /* background:hsla(0,0%,100%,.8);*/
   height: 330px;
@@ -208,9 +203,8 @@
   margin:-266px 0 0 -595px;
   background-color:rgba(255,255,255,1)
 }
-.col-md-7.box-left .simple-slider{
-	
-}
+
+
 
 .col-md-5.box-right {
   padding-top:30px;
