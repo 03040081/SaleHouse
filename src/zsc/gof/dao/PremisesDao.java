@@ -5,7 +5,11 @@ import java.util.Map;
 
 
 
+
+
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 
 import zsc.gof.entity.Premises;
 
@@ -36,7 +40,7 @@ public interface PremisesDao {
 	 * @param 动态多个查询参数
 	 * @return 根据区域id条件查询楼盘的列表
 	 */
-	public Premises queryPremisesById(int regionId);
+	public Premises queryPremisesByBuildId(int buildId);
 	
 	/**
 	 * @author lewis
@@ -53,6 +57,13 @@ public interface PremisesDao {
 	 */
 	public int queryTotalRecord(Map map);
 	
-	@Select("SELECT * FROM `premises` AS p WHERE p.buildId =#{id}")
-	public Premises queryPremisesByBuildId(int id);
+	
+	/**
+	 * @author lewis
+	 * @param	楼盘类
+	 * @return 
+	 * **/
+	@Insert("INSERT INTO premises(buildName,inOpen,inLive,households,propertyRight,propertyCosts,buildArea,floorArea,buildAddress,buildType,developer,regionId,iconUrl) VALUES(#{buildName},#{inOpen},#{inLive},#{households},#{propertyRight},#{propertyCosts},#{buildArea},#{floorArea},#{buildAddress},#{premisetype.btypeId},#{developer},#{region.regionId},#{iconUrl})")
+	@SelectKey(statement="select last_insert_id()",before=false,resultType=int.class,keyProperty="buildId")
+	public void insertPremises(Premises premises);
 }

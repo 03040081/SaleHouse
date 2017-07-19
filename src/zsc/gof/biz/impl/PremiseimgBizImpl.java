@@ -21,4 +21,16 @@ public class PremiseimgBizImpl implements PremiseimgBiz {
 		
 	}
 
+	@Override
+	public void deletePremisimg(int buildId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Premisesimg> listPremiseImg(int buildId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

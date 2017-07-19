@@ -3,6 +3,7 @@ package zsc.gof.entity;
 import java.util.List;
 
 public class House {
+	private int buildId; 	
 	private int houseId;
 	private String houseDesc;
 	private double houseArea;
@@ -11,7 +12,12 @@ public class House {
 	private Housetype housetype;
 	private List<HouseImg> houseimg;
 	
-	
+	public int getBuildId() {
+		return buildId;
+	}
+	public void setBuildId(int buildId) {
+		this.buildId = buildId;
+	}
 	public String getHouseDesc() {
 		return houseDesc;
 	}
