@@ -6,8 +6,10 @@ import java.util.Map;
 
 
 
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectKey;
 
 import zsc.gof.entity.Premises;
 
@@ -62,5 +64,6 @@ public interface PremisesDao {
 	 * @return 
 	 * **/
 	@Insert("INSERT INTO premises(buildName,inOpen,inLive,households,propertyRight,propertyCosts,buildArea,floorArea,buildAddress,buildType,developer,regionId,iconUrl) VALUES(#{buildName},#{inOpen},#{inLive},#{households},#{propertyRight},#{propertyCosts},#{buildArea},#{floorArea},#{buildAddress},#{premisetype.btypeId},#{developer},#{region.regionId},#{iconUrl})")
+	@SelectKey(statement="select last_insert_id()",before=false,resultType=int.class,keyProperty="buildId")
 	public void insertPremises(Premises premises);
 }

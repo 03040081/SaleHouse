@@ -51,11 +51,11 @@ public class HouseCer {
 	 * 后台
 	 * 添加房子
 	 */
-	/*@RequestMapping("/addHouse")
+	@RequestMapping("/addHouse")
 	public ModelAndView addHouse(@RequestParam("file") MultipartFile[] files,
 			@RequestParam("houseDesc")String houseDesc,@RequestParam("houseType")int houseTypeId,
 			@RequestParam("houseArea")double houseArea,@RequestParam("housePrice")double housePrice,
-			@RequestParam("buildId")int buildId,HttpServletRequest request){
+			@RequestParam("buildId")int buildId,HttpServletRequest request)throws IOException{
 		House house=new House();
 		house.setHouseArea(houseArea);
 		house.setHouseDesc(houseDesc);
@@ -63,7 +63,27 @@ public class HouseCer {
 		Housetype housetype=new Housetype();
 		housetype.setHtypeId(houseTypeId);
 		house.setHousetype(housetype);
-	}*/
+		
+		houseBiz.addHouse(house);
+		List<HouseImg> listimg=new ArrayList<HouseImg>();
+		
+		String[] filePaths = null;
+		if(files.length>0){
+			for(int i=0;i<files.length;i++){
+				filePaths[i] = request.getSession().getServletContext().getRealPath("/") + "upload/"  
+                        + files[i].getOriginalFilename();
+				files[i].transferTo(new File(filePaths[i]));
+				//System.out.println(filePaths[i]);
+				//创建房子图片对象，添加图片
+				HouseImg houseImg=new HouseImg();
+				houseImg.setHouseId(house.getHouseId());
+				houseImg.setImgUrl(filePaths[i]);
+				listimg.add(houseImg);
+			}
+		}
+		houseimgBiz.addHouseImgs(listimg);
+		return new ModelAndView("");
+	}
 	/*
 	 * 后台
 	 * 修改房子信息

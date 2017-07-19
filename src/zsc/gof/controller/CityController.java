@@ -20,9 +20,8 @@ public class CityController {
 	CityBiz cityBiz;
 	
 	@RequestMapping("/index1")
-	public  ModelAndView index() {
-		int id=0;
-		List<City> list=cityBiz.listCityById(id);
+	public  ModelAndView index(@RequestParam("id") int id) {
+		List<City> list=cityBiz.listCityById(1);
 		return new ModelAndView("index");
 	}
 	

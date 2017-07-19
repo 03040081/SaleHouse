@@ -20,8 +20,9 @@ public class TestPremisesDao {
 	
 	@Test public void testqueryPremisesById(){
 		Premises premises = dao.queryPremisesByBuildId(233);
-		System.out.println(premises.getPremisetype().getBtypeId());
+		System.out.println(premises.getBuildId());
 		dao.insertPremises(premises);
+		System.out.println(premises.getBuildId());
 	}
 	
 	@Test public void testsearch(){
