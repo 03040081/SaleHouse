@@ -13,6 +13,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <form action="Search" method="post">
+  输入<input name="keyword" type="text">
+  <input name="cityId">
+  <button type="submit">提交</button>
+  </form>
   
 	<form action="addPremises" method="post" enctype="multipart/form-data">  
    楼盘名称	<input type="text" name="buildName">
