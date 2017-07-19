@@ -30,5 +30,5 @@ public interface PremiseBiz {
 	/*
 	 * 计算楼盘数量
 	 */
-	public int totalPremises();
+	public int totalPremises(Map map);
 }

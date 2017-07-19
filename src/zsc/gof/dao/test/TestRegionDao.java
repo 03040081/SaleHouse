@@ -1,5 +1,7 @@
 package zsc.gof.dao.test;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,9 @@ public class TestRegionDao {
 		Region region = dao.queryRegionById(1);
 		System.out.println(region.getRegionName());
 	}
-	
+	@Test
+	public void testqueryReginonListByCityId(){
+		List<Region> region = dao.queryReginonListByCityId(2);
+		System.out.println(region.size());
+	}
 }
