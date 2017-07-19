@@ -30,23 +30,11 @@
 	<!--navbar-Start-->
 	<%@include file="../../model/NewHead.jsp"%>
 	<!--nav-bar End-->
-	<div id="Search_Bar">
-		<form class="search-form">
-			<div class="input-group">
-				<div class="input-group-addon">
-					<span><i class="glyphicon glyphicon-search"></i></span>
-				</div>
-				<input class="form-control" type="text" placeholder="请输入新房地址或新房名">
-				<div class="input-group-btn">
-					<button class="btn btn-default" type="button">搜索</button>
-				</div>
-			</div>
-		</form>
-		<a class="find-hourse"> <i class="glyphicon glyphicon-map-marker"></i>地图找房
-		</a> <a class="find-hourse"> <i
-			class="glyphicon glyphicon-download-alt"></i>APP下载
-		</a>
-	</div>
+	
+	<!-- Search-bar-Start -->
+	<%@include file="../../model/SearchBar.jsp"%>
+	<!-- Search-bar-End -->
+	
 	<div id="Search_List">
 		<div class="Search_Condition">
 			<p>区域:</p>
@@ -88,7 +76,6 @@
 
 
 		</div>
-
 	</div>
 
 	<div id="Search_Tag" class="light-bg">
@@ -112,12 +99,33 @@
 			<li role="presentation"><a href="#saledtime"
 				aria-controls="saledtime" role="tab" data-toggle="tab">开盘时间&nbsp;↓</a></li>
 		</ul>
-		<!-- Tab panes -->
-		<!--<div class="tab-content">
-    			<div role="tabpanel" class="tab-pane active" id="home">abc</div>
+	<!-- 	<!-- Tab panes -->
+		<div class="tab-content">
+    			<div role="tabpanel" class="tab-pane active" id="home">
+    				<div class="model">
+					<div class="modelLeft">
+					<div>
+					<a href="<%=modelBase%>"><img
+						src="<%=modelBase%>static/image/14996453503361_3.jpg.232x174.jpg"></a>
+					</div>
+					</div>
+					<div class="modelRight">
+				<h3>
+					<b><a href="<%=modelBase%>">为你而选为你而家，绿地海顿公馆 精装10万</a></b>
+				</h3>
+				<br />
+				<ul>
+					<li>世纪新城|2厅2室|92.9平米|南 北|其他</li>
+					<li>高层楼（共33层）楼板 -</li>
+					<li>62人关注 | 共6次带看 | 4个月以前发布</li>
+				</ul>
+
+			</div>
+					</div>
+    			</div>
     			<div role="tabpanel" class="tab-pane" id="profile">aaa</div>
     			<div role="tabpanel" class="tab-pane" id="messages">aaa</div>
- 		</div>-->
+ 		</div> -->
 
 		<hr>
 		<c:forEach items="" var="premises" varStatus="index">
@@ -141,7 +149,23 @@
 					</ul>
 				</div>
 			</div>
+<<<<<<< HEAD
+			<div class="modelRight">
+				<h3>
+					<b><a href="<%=modelBase%>">为你而选为你而家，绿地海顿公馆 精装10万</a></b>
+				</h3>
+				<br />
+				<ul>
+					<li>世纪新城|2厅2室|92.9平米|南 北|其他</li>
+					<li>高层楼（共33层）楼板 -</li>
+					<li>62人关注 | 共6次带看 | 4个月以前发布</li>
+				</ul>
+
+			</div>
+		</div>
+=======
 		</c:forEach>
+>>>>>>> upstream/master
 	</div>
 
 
