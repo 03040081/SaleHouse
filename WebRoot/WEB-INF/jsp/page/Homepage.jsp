@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</p>
 					<div class="ipt_box">
 						<input type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名">
-						<a href="#" class="ipt_button fl" style="width:90px;height:50px;"> <i class="icons"> </i></a>
+						<a href="#" class="ipt_button fl"> <i class="icons"> </i></a>
 					</div>
 				</div>
 			</div>
