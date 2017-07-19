@@ -1,6 +1,8 @@
 package zsc.gof.dao;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -26,6 +28,15 @@ public interface RegionDao {
 		@Result(column="cityId",property="city",
 		one=@One(select="zsc.gof.dao.CityDao.quertCityById"))
 	})
-	
 	public Region queryRegionById(int id); 
+	
+	
+	@Select("SELECT * FROM region AS r WHERE r.cityId = #{id}")
+	@Results({
+		@Result(id=true,column="regionId",property="regionId"),
+		@Result(column="regionName",property="regionName"),
+		@Result(column="cityId",property="city",
+		one=@One(select="zsc.gof.dao.CityDao.quertCityById"))
+	})
+	public List<Region> queryReginonListByCityId(int id);
 }
