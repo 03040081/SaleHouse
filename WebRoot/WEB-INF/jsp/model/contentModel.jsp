@@ -9,7 +9,7 @@ String modelBase = request.getScheme()+"://"+request.getServerName()+":"+request
 	<div class="modelLeft">
 		<div>
 			<a href="<%=modelBase%>"><img
-				src="<%=modelBase%>static/image/14996453503361_3.jpg.232x174.jpg"></a>
+				src="<%=modelBase%>static/images/14996453503361_3.jpg.232x174.jpg"></a>
 		</div>
 	</div>
 	<div class="modelRight">
