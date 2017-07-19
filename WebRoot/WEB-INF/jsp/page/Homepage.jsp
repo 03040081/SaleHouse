@@ -95,13 +95,13 @@
 			<div class="search_box">
 				<div class="search_box_inner">
 					<p id="searchTabs" class="search_tab">
-						<span class="cur" data-type="sale">找二手房</span>
 						<span class="cur" data-type="newhouse">找新房</span>
+						<span class="cur" data-type="sale">找二手房</span>
 						<span class="cur" data-type="rent">找租房</span>
 					</p>
 					<div class="ipt_box">
 						<input id="condition"  type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名" required="required">
-						<a href="#" class="ipt_button fl" onclick="search()" > <i class="icons"> </i></a>
+						<button id="btn_search" href="#" class="ipt_button fl" onclick="search()"> <i class="icons"> </i></button>
 					</div>
 				</div>
 			</div>
@@ -125,10 +125,10 @@
 					<div class="col-md-3 text-center">
 						<div class="mz-module">
 							<div class="mz-module-about">
-								<i class="fa color1 ot-circle" style="background-image: url(images/phpe022WE.png);background-repeat: no-repeat;"></i>
-								<h3>找二手房</h3>
-								<p>真实二手房源，链家承诺真实在售</p>
-								<p>所见即真</p>
+								<i class="fa color2 ot-circle" style="background-image:url(images/php6ifmLs.png); background-repeat: no-repeat;" ></i>
+								<h3>找新房</h3>
+								<p>全新房屋，全新生活，给你满意的</p>
+								<p>优质新盘</p>
 							</div>
 							<a href="#" class="mz-module-button">查看更多</a>
 						</div>
@@ -138,10 +138,10 @@
 					<div class="col-md-3 text-center">
 						<div class="mz-module">
 							<div class="mz-module-about">
-								<i class="fa color2 ot-circle" style="background-image:url(images/php6ifmLs.png); background-repeat: no-repeat;" ></i>
-								<h3>找新房</h3>
-								<p>全新房屋，全新生活，给你满意的</p>
-								<p>优质新盘</p>
+								<i class="fa color1 ot-circle" style="background-image: url(images/phpe022WE.png);background-repeat: no-repeat;"></i>
+								<h3>找二手房</h3>
+								<p>真实二手房源，链家承诺真实在售</p>
+								<p>所见即真</p>
 							</div>
 							<a href="#" class="mz-module-button">查看更多</a>
 						</div>

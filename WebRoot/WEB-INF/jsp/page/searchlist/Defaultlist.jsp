@@ -24,6 +24,32 @@
 		<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
 		<link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
 		<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
+	
+		<style>	
+			.condition-list {
+				display: inline;
+				margin: 0px;
+			}
+			
+			.condition-name {
+				background: #fff;
+				padding: 1px 5px;
+				margin: 0px;
+				cursor: pointer;
+			}
+			
+			.condition-close {
+				background: #efefef;
+				padding: 1px 3px;
+				margin: 0px;
+				cursor: pointer;
+			}
+			
+			.condition {
+				display: inline;
+				margin-left: 10px;
+			}
+		</style>
 	</head>
 
 <body>
@@ -36,7 +62,7 @@
 				<div class="input-group-addon">
 					<span><i class="glyphicon glyphicon-search"></i></span>
 				</div>
-				<input class="form-control" type="text" placeholder="请输入新房地址或新房名">
+				<input class="form-control" type="text" placeholder="请输入新房地址或新房名" value="${keyword}">
 				<div class="input-group-btn">
 					<button class="btn btn-default" type="button">搜索</button>
 				</div>
@@ -50,13 +76,15 @@
 	<div id="Search_List">
 		<div class="Search_Condition">
 			<p>区域:</p>
-			<hr />
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<li><a href="#">天河</a></li>
-				<li><a href="#">天河</a></li>
-				<li><a href="#">天河</a></li>
+				<%--<c:forEach items="" var="region" varStatus="index"> --%>
+					<li><a href="#">天河</a></li>
+					<li><a href="#">天河</a></li>
+					<li><a href="#">天河</a></li>
+				<%--</c:forEach>--%>
 			</ul>
+			<hr>
 			<p>售价：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
@@ -69,6 +97,8 @@
 				<li><a href="#">200-300万</a></li>
 				<li><a href="#">300万以上</a></li>
 			</ul>
+			<hr>
+			
 			<p>类型:</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
@@ -78,25 +108,29 @@
 				<li><a href="#">商铺</a></li>
 				<li><a href="#">底商</a></li>
 			</ul>
+			<hr>
+			
 			<p>销售状态：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
 				<li><a href="#">在售</a></li>
 				<li><a href="#">售罄</a></li>
-
 			</ul>
-
-
+			<hr>
 		</div>
 
 	</div>
 
 	<div id="Search_Tag" class="light-bg">
-		<p>已选条件：</p>
-		<ul style="display: inline;">
-			<li style="display: inline;"><a href="#">sdd</a></li>
-			<li style="display: inline;"><a href="#">sdd</a></li>
-		</ul>
+		<span>已选条件：</span>
+		<div class="condition-list">
+			<div class="condition">
+				<span class="condition-name">南山区</span><span class="condition-close">×</span>
+			</div>
+			<div class="condition">
+				<span class="condition-name">福田区</span><span class="condition-close">×</span>
+			</div>
+		</div>
 	</div>
 	<div id="Search_Result">
 		<p style="font-size: 20px; padding-left: 20px;">
@@ -120,7 +154,7 @@
  		</div>-->
 
 		<hr>
-		<c:forEach items="" var="premises" varStatus="index">
+		<%--<c:forEach items="" var="premises" varStatus="index">--%>
 			<div class="model">
 				<div class="modelLeft">
 					<div>
@@ -141,7 +175,7 @@
 					</ul>
 				</div>
 			</div>
-		</c:forEach>
+		<%--</c:forEach>--%>
 	</div>
 
 

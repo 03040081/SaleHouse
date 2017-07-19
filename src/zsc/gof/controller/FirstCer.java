@@ -35,6 +35,7 @@ public class FirstCer {
 		}*/
 		ModelAndView modelAndView =new ModelAndView("searchlist/Defaultlist");
 		modelAndView.addObject("list", list);
+		modelAndView.addObject("keyword", str);	//用于填充到搜索结果页面的搜索框中
 		return modelAndView;
 	}
 	
