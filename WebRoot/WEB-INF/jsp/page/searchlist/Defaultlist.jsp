@@ -71,10 +71,7 @@
 				<li class="headlight"><a href="#">不限</a></li>
 				<li><a href="#">在售</a></li>
 				<li><a href="#">售罄</a></li>
-
 			</ul>
-
-
 		</div>
 	</div>
 
@@ -99,9 +96,8 @@
 			<li role="presentation"><a href="#saledtime"
 				aria-controls="saledtime" role="tab" data-toggle="tab">开盘时间&nbsp;↓</a></li>
 		</ul>
-	<!-- 	<!-- Tab panes -->
+	 	<!-- Tab panes -->
 		<div class="tab-content">
-    			
     			<div role="tabpanel" class="tab-pane" id="default">
 					<c:forEach items="" var="premises" varStatus="index">
 						<div class="model">
@@ -133,7 +129,6 @@
 		
 		
 	</div>
-
 
 
 	<!-- footer-Start -->
