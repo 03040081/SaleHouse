@@ -161,6 +161,12 @@ public class PremisesCer {
 			e.printStackTrace();
 		}
 		
-		return new ModelAndView("添加楼盘界面");
+		return modelAndView;
+	}
+	@RequestMapping("/deletePremise")
+	public ModelAndView deletePremise(@RequestParam("buildId")int buildId){
+		premiseimgBiz.deletePremisimg(buildId);
+		premiseBiz.deletePremises(buildId);
+		return new ModelAndView("楼盘显示  列表");
 	}
 }
