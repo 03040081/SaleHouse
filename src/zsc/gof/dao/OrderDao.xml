@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="orderTime" column="orderTime"/>
 		<result property="state" column="state"/>
 		<association property="userinfo" column="userId" select="zsc.gof.dao.UserDao.queryUserInfoByUserId"/>
-		<association property="premises" column="buildId" select="zsc.gof.dao.PremisesDao.queryPremisesById"/>
+		<association property="premises" column="buildId" select="zsc.gof.dao.PremisesDao.queryPremisesByBuildId"/>
 	</resultMap>
 	
 	<select id="queryOrderinfoByUserId" parameterType="int" resultMap="orderinfoList">
