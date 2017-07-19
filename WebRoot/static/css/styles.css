@@ -121,11 +121,11 @@
   height:400px;
   width:1250px;
   margin:0 auto;
-  background:url(../images/loft.jpg);
+  background:url(../images/SearchListbg.jpg);
   background-size:cover;
   background-repeat:round;
   padding:60px;
-  padding-top:40px;
+  padding-top:80px;
 }
 
 #Search_List, .Search_Conditon::before {
@@ -136,9 +136,9 @@
 .Search_Condition {
   position:relative;
   background-image: url(../images/sd.jpg);
-  opacity: 0.9;
+  opacity: 0.8;
  /* background:hsla(0,0%,100%,.8);*/
-  height: 330px;
+  height: 430px;
 }
 
 
