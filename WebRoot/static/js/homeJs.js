@@ -1,6 +1,7 @@
 $(document).ready(function() {
-	alert("执行");
 	$('#btn_search').click(function() {
-		alert('!!!');
+		var keyword = document.getElementById('condition').value;
+		if (keyword != null && keyword != "")
+			location.href = "Search?condition=" + keyword;
 	});
 });

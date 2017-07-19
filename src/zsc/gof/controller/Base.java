@@ -10,4 +10,9 @@ public class Base {
 	public  ModelAndView index() {
 		return new ModelAndView("Homepage");
 	}
+	
+	@RequestMapping("/Test55")//访问地址
+	public  ModelAndView test() {
+		return new ModelAndView("index");
+	}
 }

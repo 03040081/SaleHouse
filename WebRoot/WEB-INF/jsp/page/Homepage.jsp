@@ -25,13 +25,15 @@
 		<link href="<%=basePath%>static/css/animate.css" rel="stylesheet">
 		<link href="<%=basePath%>static/css/style.css" rel="stylesheet">
 		<link href="<%=basePath%>static/css/styles.css" rel="stylesheet">
+		<script src="<%=basePath%>static/js/jquery.min.js"></script>
 		
-		<script type="text/javascript">
-			function search(){ 
-				var a = document.getElementById('condition').value;
-				if (a != null && a != "")
-					location.href = "Search?condition=" + a;
-			}
+		<script type="text/javascript">			
+			$(document).ready(function() {
+				alert('a');
+				$('li').click(function() {
+					alert('li');
+				});
+			});
 		</script>
 	</head>
 	
@@ -48,6 +50,21 @@
 					<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand page-scroll" href="#page-top"><img src="images/logo.png" alt="Sanza theme logo"></a>
+					<%-- 定位 --%>
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
+								<i class="glyphicon glyphicon-map-marker"></i>广州
+								<span class="caret"></span>
+							</a>
+							<ul id="ul_region" class="dropdown-menu" role="menu">
+								<li role="presentation"><a href="#">深圳</a></li>
+								<li role="presentation"><a href="#">佛山</a></li>
+								<li role="presentation"><a href="#">惠州</a></li>
+								<li role="presentation"><a href="#">中山</a></li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,15 +72,6 @@
 						<li class="hidden">
 							<a href="#page-top"></a>
 						</li>
-						<!--<li>
-							<a class="page-scroll" href="#page-top">主页</a>
-						</li>-->
-						<ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a href="#">深圳</a></li>
-                                <li role="presentation"><a href="#">佛山</a></li>
-                                <li role="presentation"><a href="#">惠州</a></li>
-                                <li role="presentation"><a href="#">中山</a></li>
-                        </ul>
 						<li>
 							<a class="page-scroll" href="#about">房源类型</a>
 						</li>
@@ -101,7 +109,7 @@
 					</p>
 					<div class="ipt_box">
 						<input id="condition"  type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名" required="required">
-						<button id="btn_search" href="#" class="ipt_button fl" onclick="search()"> <i class="icons"> </i></button>
+						<button id="btn_search" href="#" class="ipt_button fl"> <i class="icons"> </i></button>
 					</div>
 				</div>
 			</div>
@@ -529,7 +537,6 @@
 			================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="<%=basePath%>static/js/homeJs.js"></script>
-		<script src="<%=basePath%>static/js/jquery.min.js"></script>
 		<script src="<%=basePath%>static/js/jquery.easing.min.js"></script>
 		<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
 		<script src="<%=basePath%>static/js/owl.carousel.min.js"></script>
