@@ -32,7 +32,7 @@
 	<!--nav-bar End-->
 	
 	<!-- Search-bar-Start -->
-	<%@include file="../../model/SearchBar"%>
+	<%@include file="../../model/SearchBar.jsp"%>
 	<!-- Search-bar-End -->
 	
 	<div id="Search_List">
