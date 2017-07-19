@@ -2,33 +2,37 @@ package zsc.gof.biz.impl;
 
 import java.util.List;
 
-import zsc.gof.biz.HousetypeBiz;
-import zsc.gof.entity.Housetype;
+import org.springframework.stereotype.Service;
 
-public class HouseimgBizImpl implements HousetypeBiz {
+import zsc.gof.biz.HouseimgBiz;
+import zsc.gof.entity.HouseImg;
+@Service
+public class HouseimgBizImpl implements HouseimgBiz {
 
 	@Override
-	public List<Housetype> listHousetypes() {
+	public List<HouseImg> listHouseImgs(int houseId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int updateHousetype(Housetype house) {
+	public void addHouseImgs(List<HouseImg> listHouseImgs) {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
 
 	@Override
-	public int addHousetype(Housetype house) {
+	public void updateHouseImgs(List<HouseImg> listHouseImgs) {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
 
 	@Override
-	public int deleteHousetype(int id) {
+	public void deleteHouseImg(int imgId) {
 		// TODO Auto-generated method stub
-		return 0;
+		
 	}
+
+	
 
 }
