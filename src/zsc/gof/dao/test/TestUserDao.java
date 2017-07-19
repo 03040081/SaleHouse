@@ -34,8 +34,8 @@ public class TestUserDao {
 	@Test
 	public void testLogin(){
 		Userinfo userinfo = new Userinfo();
-		userinfo.setUsername("1234");
-		userinfo.setPassword("1234");
+		userinfo.setUsername("tomcat");
+		userinfo.setPassword("123");
 		System.out.println(dao.login(userinfo).getUsername());
 	}
 	
@@ -52,5 +52,9 @@ public class TestUserDao {
 		userinfo.setRole(role);
 		
 		System.out.println(dao.updateInfo(userinfo));
+	}
+	@Test
+	public void queryUserExist(){
+		System.out.println(dao.queryUserExist("tovmcat"));
 	}
 }

@@ -70,4 +70,12 @@ public interface UserDao {
 		one=@One(select="zsc.gof.dao.RoleDao.queryRoleByRoleId")),
 	})
 	public Userinfo queryUserInfoByUserId(int userId);
+	
+	/**
+	 * @author lewis
+	 * @param 用户名
+	 * @return 相同用户名查的个数
+	 * */
+	@Select("SELECT COUNT(userId) FROM userinfo WHERE username = #{username}")
+	public int queryUserExist(String username);
 }
