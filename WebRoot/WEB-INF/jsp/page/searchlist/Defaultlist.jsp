@@ -6,11 +6,6 @@
 	String modelBase = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ modelpath + "/";
 %>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	System.out.println(modelBase + " " + basePath);
-%>
 
 <!DOCTYPE html>
 <html>
@@ -18,12 +13,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SaleHouseList</title>
-		<link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<%=basePath%>static/css/Features-Clean.css">
-		<link rel="stylesheet" href="<%=basePath%>static/css/Navigation-with-Button1.css">
-		<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
-		<link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
-		<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
+		<link href="<%=modelBase%>static/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="<%=modelBase%>static/css/Features-Clean.css">
+		<link rel="stylesheet" href="<%=modelBase%>static/css/Navigation-with-Button1.css">
+		<link rel="stylesheet" href="<%=modelBase%>static/css/Pretty-Search-Form.css">
+		<link rel="stylesheet" href="<%=modelBase%>static/css/styles.css">
+		<link rel="stylesheet" href="<%=modelBase%>static/css/Footer-Dark.css">
 	
 		<style>	
 			.condition-list {
@@ -56,23 +51,11 @@
 	<!--navbar-Start-->
 	<%@include file="../../model/NewHead.jsp"%>
 	<!--nav-bar End-->
-	<div id="Search_Bar">
-		<form class="search-form">
-			<div class="input-group">
-				<div class="input-group-addon">
-					<span><i class="glyphicon glyphicon-search"></i></span>
-				</div>
-				<input class="form-control" type="text" placeholder="请输入新房地址或新房名" value="${keyword}">
-				<div class="input-group-btn">
-					<button class="btn btn-default" type="button">搜索</button>
-				</div>
-			</div>
-		</form>
-		<a class="find-hourse"> <i class="glyphicon glyphicon-map-marker"></i>地图找房
-		</a> <a class="find-hourse"> <i
-			class="glyphicon glyphicon-download-alt"></i>APP下载
-		</a>
-	</div>
+	
+	<!-- Search-bar-Start -->
+	<%@include file="../../model/SearchBar.jsp"%>
+	<!-- Search-bar-End -->
+	
 	<div id="Search_List">
 		<div class="Search_Condition">
 			<p>区域:</p>
@@ -118,7 +101,6 @@
 			</ul>
 			<hr>
 		</div>
-
 	</div>
 
 	<div id="Search_Tag" class="light-bg">
@@ -146,51 +128,48 @@
 			<li role="presentation"><a href="#saledtime"
 				aria-controls="saledtime" role="tab" data-toggle="tab">开盘时间&nbsp;↓</a></li>
 		</ul>
-		<!-- Tab panes -->
-		<!--<div class="tab-content">
-    			<div role="tabpanel" class="tab-pane active" id="home">abc</div>
-    			<div role="tabpanel" class="tab-pane" id="profile">aaa</div>
-    			<div role="tabpanel" class="tab-pane" id="messages">aaa</div>
- 		</div>-->
-
-		<hr>
-		<%--<c:forEach items="" var="premises" varStatus="index">--%>
-			<div class="model">
-				<div class="modelLeft">
-					<div>
-						<a href="<%=modelBase%>">
-							<img src="${iconUrl}">
-						</a>
+	<!-- 	<!-- Tab panes -->
+		<div class="tab-content">
+			<%-- 默认排序 --%>
+			<div role="tabpanel" class="tab-pane active" id="home">
+				<%--<c:forEach items="" var="premises" varStatus="index">--%>
+				<div class="model">
+					<div class="modelLeft">
+						<div>
+							<a href="<%=modelBase%>"> <img src="${iconUrl}">
+							</a>
+						</div>
+					</div>
+					<div class="modelRight">
+						<h3>
+							<b><a href="<%=modelBase%>">为你而选为你而家，绿地海顿公馆 精装10万</a></b>
+						</h3>
+						<br />
+						<ul>
+							<li>世纪新城|2厅2室|92.9平米|南 北|其他</li>
+							<li>高层楼（共33层）楼板 -</li>
+							<li>62人关注 | 共6次带看 | 4个月以前发布</li>
+						</ul>
 					</div>
 				</div>
-				<div class="modelRight">
-					<h3>
-						<b><a href="<%=modelBase%>">为你而选为你而家，绿地海顿公馆 精装10万</a></b>
-					</h3>
-					<br />
-					<ul>
-						<li>世纪新城|2厅2室|92.9平米|南 北|其他</li>
-						<li>高层楼（共33层）楼板 -</li>
-						<li>62人关注 | 共6次带看 | 4个月以前发布</li>
-					</ul>
-				</div>
+				<%--</c:forEach>--%>
 			</div>
-		<%--</c:forEach>--%>
+			<%-- 排序2 --%>
+			<div role="tabpanel" class="tab-pane" id="profile"></div>
+			<%-- 排序3 --%>
+    		<div role="tabpanel" class="tab-pane" id="messages"></div>
+ 		</div>
+		<hr>
 	</div>
-
-
 
 	<!-- footer-Start -->
 	 <%@include file="../../model/NewFooter.jsp"%>
 	<!-- footer-End -->
 
-
-
 	<!-- Bootstrap core JavaScript
 			================================================== -->
-	
-	<script src="<%=basePath%>static/js/jquery.min.js"></script>
-	<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
+	<script src="<%=modelBase%>static/js/jquery.min.js"></script>
+	<script src="<%=modelBase%>static/js/bootstrap.min.js"></script>
 </body>
 
 </html>
