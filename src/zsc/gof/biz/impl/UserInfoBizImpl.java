@@ -1,35 +1,38 @@
 package zsc.gof.biz.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import zsc.gof.biz.UserInfoBiz;
+import zsc.gof.dao.UserDao;
 import zsc.gof.entity.Userinfo;
 
 @Service
 public class UserInfoBizImpl implements UserInfoBiz {
 
+	@Autowired UserDao dao;
+	
 	@Override
 	public Userinfo login(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		Userinfo userinfo = new Userinfo();
+		userinfo.setUsername(username);
+		userinfo.setPassword(password);
+		return dao.login(userinfo);
 	}
 
 	@Override
 	public int register(Userinfo userinfo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.register(userinfo);
 	}
 
 	@Override
 	public int update(Userinfo userinfo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.updateInfo(userinfo);
 	}
 
 	@Override
 	public int judgeUser(String username) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dao.queryUserExist(username);
 	}
 
 }
