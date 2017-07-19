@@ -14,30 +14,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <table>
+  <form action="changeC" method="post">
+    	</form>
 	<tr>
 	区域：
   		<c:forEach items="${region}" var="reg">
-  			<a href="#?${reg.regionId}">${reg.regionName}</a>&nbsp;&nbsp;
+  			<a href="changeC?regionId=${reg.regionId}">${reg.regionName}</a>&nbsp;&nbsp;
   		</c:forEach>
   	</tr><br>
   	<tr>
   	类型：
   		<c:forEach items="${premistype}" var="pret">
-  			<a href="#?${pret.btypeId}">${pret.typeName}</a>&nbsp;&nbsp;
+  			<a href="changeC?buildType=${pret.btypeId}">${pret.typeName}</a>&nbsp;&nbsp;
   		</c:forEach>
   	</tr><br>
   	<tr>
   	类型：
   		<c:forEach items="${housetype}" var="hout">
-  			<a href="#?${hout.htypeId}">${hout.typeName}</a>&nbsp;&nbsp;
+  			<a href="changeC?housetype=${hout.htypeId}">${hout.typeName}</a>&nbsp;&nbsp;
   		</c:forEach>
   	</tr><br/>
+
   	<tr>
   		总页数：${totalPage}
   	</tr><br>
   	<tr>
   	<hr size="10px" color="red">
-  		<c:forEach items="${pagePre.list}" var="pre">
+  		<c:forEach items="${lists}" var="pre">
   			<p>楼盘ID：&nbsp;${pre.buildId}
   			<p>名称：&nbsp;${pre.buildName}
   			<p>开盘时间：&nbsp;${pre.inOpen}
@@ -54,6 +57,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<p>图片：<img src="${pre.iconUrl}"> 
   			<br>
   			<hr size="10px" color="red">
+  			<hr size="5px" color="yellor">
+  			<c:forEach items="${pre.premisesimg}" var="preimg">
+  			<img src="${preimg.imgUrl}">
+  			</c:forEach>
+  			<hr size="5px" color="yellor">
   		</c:forEach>
   	</tr>
   	 </table>

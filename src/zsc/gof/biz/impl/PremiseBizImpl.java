@@ -14,19 +14,24 @@ import zsc.gof.entity.Premises;
 public class PremiseBizImpl implements PremiseBiz {
 
 	@Autowired 
-	PremisesDao premisesDao;
+	PremisesDao dao;
 	
 	@Override
 	public List<Premises> find(Map map) {
 		// TODO Auto-generated method stub
-		
-		return premisesDao.search(map);
+		List<Premises> list = dao.search(map);
+		for(int i =0;i<list.size();i++){
+			System.out.println(list.get(i).getPremisetype().getTypeName());
+			System.out.println(list.get(i).getRegion().getRegionName());
+			System.out.println(i);
+		}
+		return dao.search(map);
 	}
 
 	@Override
 	public int addPremise(Premises premises) {
 		// TODO Auto-generated method stub
-		premisesDao.insertPremises(premises);
+		dao.insertPremises(premises);
 		return 0;
 	}
 
@@ -45,14 +50,14 @@ public class PremiseBizImpl implements PremiseBiz {
 	@Override
 	public int totalPremises(Map map) {
 		// TODO Auto-generated method stub
-		return premisesDao.queryTotalRecord(map);
+		return dao.queryTotalRecord(map);
 	}
 
 	@Override
 	public Premises findOne(int buildId) {
 		// TODO Auto-generated method stub
 		
-		return premisesDao.queryPremisesByBuildId(buildId);
+		return dao.queryPremisesByBuildId(buildId);
 	}
 	
 }

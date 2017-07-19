@@ -56,6 +56,11 @@ public class FirstCer {
 		////////////////////
 		session.setAttribute("keyword", keyword);
 		session.setAttribute("cityId", cityId);
+		session.setAttribute("min", null);
+		session.setAttribute("max", null);
+		session.setAttribute("regId", null);
+		session.setAttribute("htype", null);
+		session.setAttribute("btype", null);
 		////////////////////
 		
 
@@ -68,16 +73,18 @@ public class FirstCer {
 		///////////////////////////////////////////////////////////////////
 		//Map<String, String> map=new HashMap<String, String>();
 		map.put("keyword", "%"+keyword+"%");
-		listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		//listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
+	/*	map.put("regionId", "2");
+		map.put("buildType", "2");*/
 		//map.put("cityId", String.valueOf(cityId));
 		listPre.setList(premiseBiz.find(map));
 		
 		//ModelAndView modelAndView =new ModelAndView("searchlist/Defaultlist");
 
 		ModelAndView modelAndView=new ModelAndView("index2");
-		modelAndView.addObject("pagePre", listPre);
+		modelAndView.addObject("lists", listPre);
 		modelAndView.addObject("totalPage",listPre.getTotalPage());
 		return modelAndView;
 
