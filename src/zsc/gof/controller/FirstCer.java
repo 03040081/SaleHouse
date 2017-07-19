@@ -23,7 +23,7 @@ public class FirstCer {
 	 * 从首页输入模糊查询
 	 * 跳转至列表找房子
 	 */
-	@RequestMapping("/newpremises")
+	@RequestMapping("/Search")
 	public ModelAndView search(@RequestParam("condition")String str){
 		Map<String,String> map=new HashMap<String, String>();
 		map.put("keyword","%"+str+"%");
@@ -33,7 +33,7 @@ public class FirstCer {
 		/*for(Premises p:list){
 			
 		}*/
-		ModelAndView modelAndView =new ModelAndView("list");
+		ModelAndView modelAndView =new ModelAndView("searchlist/Defaultlist");
 		modelAndView.addObject("list", list);
 		return modelAndView;
 	}
