@@ -71,20 +71,18 @@ public class FirstCer {
 		listPre.setPageIndex(1);
 		
 		///////////////////////////////////////////////////////////////////
-		//Map<String, String> map=new HashMap<String, String>();
+		
 		map.put("keyword", "%"+keyword+"%");
-		//listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
-	/*	map.put("regionId", "2");
-		map.put("buildType", "2");*/
 		//map.put("cityId", String.valueOf(cityId));
 		listPre.setList(premiseBiz.find(map));
 		
 		//ModelAndView modelAndView =new ModelAndView("searchlist/Defaultlist");
 
 		ModelAndView modelAndView=new ModelAndView("index2");
-		modelAndView.addObject("lists", listPre);
+		modelAndView.addObject("pagePre", listPre);
 		modelAndView.addObject("totalPage",listPre.getTotalPage());
 		return modelAndView;
 
