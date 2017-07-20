@@ -73,7 +73,7 @@ public class FirstCer {
 		///////////////////////////////////////////////////////////////////
 		
 		map.put("keyword", "%"+keyword+"%");
-		listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
 		//map.put("cityId", String.valueOf(cityId));

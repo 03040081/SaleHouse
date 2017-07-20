@@ -35,4 +35,10 @@ public class UserInfoBizImpl implements UserInfoBiz {
 		return dao.queryUserExist(username);
 	}
 
+	@Override
+	public Userinfo getUserinfo(int userId) {
+		// TODO Auto-generated method stub
+		return dao.queryUserInfoByUserId(userId);
+	}
+
 }

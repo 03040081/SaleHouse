@@ -13,7 +13,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <p>楼盘ID：&nbsp;${pre.buildId}
+  <form action="houseInfo" method="post">
+   <input name="buildId" type="text">
+   <button type="submit">提交提交提交i提交弹吉他提几天几天</button>
+  </form>
+ 
+  
+  <%-- <p>楼盘ID：&nbsp;${pre.buildId}
   			<p>名称：&nbsp;${pre.buildName}
   			<p>开盘时间：&nbsp;${pre.inOpen}
   			<p>入住时间：&nbsp;${pre.inLive}
@@ -74,7 +80,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	头像图片<input type="file" name="file">
    	 选择文件:
     详细图片<input type="file" name="file" multiple="multiple">  
-   <br> <input type="submit" value="提交">   
-
+   <br> <input type="submit" value="提交">    --%>
+<hr size="20px" color="#AFF">
+<c:forEach items="${listHouses}" var="hourse">
+									<li>
+										<div class="fl">
+											<a href="${urlHouse}" target="_blank" data-lightbox="photo"><img  class="hx-list-img"  src="${urlHouse}"/></a>
+											<div class="hx-list-txt">
+												<p>
+													<strong>${premise.buildName}
+													<span>${hourse.houseDesc}，${hourse.houseArea}</span>
+													</strong>
+												</p>
+												<p>详细的户型解读，请拨打我们的热线电话:400-8820-8820</p>
+											</div>
+										</div>
+										<div class="fr">
+											<p class="price-zero">
+												<span class="downpayment">参考总价:</span>
+												<span class="price-one">${hourse.housePrice}</span>
+												<span class="price-two">万</span>
+												<span class="price-three">
+												<em style="font-size: inherit;">(222</em>
+												元/平方米)
+												</span>
+											</p>
+											<p>
+												<span class="downpayment">参考首付:</span>
+												<span class="payment">222</span>
+												<span class="price-two">万</span>
+												<span class="downpayment-1">参考月供:</span>
+												<span class="payment">222</span>
+												<span class="price-two">元/月</span>
+											</p>
+										</div>
+									</li>
+									</c:forEach>
   </body>
 </html>

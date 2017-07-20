@@ -51,10 +51,10 @@ public class PremisesCer {
 			Premises premises=new Premises();
 			Premisetype premisetype=new Premisetype();
 			Region region=new Region();
-			String[] filePaths = null;
+			String []filePaths=new String[files.length];
 			if(files.length>0){
 				for(int i=0;i<files.length;i++){
-					filePaths[i] = request.getSession().getServletContext().getRealPath("/") + "upload/"  
+					filePaths[i] = request.getSession().getServletContext().getRealPath("/") + "upload/"
 	                        + files[i].getOriginalFilename();
 					files[i].transferTo(new File(filePaths[i]));
 					System.out.println(filePaths[i]);
@@ -116,7 +116,7 @@ public class PremisesCer {
 			Premises premises=new Premises();
 			Premisetype premisetype=new Premisetype();
 			Region region=new Region();
-			String[] filePaths = null;
+			String []filePaths=new String[files.length];
 			if(files.length>0){
 				for(int i=0;i<files.length;i++){
 					filePaths[i] = request.getSession().getServletContext().getRealPath("/") + "upload/"  
@@ -168,10 +168,10 @@ public class PremisesCer {
 		
 		return modelAndView;
 	}
-	@RequestMapping("/deletePremise")
+/*	@RequestMapping("/deletePremise")
 	public ModelAndView deletePremise(@RequestParam("buildId")int buildId){
 		premiseimgBiz.deletePremisimg(buildId);
 		premiseBiz.deletePremises(buildId);
 		return new ModelAndView("楼盘显示  列表");
-	}
+	}*/
 }

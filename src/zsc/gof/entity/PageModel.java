@@ -36,10 +36,10 @@ public class PageModel<E> {
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;
 	}
-	public int getToltalRecords() {
+	public int getTotalRecords() {
 		return totalRecords;
 	}
-	public void setToltalRecords(int totalRecords) {
+	public void setTotalRecords(int totalRecords) {
 		this.totalRecords = totalRecords;
 	}
 	public List<E> getList() {

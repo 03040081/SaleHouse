@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,8 @@ public class HouseCer {
 	HouseBiz houseBiz;
 	@Autowired
 	HouseimgBiz houseimgBiz;
+	@Autowired
+	HttpServletRequest request;
 	
 	
 	/*
@@ -40,17 +43,21 @@ public class HouseCer {
 	@RequestMapping("/houseInfo")
 	public ModelAndView premisAndHouse(@RequestParam("buildId")int buildId){
 		Premises premises=premiseBiz.findOne(buildId);
-		List<House> listHouses=houseBiz.listHouse(buildId);
+		List<House> listHouses = houseBiz.listHouse(buildId);
 		
-		for(House h:listHouses){
-			System.out.println("房子："+h.getHouseDesc());
-		}
+		System.out.println("&&&&&&&&&&   :  "+listHouses.size());
 		
 		ModelAndView modelAndView=new ModelAndView("detailcondition/HouseInfo");
+		//ModelAndView modelAndView=new ModelAndView("index3");
 		modelAndView.addObject("premise",premises);
 		modelAndView.addObject("listHouses", listHouses);
+		System.out.println(listHouses.size());
+		HttpSession session=request.getSession();
+		
+		for(House house:listHouses)
+			System.out.println("户型：：："+house.getHouseDesc());
 		String url=listHouses.get(0).getHouseimg().get(0).getImgUrl();
-		modelAndView.addObject("urlHouse",url);
+		session.setAttribute("urlHouse", url);
 		return modelAndView;
 	}
 	

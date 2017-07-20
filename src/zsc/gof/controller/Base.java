@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class Base {
 	@RequestMapping("/Home")//访问地址
 	public  ModelAndView index() {
-		return new ModelAndView("HouseInfo");
+		return new ModelAndView("index4");
 	}
 	
 	@RequestMapping("/Test55")//访问地址
