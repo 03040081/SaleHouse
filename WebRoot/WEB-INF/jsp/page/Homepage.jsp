@@ -539,5 +539,6 @@
 		<script src="<%=basePath%>static/js/jquery.appear.js"></script>
 		<script src="<%=basePath%>static/js/SmoothScroll.min.js"></script>
 		<script src="<%=basePath%>static/js/theme-scripts.js"></script>
+		
 	</body>
 </html>

@@ -41,7 +41,7 @@ public class UserInfoCer {
 		/*
 		 * if 登录
 		 */
-		ModelAndView modelAndView=new ModelAndView("index");
+		ModelAndView modelAndView=new ModelAndView("Homepage");
 		Userinfo userinfo=null;
 		Cookie[] cookies=request.getCookies();
 		if(cookies!=null){
@@ -55,6 +55,8 @@ public class UserInfoCer {
 			}
 		}
 		userinfo=userInfoBiz.login(username, password);
+		if(userinfo==null)
+			return modelAndView;
 		if(userinfo.getLocked()==0){//用户被锁定，不能登录
 			return modelAndView;
 		}
@@ -96,8 +98,8 @@ public class UserInfoCer {
 		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
 		String filePath="";
-		if(user<=0){
-			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+		if(user<=0){//request.getSession().getServletContext().getRealPath("/") + 
+			filePath = "upload/"+ file.getOriginalFilename();
 			file.transferTo(new File(filePath));
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);
@@ -122,8 +124,8 @@ public class UserInfoCer {
 		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
 		String filePath="";
-		if(user<=0){
-			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+		if(user<=0){//request.getSession().getServletContext().getRealPath("/") + 
+			filePath = "upload/"+ file.getOriginalFilename();
 			file.transferTo(new File(filePath));
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);
