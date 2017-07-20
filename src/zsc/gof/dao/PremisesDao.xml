@@ -24,6 +24,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<association property="premisetype" column="buildType" select="zsc.gof.dao.PremisetypeDao.queryPremisetypeBybuildType"/>
 		<association property="region" column="regionId" select="zsc.gof.dao.RegionDao.queryRegionById"/>
 		<collection property="premisesimg" column="buildId" select="zsc.gof.dao.PremisesimgDao.queryPremisesimgByBuildId"/>
+		
+		<collection property="premisesimgLesser" column="buildId" select="zsc.gof.dao.PremisesimgDao.queryPremisesimgByBuildIdAndSizeLesser"/>
+		<collection property="premisesimgBiggest" column="buildId" select="zsc.gof.dao.PremisesimgDao.queryPremisesimgByBuildIdAndSizeBiggest"/>
+		
 		<collection property="houses" column="buildId" select="zsc.gof.dao.HouseDao.queryHouseByBuildId"></collection>
 	</resultMap>
 	
