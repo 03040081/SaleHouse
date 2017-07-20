@@ -76,7 +76,8 @@ public class PremisesCer {
 			premises.setRegion(region);
 			premises.setIconUrl(filePaths[0]);
 			List<Premisesimg> list=new ArrayList<Premisesimg>();
-			int buildId=premiseBiz.addPremise(premises);//添加楼盘后返回 楼盘 ID
+			premiseBiz.addPremise(premises);
+			int buildId=premises.getBuildId();//添加楼盘后返回 楼盘 ID
 			for(int i=1;i<filePaths.length;i++){
 				Premisesimg p=new Premisesimg();
 				p.setBuildId(buildId);

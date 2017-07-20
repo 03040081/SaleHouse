@@ -17,19 +17,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <form action="changeC" method="post">
     	</form>
 	<tr>
-	区域：
+	区域：<a href="changeC?regionId=0">不限</a>&nbsp;&nbsp;
   		<c:forEach items="${region}" var="reg">
   			<a href="changeC?regionId=${reg.regionId}">${reg.regionName}</a>&nbsp;&nbsp;
   		</c:forEach>
   	</tr><br>
   	<tr>
-  	类型：
+  	类型：<a href="changeC?regionId=0">不限</a>&nbsp;&nbsp;
   		<c:forEach items="${premistype}" var="pret">
   			<a href="changeC?buildType=${pret.btypeId}">${pret.typeName}</a>&nbsp;&nbsp;
   		</c:forEach>
   	</tr><br>
   	<tr>
-  	类型：
+  	类型：<a href="changeC?regionId=0">不限</a>&nbsp;&nbsp;
   		<c:forEach items="${housetype}" var="hout">
   			<a href="changeC?housetype=${hout.htypeId}">${hout.typeName}</a>&nbsp;&nbsp;
   		</c:forEach>
@@ -40,8 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</tr><br>
   	<tr>
   	<hr size="10px" color="red">
-  		<c:forEach items="${lists}" var="pre">
-  			<p>楼盘ID：&nbsp;${pre.buildId}
+  		<c:forEach items="${pagePre.list}" var="pre">
+  			<p>楼盘ID：&nbsp;<a href="premise?buildId=${pre.buildId}">${pre.buildId}</a>
   			<p>名称：&nbsp;${pre.buildName}
   			<p>开盘时间：&nbsp;${pre.inOpen}
   			<p>入住时间：&nbsp;${pre.inLive}
@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			<c:forEach items="${pre.premisesimg}" var="preimg">
   			<img src="${preimg.imgUrl}">
   			</c:forEach>
-  			<hr size="5px" color="yellor">
+  			<hr size="5px" color="green">
   		</c:forEach>
   	</tr>
   	 </table>

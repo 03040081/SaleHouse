@@ -20,11 +20,11 @@ public class PremiseBizImpl implements PremiseBiz {
 	public List<Premises> find(Map map) {
 		// TODO Auto-generated method stub
 		List<Premises> list = dao.search(map);
-		for(int i =0;i<list.size();i++){
+		/*for(int i =0;i<list.size();i++){
 			System.out.println(list.get(i).getPremisetype().getTypeName());
 			System.out.println(list.get(i).getRegion().getRegionName());
 			System.out.println(i);
-		}
+		}*/
 		return dao.search(map);
 	}
 

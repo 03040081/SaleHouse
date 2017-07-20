@@ -37,12 +37,17 @@ public class HouseCer {
 	 * 显示楼盘信息
 	 * 显示房子信息
 	 */
-	@RequestMapping("/index3")
+	@RequestMapping("/premise")
 	public ModelAndView premisAndHouse(@RequestParam("buildId")int buildId){
 		Premises premises=premiseBiz.findOne(buildId);
 		List<House> listHouses=houseBiz.listHouse(buildId);
+		
+		for(House h:listHouses){
+			System.out.println("房子杰嫂："+h.getHouseDesc());
+		}
+		
 		ModelAndView modelAndView=new ModelAndView("index3");
-		modelAndView.addObject("premises",premises);
+		modelAndView.addObject("pre",premises);
 		modelAndView.addObject("listHouses", listHouses);
 		return modelAndView;
 	}
