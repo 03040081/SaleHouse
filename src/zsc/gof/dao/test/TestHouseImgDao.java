@@ -21,4 +21,10 @@ public class TestHouseImgDao {
 		List<HouseImg> imgs = dao.queryHouseImgByHouseId(222);
 		System.out.println(imgs.size());
 	}
+	@Test public void testinsertHouseImg(){
+		HouseImg houseImg = new HouseImg();
+		houseImg.setHouseId(174);
+		houseImg.setImgUrl("123");
+		dao.insertHouseImg(houseImg);
+	}
 }
