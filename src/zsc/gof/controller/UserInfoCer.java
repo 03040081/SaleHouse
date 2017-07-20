@@ -95,8 +95,8 @@ public class UserInfoCer {
 		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
 		String filePath="";
-		if(user<=0){
-			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+		if(user<=0){//request.getSession().getServletContext().getRealPath("/") + 
+			filePath = "upload/"+ file.getOriginalFilename();
 			file.transferTo(new File(filePath));
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);
@@ -121,8 +121,8 @@ public class UserInfoCer {
 		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
 		String filePath="";
-		if(user<=0){
-			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+		if(user<=0){//request.getSession().getServletContext().getRealPath("/") + 
+			filePath = "upload/"+ file.getOriginalFilename();
 			file.transferTo(new File(filePath));
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);

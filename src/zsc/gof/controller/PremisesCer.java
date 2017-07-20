@@ -53,8 +53,8 @@ public class PremisesCer {
 			Region region=new Region();
 			String []filePaths=new String[files.length];
 			if(files.length>0){
-				for(int i=0;i<files.length;i++){
-					filePaths[i] = request.getSession().getServletContext().getRealPath("/") + "upload/"
+				for(int i=0;i<files.length;i++){//request.getSession().getServletContext().getRealPath("/") +
+					filePaths[i] =  "upload/"
 	                        + files[i].getOriginalFilename();
 					files[i].transferTo(new File(filePaths[i]));
 					System.out.println(filePaths[i]);
@@ -118,8 +118,8 @@ public class PremisesCer {
 			Region region=new Region();
 			String []filePaths=new String[files.length];
 			if(files.length>0){
-				for(int i=0;i<files.length;i++){
-					filePaths[i] = request.getSession().getServletContext().getRealPath("/") + "upload/"  
+				for(int i=0;i<files.length;i++){//request.getSession().getServletContext().getRealPath("/") + 
+					filePaths[i] = "upload/"  
 	                        + files[i].getOriginalFilename();
 					files[i].transferTo(new File(filePaths[i]));
 					System.out.println(filePaths[i]);
