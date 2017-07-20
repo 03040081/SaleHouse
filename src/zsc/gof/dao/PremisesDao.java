@@ -73,5 +73,5 @@ public interface PremisesDao {
 	 * @return 	楼盘房子的平均价格
 	 * */
 	@Select("SELECT AVG(h.housePrice) FROM house AS h WHERE h.buildId = #{id}")
-	public int queryAvgPremisesByBuildId(int build) ;
+	public Integer queryAvgPremisesByBuildId(int build) ;
 }
