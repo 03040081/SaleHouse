@@ -29,6 +29,7 @@ public class TestPremisesDao {
 	@Test public void testsearch(){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("buildType", "1");
+		map.put("cityId", "1");
 		List<Premises> premises= dao.search(map);
 		System.out.println(premises.size());
 	}

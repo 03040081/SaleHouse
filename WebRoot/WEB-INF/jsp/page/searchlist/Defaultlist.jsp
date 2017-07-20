@@ -218,25 +218,48 @@
 
 
 	<!-- Modal for Login -->
-	<div class="modal fade" id="UertLogin" tabindex="-1" role="dialog"
-		aria-labelledby="ModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="ModalLabel">用户登陆-注册</h4>
-				</div>
-				<div class="modal-body">
-					<div class="row">
-						<div class="col-md-"></div>
+	<div class="modal fade" id="UserLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="ModalLabel">欢迎登陆我爱我家</h4>
+      			</div>
+     			<div class="modal-body">
+        			<div class="row" >
+						 <div class="col-md-12">
+                			<div class="login-panel panel panel-default">
+                   			 	<div class="panel-heading">
+                       		 	<h3 class="panel-title">请登录</h3>
+                    			</div>
+                   			 <div class="panel-body">
+                        	<form role="form" action="loginU" method="post">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="账号" name="username" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="密码" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">记住我的账号
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button type="submit" class="btn btn-lg btn-success btn-block">登陆</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+  
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+		
 
 
 
