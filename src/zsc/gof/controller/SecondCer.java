@@ -38,8 +38,8 @@ public class SecondCer {
 	HttpServletRequest request;
 	@Autowired
 	PremiseBiz premiseBiz;
-	@Autowired 
-	PremisesDao dao;
+	//@Autowired 
+	//PremisesDao dao;
 	
 	/*
 	 * 从首页跳转到第二个页面
@@ -114,7 +114,7 @@ public class SecondCer {
 	 * 时查询出楼盘信息
 	 */
 	@RequestMapping("/changeC")
-	public String changeCondition(HttpServletRequest request){
+	public ModelAndView changeCondition(HttpServletRequest request){
 		
 		String keyword=request.getParameter("keyword");
 		String min=request.getParameter("min");
@@ -124,118 +124,144 @@ public class SecondCer {
 		String buildType=request.getParameter("buildType");
 		
 		
-		//PageModel<Premises> listPre=new PageModel<Premises>();
+		PageModel<Premises> listPre=new PageModel<Premises>();
 		HttpSession session=request.getSession();
 		Map<String, String> map=new HashMap<String, String>();
-		//listPre.setPageIndex(0);
-		//listPre.setPageSize(12);
+		listPre.setPageIndex(0);
+		listPre.setPageSize(12);
 		
-		if(keyword==""||keyword==null)
-			keyword=(String) session.getAttribute("keyword");
-		if(keyword=="0"){
-			keyword=null;
-			session.setAttribute("keyword", null);
-		}
-		if(keyword!=null||keyword!="")
+		if(!"".equals(keyword)&&keyword!=null)
 			session.setAttribute("keyword", keyword);
-		if(min==""||min==null){
+		if("".equals(keyword)||keyword==null)
+			keyword=(String) session.getAttribute("keyword");
+		
+		if(min!=null&&"".equals(min)){
+			session.setAttribute("min", min);
+			session.setAttribute("max", max);
+		}
+		if("".equals(min)||min==null){
 			min=(String) session.getAttribute("min");
 			max=(String) session.getAttribute("max");
 		}
-		if(min=="0"){
+		if("0".equals(min)){
 			min=null;
-			session.setAttribute("min", null);
 			max=null;
+			session.setAttribute("min", null);
 			session.setAttribute("max", null);
 		}
-		if(min!=null||min!="")
-			session.setAttribute("min", min);
-		if(regionId==""||regionId==null){
+		
+		if(regionId!=null&&!"".equals(regionId))
+			session.setAttribute("regId", regionId);
+		if("".equals(regionId)||regionId==null){
 			regionId=(String) session.getAttribute("regId");
-			System.out.println("regiogId为空");
+			//System.out.println("regiogId为空");
 		}
-		if(regionId=="0"){
+		if("0".equals(regionId)){
 			regionId=null;
 			session.setAttribute("regId", null);
 		}
-		if(regionId!=null||regionId!="")
-			session.setAttribute("regId", regionId);
-		if(housetype==""||housetype==null)
+		
+		if(housetype!=null&&!"".equals(housetype))
+			session.setAttribute("htype", housetype);
+		if("".equals(housetype)||housetype==null)
 			housetype=(String) session.getAttribute("htype");
-		if(housetype=="0"){
+		if("0".equals(housetype)){
 			housetype=null;
 			session.setAttribute("htype", null);
 		}
-		if(housetype!=null||housetype!="")
-			session.setAttribute("htype", housetype);
-		if(buildType==""||buildType==null)
+		
+		if(buildType!=null&&!"".equals(buildType))
+			session.setAttribute("btype", buildType);
+		if("".equals(buildType)||buildType==null)
 			buildType=(String) session.getAttribute("btype");
-		if(buildType=="0"){
+		if("0".equals(buildType)){
 			buildType=null;
 			session.setAttribute("btype", null);
 		}
-		if(buildType!=null||buildType!="")
-			session.setAttribute("btype", buildType);
 		
-		System.out.println(keyword);
-		System.out.println(min);
-		System.out.println(max);
-		System.out.println("区域："+regionId);
-		System.out.println("户型："+housetype);
-		System.out.println("建筑类型："+buildType);
-		
-		map.put("keyword", "%"+keyword+"%");
-		map.put("min", min);
-		map.put("max", max);
-		map.put("regionId", regionId);
-		map.put("housetype", housetype);
-		map.put("buildType", buildType);
-		//listPre.setToltalRecords(dao.queryTotalRecord(map));//总页数
-		int x=premiseBiz.totalPremises(map);
+		int flag=0;
+
+		if(!keyword.equals("null")&&!keyword.equals("")&&keyword!=null){
+			map.put("keyword", "%"+keyword+"%");
+			flag++;
+		}
+		if(min!=null){
+			map.put("min", min);
+			map.put("max", max);
+			flag++;
+		}
+		if(regionId!=null){
+			map.put("regionId", regionId);
+			flag++;
+		}
+		if(housetype!=null){
+			map.put("housetype", housetype);
+			flag++;
+		}
+		if(buildType!=null){
+			map.put("buildType", buildType);
+			flag++;
+		}
+		if(flag==0)
+			map.put("keyword","%");
+		listPre.setToltalRecords(premiseBiz.totalPremises(map));//总页数
+		//int x=premiseBiz.totalPremises(map);
 		map.put("pageIndex", String.valueOf(0));//修改查询条件时，从第0条数据开始查询返回
 		map.put("pageSize", String.valueOf(12));
 		
-		//listPre.setList(dao.search(map));
-		List<Premises> listPre=premiseBiz.find(map);
-		//List<Premises> list=new ArrayList<Premises>();
-		//list=premiseBiz.find(map);
-		//ModelAndView modelAndView=new ModelAndView("index2");
-		//modelAndView.addObject("pagePre",listPre);
+		System.out.println("keyword!!!!!:"+map.get("keyword"));
+		System.out.println("regionId###:"+map.get("regionId"));
 		
-		//modelAndView.addObject("pagePre",listPre);
-		//modelAndView.addObject("totalPage",listPre.getTotalPage());
-		request.setAttribute("lists",listPre);
-		request.setAttribute("totalPage",x);
+		listPre.setList(premiseBiz.find(map));
+		ModelAndView modelAndView=new ModelAndView("index2");
 		
-		return "index2";
+		modelAndView.addObject("pagePre",listPre);//楼盘信息
+		modelAndView.addObject("totalPage",listPre.getTotalPage());//总页数
+		
+		return modelAndView;
 	}
 	/*
 	 * 上一页
 	 */
 	@RequestMapping("/previousPage")
-	public ModelAndView previousPage(@RequestParam("keyword")String keyword,
-			@RequestParam("min")String min,@RequestParam("max")String max,
-			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
-			@RequestParam("buildType")String buildType,@RequestParam("pageIndex")int pageIndex){
+	public ModelAndView previousPage(@RequestParam("pageIndex")int pageIndex){
 		PageModel<Premises> listPre=new PageModel<Premises>();
 		HttpSession session=request.getSession();
 		Map<String, String> map=new HashMap<String, String>();
 		listPre.setPageIndex(pageIndex);//设置当前页
 		listPre.setPageSize(12);
 		
-		keyword=(String) session.getAttribute("keyword");
-		min=(String) session.getAttribute("min");
-		max=(String) session.getAttribute("max");
-		regionId=(String) session.getAttribute("regionId");
-		housetype=(String) session.getAttribute("housetype");
-		buildType=(String) session.getAttribute("buildType");
+		String keyword=(String) session.getAttribute("keyword");
+		String min=(String) session.getAttribute("min");
+		String max=(String) session.getAttribute("max");
+		String regionId=(String) session.getAttribute("regionId");
+		String housetype=(String) session.getAttribute("housetype");
+		String buildType=(String) session.getAttribute("buildType");
 		
-		map.put("keyword", "%"+keyword+"%");
-		map.put("min", min);
-		map.put("max", max);
-		map.put("regionId", regionId);
-		map.put("housetype", housetype);
-		map.put("buildType", buildType);
+		int flag=0;
+		if(!keyword.equals("null")&&!keyword.equals("")&&keyword!=null){
+			map.put("keyword", "%"+keyword+"%");
+			flag++;
+		}
+		if(min!=null){
+			map.put("min", min);
+			map.put("max", max);
+			flag++;
+		}
+		if(regionId!=null){
+			map.put("regionId", regionId);
+			flag++;
+		}
+		if(housetype!=null){
+			map.put("housetype", housetype);
+			flag++;
+		}
+		if(buildType!=null){
+			map.put("buildType", buildType);
+			flag++;
+		}
+		if(flag==0)
+			map.put("keyword","%");
 		listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((listPre.getPreviousPage()-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
@@ -250,29 +276,44 @@ public class SecondCer {
 	 * 下一页
 	 */
 	@RequestMapping("/nextPage")
-	public ModelAndView nextPage(@RequestParam("keyword")String keyword,
-			@RequestParam("min")String min,@RequestParam("max")String max,
-			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
-			@RequestParam("buildType")String buildType,@RequestParam("pageIndex") int pageIndex){
+	public ModelAndView nextPage(@RequestParam("pageIndex") int pageIndex){
 		PageModel<Premises> listPre=new PageModel<Premises>();
 		HttpSession session=request.getSession();
 		Map<String, String> map=new HashMap<String, String>();
 		listPre.setPageIndex(pageIndex);//设置当前页
 		listPre.setPageSize(12);
 		
-		keyword=(String) session.getAttribute("keyword");
-		min=(String) session.getAttribute("min");
-		max=(String) session.getAttribute("max");
-		regionId=(String) session.getAttribute("regionId");
-		housetype=(String) session.getAttribute("housetype");
-		buildType=(String) session.getAttribute("buildType");
+		String keyword=(String) session.getAttribute("keyword");
+		String min=(String) session.getAttribute("min");
+		String max=(String) session.getAttribute("max");
+		String regionId=(String) session.getAttribute("regionId");
+		String housetype=(String) session.getAttribute("housetype");
+		String buildType=(String) session.getAttribute("buildType");
 		
-		map.put("keyword", "%"+keyword+"%");
-		map.put("min", min);
-		map.put("max", max);
-		map.put("regionId", regionId);
-		map.put("housetype", housetype);
-		map.put("buildType", buildType);
+		int flag=0;
+		if(!keyword.equals("null")&&!keyword.equals("")&&keyword!=null){
+			map.put("keyword", "%"+keyword+"%");
+			flag++;
+		}
+		if(min!=null){
+			map.put("min", min);
+			map.put("max", max);
+			flag++;
+		}
+		if(regionId!=null){
+			map.put("regionId", regionId);
+			flag++;
+		}
+		if(housetype!=null){
+			map.put("housetype", housetype);
+			flag++;
+		}
+		if(buildType!=null){
+			map.put("buildType", buildType);
+			flag++;
+		}
+		if(flag==0)
+			map.put("keyword","%");
 		listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((listPre.getNextPage()-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
@@ -286,32 +327,48 @@ public class SecondCer {
 	}
 	
 	/*
-	 * 下一页
+	 * 跳到第 几 页
 	 */
 	@RequestMapping("/indexPage")
-	public ModelAndView indexPage(@RequestParam("keyword")String keyword,
-			@RequestParam("min")String min,@RequestParam("max")String max,
-			@RequestParam("regionId")String regionId,@RequestParam("housetype")String housetype,
-			@RequestParam("buildType")String buildType,@RequestParam("pageIndex") int pageIndex){
+	public ModelAndView indexPage(@RequestParam("pageIndex") int pageIndex){
 		PageModel<Premises> listPre=new PageModel<Premises>();
 		HttpSession session=request.getSession();
 		Map<String, String> map=new HashMap<String, String>();
 		listPre.setPageIndex(pageIndex);//设置当前页
 		listPre.setPageSize(12);
 		
-		keyword=(String) session.getAttribute("keyword");
-		min=(String) session.getAttribute("min");
-		max=(String) session.getAttribute("max");
-		regionId=(String) session.getAttribute("regionId");
-		housetype=(String) session.getAttribute("housetype");
-		buildType=(String) session.getAttribute("buildType");
+		String keyword=(String) session.getAttribute("keyword");
+		String min=(String) session.getAttribute("min");
+		String max=(String) session.getAttribute("max");
+		String regionId=(String) session.getAttribute("regionId");
+		String housetype=(String) session.getAttribute("housetype");
+		String buildType=(String) session.getAttribute("buildType");
 		
-		map.put("keyword", "%"+keyword+"%");
-		map.put("min", min);
-		map.put("max", max);
-		map.put("regionId", regionId);
-		map.put("housetype", housetype);
-		map.put("buildType", buildType);
+		int flag=0;
+
+		if(!keyword.equals("null")&&!keyword.equals("")&&keyword!=null){
+			map.put("keyword", "%"+keyword+"%");
+			flag++;
+		}
+		if(min!=null){
+			map.put("min", min);
+			map.put("max", max);
+			flag++;
+		}
+		if(regionId!=null){
+			map.put("regionId", regionId);
+			flag++;
+		}
+		if(housetype!=null){
+			map.put("housetype", housetype);
+			flag++;
+		}
+		if(buildType!=null){
+			map.put("buildType", buildType);
+			flag++;
+		}
+		if(flag==0)
+			map.put("keyword","%");
 		listPre.setToltalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((pageIndex-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
