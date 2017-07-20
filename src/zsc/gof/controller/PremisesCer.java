@@ -85,7 +85,9 @@ public class PremisesCer {
 				list.add(p);
 			}
 			premises.setPremisesimg(list);
-			premiseimgBiz.addPremisimg(list);
+			for(Premisesimg premisesimg:list){
+				premiseimgBiz.addPremisimg(premisesimg);
+			}
 			modelAndView=new ModelAndView("index3");//显示楼盘的界面
 			modelAndView.addObject(premises);
 			System.out.println(premises.getBuildName());
@@ -150,7 +152,9 @@ public class PremisesCer {
 			}
 			premises.setPremisesimg(list);
 			//premiseimgBiz.addPremisimg(list);
-			premiseimgBiz.updatePremisimg(list);
+			for(Premisesimg premisesimg:list){
+				premiseimgBiz.updatePremisimg(premisesimg);
+			}
 			modelAndView=new ModelAndView("index3");//显示楼盘的界面
 			modelAndView.addObject(premises);
 			System.out.println(premises.getBuildName());
