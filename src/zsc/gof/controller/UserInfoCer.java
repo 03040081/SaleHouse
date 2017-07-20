@@ -1,5 +1,8 @@
 package zsc.gof.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,8 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import zsc.gof.biz.UserInfoBiz;
+import zsc.gof.entity.Region;
 import zsc.gof.entity.Role;
 import zsc.gof.entity.Userinfo;
 
@@ -25,14 +31,17 @@ public class UserInfoCer {
 	Role role;
 	*/
 	@Autowired
+	HttpServletRequest request;
+	@Autowired
 	UserInfoBiz userInfoBiz;
 	
 	@RequestMapping("/loginU")
-	public String Login(@RequestParam("username") String username,@RequestParam("password") String password,
+	public ModelAndView Login(@RequestParam("username") String username,@RequestParam("password") String password,
 			HttpServletRequest request,HttpServletResponse response){
 		/*
 		 * if 登录
 		 */
+		ModelAndView modelAndView=new ModelAndView("index");
 		Userinfo userinfo=null;
 		Cookie[] cookies=request.getCookies();
 		if(cookies!=null){
@@ -46,6 +55,9 @@ public class UserInfoCer {
 			}
 		}
 		userinfo=userInfoBiz.login(username, password);
+		if(userinfo.getLocked()==0){//用户被锁定，不能登录
+			return modelAndView;
+		}
 		if(userinfo!=null){
 			HttpSession session=request.getSession();
 			session.setAttribute("userInfo", userinfo);
@@ -56,10 +68,11 @@ public class UserInfoCer {
 				response.addCookie(myusername);
 				response.addCookie(mypassword);
 			}
-			return "index";
+			return modelAndView;
 		}else{
-			return "loginU";
+			return modelAndView;
 		}
+		
 
 	}
 	/*
@@ -72,20 +85,24 @@ public class UserInfoCer {
 	}
 	
 	/*
+	 * 普通用户
 	 * 注册用户
 	 */
-	@RequestMapping("/register")
-	public String register(@RequestParam("username")String username,@RequestParam("password")String password,
-			@RequestParam("locked")int locked,@RequestParam("faceing")String faceing,@RequestParam("roleId")int roleId){
+	@RequestMapping("/registerUser")
+	public String registerUser(@RequestParam("file") MultipartFile file,@RequestParam("username")String username,
+			@RequestParam("password")String password) throws IOException{
 		Userinfo userinfo=new Userinfo();
 		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
+		String filePath="";
 		if(user<=0){
+			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+			file.transferTo(new File(filePath));
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);
 			///userinfo.setLocked(locked);默认值
-			userinfo.setFaceing(faceing);
-			role.setRoleId(roleId);
+			userinfo.setFaceing(filePath);
+			role.setRoleId(1);
 			userinfo.setRole(role);
 			Biz.register(userinfo);
 			return "loginU";
@@ -93,12 +110,56 @@ public class UserInfoCer {
 			return "register";
 		}
 	}
-	
-	
-	
-	@RequestMapping("/updateUser")
+	/*
+	 * 管理员用户
+	 * 注册用户
+	 */
+	@RequestMapping("/registerManager")
+	public String registerMag(@RequestParam("file") MultipartFile file,@RequestParam("username")String username,
+			@RequestParam("password")String password)throws IOException{
+		Userinfo userinfo=new Userinfo();
+		Role role=new Role();
+		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
+		String filePath="";
+		if(user<=0){
+			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+			file.transferTo(new File(filePath));
+			userinfo.setUsername(username);
+			userinfo.setPassword(password);
+			///userinfo.setLocked(locked);默认值
+			userinfo.setFaceing(filePath);
+			role.setRoleId(2);
+			userinfo.setRole(role);
+			Biz.register(userinfo);
+			return "loginU";
+		}else{
+			return "register";
+		}
+	}
+	/*@RequestMapping("/updateUser")
 	public String updateUser(Userinfo userinfo){
 		userInfoBiz.update(userinfo);
 		return "userinfo";
+	}*/
+	@RequestMapping("/updateUser")
+	public String updateUser(@RequestParam("username")String username,@RequestParam("password")String password,
+			@RequestParam("locked")int locked,@RequestParam("faceing")String faceing,@RequestParam("roleId")int roleId){
+		
+		Userinfo userinfo=new Userinfo();
+		userinfo.setUsername(username);
+		userinfo.setPassword(password);
+		userinfo.setLocked(locked);
+		userinfo.setFaceing(faceing);
+		Role role=new Role();
+		role.setRoleId(roleId);
+		userinfo.setRole(role);
+		
+		userInfoBiz.update(userinfo);
+		return "userinfo";
+	}
+	@RequestMapping("/getUserInfo")
+	public String getUserInfo(){
+		//用户新在登录时已经保存至session中
+		return "userInfo";
 	}
 }

@@ -1,3 +1,4 @@
+<%@page import="zsc.gof.entity.House"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,6 +12,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 			<html>
 
 			<head>
@@ -96,7 +98,9 @@
 									<span>在售户型</span>
 								</div>
 								<ul class="hx-list">
-									<c:forEach items="${listHouses}" var="house">
+									
+									<c:forEach items="${listHouses}" var="hourse">
+					
 									<li>
 										<div class="fl">
 											
@@ -104,7 +108,7 @@
 											<div class="hx-list-txt">
 												<p>
 													<strong>${premise.buildName}
-													<span>${house.houseDesc}，${house.houseArea}</span>
+													<span>${hourse.houseDesc}，${hourse.houseArea}平米</span>
 													</strong>
 												</p>
 												<p>详细的户型解读，请拨打我们的热线电话:400-8820-8820</p>
@@ -113,7 +117,7 @@
 										<div class="fr">
 											<p class="price-zero">
 												<span class="downpayment">参考总价:</span>
-												<span class="price-one">${house.housePrice}</span>
+												<span class="price-one">${hourse.housePrice}</span>
 												<span class="price-two">万</span>
 												<span class="price-three">
 												<em style="font-size: inherit;">(222</em>
@@ -130,7 +134,7 @@
 											</p>
 										</div>
 									</li>
-									</c:forEach>
+								</c:forEach>
 								</ul>
 							</div>
 							<a id="houseinfo"></a>
@@ -207,9 +211,10 @@
 								<div class="simple-slider">
 									<div class="swiper-container">
 										<div class="swiper-wrapper">
-										<div class="swiper-slide" style="background-image:url();"></div>
-										<div class="swiper-slide" style="background-image:url();"></div>
-										<div class="swiper-slide" style="background-image:url();"></div>
+										<c:forEach items="${premise.premisesimg}" var="img">
+										<div class="swiper-slide" style="background-image:url(img.imgUrl);"></div>
+										</c:forEach>
+
 									</div>
 									<div class="swiper-pagination"></div>
 									<div class="swiper-button-prev"></div>

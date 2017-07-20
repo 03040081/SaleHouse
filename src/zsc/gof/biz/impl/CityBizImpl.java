@@ -17,10 +17,10 @@ public class CityBizImpl implements CityBiz{
 	CityDao cityDao;
 
 	@Override
-	public List<City> listCityById(int id) {
+	public City getCityById(int id) {
 		// TODO Auto-generated method stub
 		
-		return null;
+		return cityDao.quertCityById(id);
 	}
 
 
@@ -50,5 +50,4 @@ public class CityBizImpl implements CityBiz{
 		// TODO Auto-generated method stub
 		return cityDao.queryCity();
 	}
-
 }

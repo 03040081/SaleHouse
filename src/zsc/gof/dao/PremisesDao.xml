@@ -24,13 +24,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<association property="premisetype" column="buildType" select="zsc.gof.dao.PremisetypeDao.queryPremisetypeBybuildType"/>
 		<association property="region" column="regionId" select="zsc.gof.dao.RegionDao.queryRegionById"/>
 		<collection property="premisesimg" column="buildId" select="zsc.gof.dao.PremisesimgDao.queryPremisesimgByBuildId"/>
-		
+		<collection property="houses" column="buildId" select="zsc.gof.dao.HouseDao.queryHouseByBuildId"></collection>
 	</resultMap>
 	
 	<select id="search" parameterType="Map" resultMap="premisesList">
 		
 		SELECT * FROM premises AS p 
 		<where>
+			<!--城市约束cityid -->
+			<if test="cityId!=null">
+					 AND
+					 p.regionId IN (SELECT regionId FROM region AS r WHERE r.cityId = #{cityId})
+			</if>
 			<if test="min!=null">
 				<!-- 房屋价格查询 -->
 				<if test="max!=null">

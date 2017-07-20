@@ -113,7 +113,7 @@ public class SecondCer {
 	 * 区域 、 均价 、 户型 、 类型 
 	 * 时查询出楼盘信息
 	 */
-	@RequestMapping("/changeC")
+	@RequestMapping("/DetailsSearch")
 	public ModelAndView changeCondition(HttpServletRequest request){
 		
 		String keyword=request.getParameter("keyword");
@@ -204,7 +204,7 @@ public class SecondCer {
 		}
 		if(flag==0)
 			map.put("keyword","%");
-		listPre.setToltalRecords(premiseBiz.totalPremises(map));//总页数
+		listPre.setTotalRecords(premiseBiz.totalPremises(map));//总页数
 		//int x=premiseBiz.totalPremises(map);
 		map.put("pageIndex", String.valueOf(0));//修改查询条件时，从第0条数据开始查询返回
 		map.put("pageSize", String.valueOf(12));
@@ -213,7 +213,7 @@ public class SecondCer {
 		System.out.println("regionId###:"+map.get("regionId"));
 		
 		listPre.setList(premiseBiz.find(map));
-		ModelAndView modelAndView=new ModelAndView("index2");
+		ModelAndView modelAndView=new ModelAndView("searchlist/Defaultlist");
 		
 		modelAndView.addObject("pagePre",listPre);//楼盘信息
 		modelAndView.addObject("totalPage",listPre.getTotalPage());//总页数
@@ -262,7 +262,7 @@ public class SecondCer {
 		}
 		if(flag==0)
 			map.put("keyword","%");
-		listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((listPre.getPreviousPage()-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
 		listPre.setList(premiseBiz.find(map));
@@ -314,7 +314,7 @@ public class SecondCer {
 		}
 		if(flag==0)
 			map.put("keyword","%");
-		listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((listPre.getNextPage()-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
 		
@@ -369,7 +369,7 @@ public class SecondCer {
 		}
 		if(flag==0)
 			map.put("keyword","%");
-		listPre.setToltalRecords(premiseBiz.totalPremises(map));
+		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", String.valueOf((pageIndex-1)*listPre.getPageSize()));
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
 		

@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<tr>
   	<hr size="10px" color="red">
   		<c:forEach items="${pagePre.list}" var="pre">
-  			<p>楼盘ID：&nbsp;<a href="premise?buildId=${pre.buildId}">${pre.buildId}</a>
+  			<p>楼盘ID：&nbsp;<a href="houseInfo?buildId=${pre.buildId}">${pre.buildId}</a>
   			<p>名称：&nbsp;${pre.buildName}
   			<p>开盘时间：&nbsp;${pre.inOpen}
   			<p>入住时间：&nbsp;${pre.inLive}

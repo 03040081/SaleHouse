@@ -13,4 +13,6 @@ public interface UserInfoBiz {
 	public int update(Userinfo userinfo); 
 	
 	public int judgeUser(String username);
+	
+	public Userinfo getUserinfo(int userId);
 }
