@@ -6,9 +6,9 @@ import zsc.gof.entity.Premisesimg;
 
 public interface PremiseimgBiz {
 	
-	public void addPremisimg(List<Premisesimg> list);
+	public void addPremisimg(Premisesimg premisesimg);
 	
-	public void updatePremisimg(List<Premisesimg> list);
+	public void updatePremisimg(Premisesimg premisesimg);
 	
 	public void deletePremisimg(int buildId);
 	

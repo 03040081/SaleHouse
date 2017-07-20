@@ -37,18 +37,20 @@ public class HouseCer {
 	 * 显示楼盘信息
 	 * 显示房子信息
 	 */
-	@RequestMapping("/premise")
+	@RequestMapping("/houseInfo")
 	public ModelAndView premisAndHouse(@RequestParam("buildId")int buildId){
 		Premises premises=premiseBiz.findOne(buildId);
 		List<House> listHouses=houseBiz.listHouse(buildId);
 		
 		for(House h:listHouses){
-			System.out.println("房子杰嫂："+h.getHouseDesc());
+			System.out.println("房子："+h.getHouseDesc());
 		}
 		
-		ModelAndView modelAndView=new ModelAndView("index3");
-		modelAndView.addObject("pre",premises);
+		ModelAndView modelAndView=new ModelAndView("detailcondition/HouseInfo");
+		modelAndView.addObject("premise",premises);
 		modelAndView.addObject("listHouses", listHouses);
+		String url=listHouses.get(0).getHouseimg().get(0).getImgUrl();
+		modelAndView.addObject("urlHouse",url);
 		return modelAndView;
 	}
 	
@@ -86,7 +88,9 @@ public class HouseCer {
 				listimg.add(houseImg);
 			}
 		}
-		houseimgBiz.addHouseImgs(listimg);
+		for(HouseImg houseImg:listimg){
+			houseimgBiz.addHouseImgs(houseImg);
+		}
 		return new ModelAndView("");
 	}
 	/*
@@ -123,7 +127,9 @@ public class HouseCer {
 				listimg.add(houseImg);
 			}
 		}
-		houseimgBiz.updateHouseImgs(listimg);
+		for(HouseImg houseImg:listimg){
+			houseimgBiz.updateHouseImgs(houseImg);
+		}
 		//house.setHouseimg(listimg);
 		houseBiz.updateHouse(house);
 		return new ModelAndView("返回当前楼盘下页面");
