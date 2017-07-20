@@ -1,5 +1,8 @@
 package zsc.gof.controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import zsc.gof.biz.UserInfoBiz;
@@ -26,6 +30,8 @@ public class UserInfoCer {
 	@Autowired
 	Role role;
 	*/
+	@Autowired
+	HttpServletRequest request;
 	@Autowired
 	UserInfoBiz userInfoBiz;
 	
@@ -83,16 +89,19 @@ public class UserInfoCer {
 	 * 注册用户
 	 */
 	@RequestMapping("/registerUser")
-	public String registerUser(@RequestParam("username")String username,@RequestParam("password")String password,
-			@RequestParam("locked")int locked,@RequestParam("faceing")String faceing,@RequestParam("roleId")int roleId){
+	public String registerUser(@RequestParam("file") MultipartFile file,@RequestParam("username")String username,
+			@RequestParam("password")String password) throws IOException{
 		Userinfo userinfo=new Userinfo();
 		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
+		String filePath="";
 		if(user<=0){
+			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+			file.transferTo(new File(filePath));
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);
 			///userinfo.setLocked(locked);默认值
-			userinfo.setFaceing(faceing);
+			userinfo.setFaceing(filePath);
 			role.setRoleId(1);
 			userinfo.setRole(role);
 			Biz.register(userinfo);
@@ -106,16 +115,19 @@ public class UserInfoCer {
 	 * 注册用户
 	 */
 	@RequestMapping("/registerManager")
-	public String registerMag(@RequestParam("username")String username,@RequestParam("password")String password,
-			@RequestParam("faceing")String faceing){
+	public String registerMag(@RequestParam("file") MultipartFile file,@RequestParam("username")String username,
+			@RequestParam("password")String password)throws IOException{
 		Userinfo userinfo=new Userinfo();
 		Role role=new Role();
 		int user=Biz.judgeUser(username);//用户角色、、、、、、、、、、、、、、、、、、
+		String filePath="";
 		if(user<=0){
+			filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"+ file.getOriginalFilename();
+			file.transferTo(new File(filePath));
 			userinfo.setUsername(username);
 			userinfo.setPassword(password);
 			///userinfo.setLocked(locked);默认值
-			userinfo.setFaceing(faceing);
+			userinfo.setFaceing(filePath);
 			role.setRoleId(2);
 			userinfo.setRole(role);
 			Biz.register(userinfo);
