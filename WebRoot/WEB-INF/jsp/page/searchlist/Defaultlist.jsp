@@ -183,10 +183,10 @@
                        		 	<h3 class="panel-title">请登录</h3>
                     			</div>
                    			 <div class="panel-body">
-                        	<form role="form">
+                        	<form role="form" action="loginU" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="账号" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="账号" name="username" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="密码" name="password" type="password" value="">
@@ -197,7 +197,7 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">登陆</a>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">登陆</button>
                             </fieldset>
                         </form>
                     </div>

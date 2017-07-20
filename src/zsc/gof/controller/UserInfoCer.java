@@ -41,7 +41,7 @@ public class UserInfoCer {
 		/*
 		 * if 登录
 		 */
-		ModelAndView modelAndView=new ModelAndView("index");
+		ModelAndView modelAndView=new ModelAndView("Homepage");
 		Userinfo userinfo=null;
 		Cookie[] cookies=request.getCookies();
 		if(cookies!=null){
@@ -55,6 +55,8 @@ public class UserInfoCer {
 			}
 		}
 		userinfo=userInfoBiz.login(username, password);
+		if(userinfo==null)
+			return modelAndView;
 		if(userinfo.getLocked()==0){//用户被锁定，不能登录
 			return modelAndView;
 		}
