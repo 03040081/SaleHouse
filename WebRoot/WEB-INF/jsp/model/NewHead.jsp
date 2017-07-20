@@ -29,8 +29,13 @@
 					<li role="presentation"><a href="#">小区</a></li>
 				</ul>
 				<p class="navbar-text navbar-right actions">
+<<<<<<< HEAD
 					<a class="navbar-link login" href="#" data-toggle="modal" data-target="#UserLogin">登陆</a> 
 					<a class="btn btn-default action-button" role="button" href="#" style="background-color:rgb(268,199,1)">注销</a>
+=======
+					<a class="navbar-link login" href="#">登陆</a> <a
+						class="btn btn-default action-button" role="button" href="#" style="background-color: rgb(255,199,1);">注销</a>
+>>>>>>> 00db09daa50c07f092505e7d0b44a96ad0e13d41
 				</p>
 			</div>
 		</div>
