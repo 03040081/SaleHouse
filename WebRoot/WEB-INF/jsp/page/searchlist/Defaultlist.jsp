@@ -93,7 +93,6 @@
 		</ul>
 	 	<!-- Tab panes -->
 		<div class="tab-content">
-<<<<<<< HEAD
 			<%-- 默认排序 --%>
 			<div role="tabpanel" class="tab-pane active" id="home">
 				<%--<c:forEach items="" var="premises" varStatus="index">--%>
@@ -147,38 +146,6 @@
     		<div role="tabpanel" class="tab-pane" id="messages"></div>
  		</div>
 		<hr>
-=======
-    			<div role="tabpanel" class="tab-pane" id="default">
-					<c:forEach items="" var="premises" varStatus="index">
-						<div class="model">
-							<div class="modelLeft">
-								<div>
-									<a href="<%=modelBase%>">
-									<img src="${iconUrl}">
-									</a>
-								</div>
-							</div>
-							<div class="modelRight">
-								<h3>
-								<b><a href="<%=modelBase%>">为你而选为你而家，绿地海顿公馆 精装10万</a></b>
-								</h3>
-								<br />
-								<ul>
-									<li>世纪新城|2厅2室|92.9平米|南 北|其他</li>
-									<li>高层楼（共33层）楼板 -</li>
-									<li>62人关注 | 共6次带看 | 4个月以前发布</li>
-								</ul>
-							</div>
-						</div>
-					</c:forEach>
-				</div>                                                     
-    			<div role="tabpanel" class="tab-pane" id="profile">aaa</div>
-    			<div role="tabpanel" class="tab-pane" id="messages">aaa</div>
- 		</div> -->
-
-		
-		
->>>>>>> 00db09daa50c07f092505e7d0b44a96ad0e13d41
 	</div>
 
 
@@ -187,7 +154,6 @@
 	<!-- footer-End -->
 
 
-<<<<<<< HEAD
 	<!-- Modal for Login -->
 	<div class="modal fade" id="UertLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
   		<div class="modal-dialog" role="document">
@@ -208,8 +174,6 @@
 
 
 
-=======
->>>>>>> 00db09daa50c07f092505e7d0b44a96ad0e13d41
 
 	<!-- Bootstrap core JavaScript
 			================================================== -->
