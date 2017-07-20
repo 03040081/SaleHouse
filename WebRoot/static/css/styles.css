@@ -63,7 +63,7 @@
   width:100px;
   height:74px;
   margin-top: -5px;
-  ourline:none;
+  outline:none;
 }
 
 #promo .search_box .ipt_box .ipt_button .icons {
@@ -116,29 +116,24 @@
 }
 
 #Search_List {
-  clear:both;
+ clear:both;
  /* text-align:center;*/
-  height:400px;
+  height:600px;
   width:1250px;
   margin:0 auto;
-  background:url(../images/loft.jpg);
+  background:url(../images/SearchListbg.jpg);
   background-size:cover;
   background-repeat:round;
   padding:60px;
-  padding-top:40px;
-}
-
-#Search_List, .Search_Conditon::before {
-  /*background:url(../images/loft.jpg) 0 / cover fixed;
-  background-repeat:round;*/
+  padding-top:80px;
 }
 
 .Search_Condition {
   position:relative;
   background-image: url(../images/sd.jpg);
-  opacity: 0.9;
+  opacity: 0.8;
  /* background:hsla(0,0%,100%,.8);*/
-  height: 330px;
+  height: 430px;
 }
 
 
@@ -190,7 +185,7 @@
 #detail {
   height:592px;
   width:100%;
-  background:url(../images/侨鑫汇悦台01.jpg);
+  background:url(../../assets/img/侨鑫汇悦台01.jpg);
   filter:url(blur.svg#blur);
   background-repeat:no-repeat;
   background-size:cover;
@@ -208,9 +203,7 @@
   margin:-266px 0 0 -595px;
   background-color:rgba(255,255,255,1)
 }
-.col-md-7.box-left .simple-slider{
-	
-}
+
 
 .col-md-5.box-right {
   padding-top:30px;
@@ -346,6 +339,24 @@
     overflow: hidden;
     background: #fff;
 }
+  .detail-content .hx-list .show-title{
+	float: left;
+	margin-left: 30px;
+	height: 200px;
+}
+.detail-content .hx-list .show-title .head{
+	/*margin-top: 5px;*/
+	font-size: 23px;
+    font-weight: bold;
+    display: block;
+}
+.detail-content .hx-list .show-title .show-detail{
+	padding:5px 0;
+  	color:#999;
+  	font-size:14px;
+  	font-weight:300;
+  	line-height: 9px;
+}
 .detail-content .tit{
 	font-size: 18px;
     height: 60px;
@@ -364,7 +375,7 @@
 }
 .detail-content .hx-list li{
 	padding: 15px 20px;
-    height: 163px;
+    height: 188px;
     overflow: hidden;
     border-bottom: 1px dotted #dcdcdc;
 }
@@ -509,3 +520,18 @@
 	margin: 5px;
 	border: 5px solid #F1F1F1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,11 @@
 	String modelBase = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ modelpath + "/";
 %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	System.out.println(modelBase + " " + basePath);
+%>
 
 <!DOCTYPE html>
 <html>
@@ -13,38 +18,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SaleHouseList</title>
-		<link href="<%=modelBase%>static/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<%=modelBase%>static/css/Features-Clean.css">
-		<link rel="stylesheet" href="<%=modelBase%>static/css/Navigation-with-Button1.css">
-		<link rel="stylesheet" href="<%=modelBase%>static/css/Pretty-Search-Form.css">
-		<link rel="stylesheet" href="<%=modelBase%>static/css/styles.css">
-		<link rel="stylesheet" href="<%=modelBase%>static/css/Footer-Dark.css">
-	
-		<style>	
-			.condition-list {
-				display: inline;
-				margin: 0px;
-			}
-			
-			.condition-name {
-				background: #fff;
-				padding: 1px 5px;
-				margin: 0px;
-				cursor: pointer;
-			}
-			
-			.condition-close {
-				background: #efefef;
-				padding: 1px 3px;
-				margin: 0px;
-				cursor: pointer;
-			}
-			
-			.condition {
-				display: inline;
-				margin-left: 10px;
-			}
-		</style>
+		<link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="<%=basePath%>static/css/Features-Clean.css">
+		<link rel="stylesheet" href="<%=basePath%>static/css/Navigation-with-Button1.css">
+		<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
+		<link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
+		<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
 	</head>
 
 <body>
@@ -59,15 +38,13 @@
 	<div id="Search_List">
 		<div class="Search_Condition">
 			<p>区域:</p>
+			<hr />
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<%--<c:forEach items="" var="region" varStatus="index"> --%>
-					<li><a href="#">天河</a></li>
-					<li><a href="#">天河</a></li>
-					<li><a href="#">天河</a></li>
-				<%--</c:forEach>--%>
+				<li><a href="#">天河</a></li>
+				<li><a href="#">天河</a></li>
+				<li><a href="#">天河</a></li>
 			</ul>
-			<hr>
 			<p>售价：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
@@ -80,8 +57,6 @@
 				<li><a href="#">200-300万</a></li>
 				<li><a href="#">300万以上</a></li>
 			</ul>
-			<hr>
-			
 			<p>类型:</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
@@ -91,35 +66,23 @@
 				<li><a href="#">商铺</a></li>
 				<li><a href="#">底商</a></li>
 			</ul>
-			<hr>
-			
 			<p>销售状态：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
 				<li><a href="#">在售</a></li>
 				<li><a href="#">售罄</a></li>
 			</ul>
-			<hr>
 		</div>
 	</div>
 
 	<div id="Search_Tag" class="light-bg">
-		<span>已选条件：</span>
-		<div class="condition-list">
-			<div class="condition">
-				<span class="condition-name">南山区</span><span class="condition-close">×</span>
-			</div>
-			<div class="condition">
-				<span class="condition-name">福田区</span><span class="condition-close">×</span>
-			</div>
-		</div>
+		<p>已选条件：</p>
+		<ul style="display: inline;">
+			<li style="display: inline;"><a href="#">sdd</a></li>
+			<li style="display: inline;"><a href="#">sdd</a></li>
+		</ul>
 	</div>
 	<div id="Search_Result">
-		<p style="font-size: 20px; padding-left: 20px;">
-			共找到&nbsp; <span
-				style="font-size: 25px; font-weight: bolder; color: darkgoldenrod;">123</span>&nbsp;个楼盘
-		</p>
-		<hr />
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a href="#default"
 				aria-controls="default" role="tab" data-toggle="tab">默认排序</a></li>
@@ -128,30 +91,53 @@
 			<li role="presentation"><a href="#saledtime"
 				aria-controls="saledtime" role="tab" data-toggle="tab">开盘时间&nbsp;↓</a></li>
 		</ul>
-	<!-- 	<!-- Tab panes -->
+	 	<!-- Tab panes -->
 		<div class="tab-content">
 			<%-- 默认排序 --%>
 			<div role="tabpanel" class="tab-pane active" id="home">
 				<%--<c:forEach items="" var="premises" varStatus="index">--%>
-				<div class="model">
-					<div class="modelLeft">
-						<div>
-							<a href="<%=modelBase%>"> <img src="${iconUrl}">
-							</a>
+				<!-- Tab panes-->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="home">
+						<div class="detail-content">
+							<div class="tit clearfix productTit">
+								<p style="font-size: 20px; padding-left: 20px;">共找到&nbsp;
+								<span style="font-size: 25px; font-weight: bolder; color: darkgoldenrod;">123</span>&nbsp;个楼盘
+								</p>
+							</div>
+							<ul class="hx-list">
+								<!--<c:forEach items="${list}" var='h'}-->
+								<li>
+									<div class="fl">
+										<a href="assets/img/loft.jpg" target="_blank" data-lightbox="photo"><img class="hx-list-img" src="assets/img/loft.jpg" /></a>
+										<div class="show-title">
+											<p class="head">楼盘名字</p>
+											<p class="show-detail">主推户型：</p>
+											<p class="show-detail">开盘时间：</p>
+											<p class="show-detail">入住时间：</p>
+											<p class="show-detail">详细地址：</p>
+											</div>
+									</div>
+									<div class="fr">
+										<p class="price-zero">
+											<span class="price-one">1000</span>
+											<span class="price-two">万</span>
+											<span class="price-three">
+												<em style="font-size: inherit;">(222<em>
+												元/平方米
+											</span>
+										</p>
+										<p style="font-size: 20px; margin-right: 45px;"><i class="glyphicon glyphicon-earphone"></i> 400-8820-8820 转 38</p>
+									</div>
+								</li>
+								<!--</c:forEach>-->
+							</ul>
 						</div>
 					</div>
-					<div class="modelRight">
-						<h3>
-							<b><a href="<%=modelBase%>">为你而选为你而家，绿地海顿公馆 精装10万</a></b>
-						</h3>
-						<br />
-						<ul>
-							<li>世纪新城|2厅2室|92.9平米|南 北|其他</li>
-							<li>高层楼（共33层）楼板 -</li>
-							<li>62人关注 | 共6次带看 | 4个月以前发布</li>
-						</ul>
-					</div>
+					<div role="tabpanel" class="tab-pane" id="profile"></div>
+					<div role="tabpanel" class="tab-pane" id="messages"></div>
 				</div>
+	
 				<%--</c:forEach>--%>
 			</div>
 			<%-- 排序2 --%>
@@ -162,14 +148,38 @@
 		<hr>
 	</div>
 
+
 	<!-- footer-Start -->
 	 <%@include file="../../model/NewFooter.jsp"%>
 	<!-- footer-End -->
 
+
+	<!-- Modal for Login -->
+	<div class="modal fade" id="UertLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="ModalLabel">用户登陆-注册</h4>
+      			</div>
+     			<div class="modal-body">
+        			<div class="row">
+						<div class="col-md-"></div>
+					</div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+
+
+
+
+
 	<!-- Bootstrap core JavaScript
 			================================================== -->
-	<script src="<%=modelBase%>static/js/jquery.min.js"></script>
-	<script src="<%=modelBase%>static/js/bootstrap.min.js"></script>
+	
+	<script src="<%=basePath%>static/js/jquery.min.js"></script>
+	<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
 </body>
 
 </html>
