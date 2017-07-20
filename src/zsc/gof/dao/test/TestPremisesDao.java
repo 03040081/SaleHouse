@@ -44,6 +44,8 @@ public class TestPremisesDao {
 		int premises= dao.queryTotalRecord(map);
 		System.out.println(premises);
 	}
-	
+	@Test public void testqueryAvgPremisesByBuildId(){
+		System.out.println(dao.queryAvgPremisesByBuildId(1363));
+	}
 	
 }
