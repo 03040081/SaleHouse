@@ -96,10 +96,10 @@
 									<span>在售户型</span>
 								</div>
 								<ul class="hx-list">
-									<%--<c:forEach items="${list}" var='h'}--%>
 									<c:forEach items="${listHouses}" var="house">
 									<li>
 										<div class="fl">
+											
 											<a href="${urlHouse}" target="_blank" data-lightbox="photo"><img  class="hx-list-img"  src="${urlHouse}"/></a>
 											<div class="hx-list-txt">
 												<p>
@@ -131,7 +131,6 @@
 										</div>
 									</li>
 									</c:forEach>
-									<%--</c:forEach>--%>
 								</ul>
 							</div>
 							<a id="houseinfo"></a>
