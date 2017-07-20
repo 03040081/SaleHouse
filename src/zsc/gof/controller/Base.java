@@ -1,18 +1,15 @@
 package zsc.gof.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import zsc.gof.biz.CityBiz;
-import zsc.gof.entity.City;
 
 @Controller//标志为控制器
 public class Base {
+
 	@Autowired
 	CityBiz cityBiz;
 	

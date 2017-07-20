@@ -1,8 +1,5 @@
 package zsc.gof.controller;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -90,6 +87,7 @@ public class FirstCer {
 
 		//查询楼盘数据
 		map.put("keyword", "%" + keyword + "%");
+
 		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
