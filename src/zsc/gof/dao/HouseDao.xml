@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="housePrice" column="housePrice"/>
 		<result property="state" column="state"/>
 		<association property="housetype" column="housetype" select="zsc.gof.dao.HouseTypeDao.queryHouseTypeByHouseTypeId"/>
-		<association property="houseimg" column="houseId" select="zsc.gof.dao.HouseImgDao.queryHouseImgByHouseId"/>
+		<collection property="houseimg" column="houseId" select="zsc.gof.dao.HouseImgDao.queryHouseImgByHouseId"/>
 	</resultMap>
 	
 	<select id="queryHouseByBuildId" parameterType="int" resultMap="houseList">
