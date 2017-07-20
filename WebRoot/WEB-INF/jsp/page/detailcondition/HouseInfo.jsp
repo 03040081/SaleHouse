@@ -22,11 +22,15 @@
 				<link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Features-Clean.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Navigation-with-Button1.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Simple-Slider.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
+				<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Footer.css">
+				<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Basic.css">
+				<link rel="stylesheet" href="<%=basePath%>static/fonts/font-awesome.min.css">
 				
 
 			</head>
@@ -51,8 +55,7 @@
 												<div class="swiper-wrapper">
 												<c:forEach items="${premise.premisesimg}" var="img">
 													<div class="swiper-slide" style="background-image:url(${img.imgUrl});"></div>
-													</c:forEach>
-													
+												</c:forEach>
 												</div>
 												<div class="swiper-pagination"></div>
 												<div class="swiper-button-prev"></div>
@@ -100,6 +103,7 @@
 					
 									<li>
 										<div class="fl">
+											
 											<a href="${urlHouse}" target="_blank" data-lightbox="photo"><img  class="hx-list-img"  src="${urlHouse}"/></a>
 											<div class="hx-list-txt">
 												<p>
@@ -125,7 +129,7 @@
 												<span class="payment">222</span>
 												<span class="price-two">万</span>
 												<span class="downpayment-1">参考月供:</span>
-												<span class="payment">222</span>
+												<span class="payment">3220   </span>
 												<span class="price-two">元/月</span>
 											</p>
 										</div>
