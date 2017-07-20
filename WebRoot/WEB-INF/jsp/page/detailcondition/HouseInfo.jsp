@@ -25,7 +25,7 @@
 				<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Simple-Slider.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
-				<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
+				
 
 			</head>
 
@@ -40,7 +40,7 @@
 
 
 
-					<div id="detail">
+					<div id="detail" style="background:url(../../assets/img/侨鑫汇悦台01.jpg);">
 							<div class="detail-box">
 								<div class="container">
 									<div class="col-md-7 box-left">
@@ -199,67 +199,36 @@
 					<div class="modal-body">
 						<div class="row">
 							<div class="col-md-8">
-								<div class="simple-slider modal-bg">
+								<div class="simple-slider">
 									<div class="swiper-container">
 										<div class="swiper-wrapper">
-											<div class="swiper-slide" style="background-image:url();"></div>
-											<div class="swiper-slide" style="background-image:url();"></div>
-											<div class="swiper-slide" style="background-image:url();"></div>
-										</div>
-									</li>
-									<%--</c:forEach>--%>
-								</ul>
-							</div>
-							<a id="houseinfo"></a>
-							<div class="detail-content">
-								<p class="tit clearfix">楼盘信息</p>
-								<div class="detail-data">
-									<div class="data-box">
-										<p class="data-tit">
-											<strong>楼盘名字</strong>
-										</p>
+										<div class="swiper-slide" style="background-image:url();"></div>
+										<div class="swiper-slide" style="background-image:url();"></div>
+										<div class="swiper-slide" style="background-image:url();"></div>
 									</div>
-									<div class="data-box parameter">
-										<p class="data-tit clearfix">
-											<strong>楼盘参数</strong>
-										</p>
-										<dl class="parameter-one">
-											<dt style="display: none;"></dt>
-											<dd>楼盘地址： </dd>
-											<dd>开发商： </dd>
-											<dd>产权： </dd>
-											<dd>区域： </dd>
-											<dd>楼盘类型： </dd>
-											<dd>占地面积： </dd>
-										</dl>
-										<dl class="parameter-two">
-											<dt style="display: none;"></dt>
-											<dd>开盘时间： </dd>
-											<dd>入住时间： </dd>
-											<dd>建筑面积： </dd>
-											<dd>物业费用： </dd>
-											<dd>规划户数： </dd>
-										</dl>
-									</div>
+									<div class="swiper-pagination"></div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
 								</div>
 							</div>
-							<a id="houseimg"></a>
-							<div class="detail-content">
-								<p class="tit clearfix">楼盘相册</p>
-								<div class="photo-wrap">
-									<ul class="photo-list">
-										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+							<div class="col-md-4">
+								<h2 class="list-group-item-heading">万科商业城</h2>
+								<div class="head-info-list">
+									<ul>
+										<li class="head-info-item">楼盘别名<span>Text</span></li>
+										<li class="head-info-item">物业类型<span>Text</span></li>
+										<li class="head-info-item">开盘时间<span>Text</span></li>
+										<li class="head-info-item">入住时间<span>Text</span></li>
+										<li class="head-info-item">楼盘地址<span>Text</span></li>
+										<li class="head-info-item">建筑面积<span>Text</span></li>
+										<li class="head-info-item">物业费用<span>Text</span></li>
 									</ul>
 								</div>
-			</div>
-			</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				</div>
+							</div>
+						</div>					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
 				</div>
 			</div>
 		</div>	
