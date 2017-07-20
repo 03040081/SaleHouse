@@ -19,6 +19,7 @@
 				<title>HouseInfo</title>
 				<link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
 				<link rel="stylesheet" href="<%=basePath%>static/css/Features-Clean.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Navigation-with-Button1.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
@@ -94,7 +95,7 @@
 									<%--<c:forEach items="${list}" var='h'}--%>
 																	<li>
 										<div class="fl">
-											<a href="#"><img  class="hx-list-img"  src="assets/img/loft.jpg"/></a>
+											<a href="jpg" target="_blank" data-lightbox="photo"><img  class="hx-list-img"  src="jpg"/></a>
 											<div class="hx-list-txt">
 												<p>
 													<strong>楼盘名字
@@ -160,34 +161,34 @@
 									</div>
 								</div>
 							</div>
-			<a id="houseimg"></a>
-			<div class="detail-content">
-				<p class="tit clearfix">楼盘相册</p>
-				<div class="photo-wrap">
-					<ul class="photo-list">
-						<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-						<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-						<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-						<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-					</ul>
-				</div>
-			</div>
-			<a id="houseard"></a>
-			<div class="detail-content">
-				<p class="tit clearfix">周边配套</p>
-			</div>
-		</div>
+							<a id="houseimg"></a>
+							<div class="detail-content">
+								<p class="tit clearfix">楼盘相册</p>
+								<div class="photo-wrap">
+									<ul class="photo-list">
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+									</ul>
+								</div>
+							</div>
+							<a id="houseard"></a>
+							<div class="detail-content">
+								<p class="tit clearfix">周边配套</p>
+							</div>
+					</div>
 	
 
 
 
 
-		<!-- footer-Start -->
-	 	<%@include file="../../model/NewFooter.jsp"%>
-		<!-- footer-End -->
+					<!-- footer-Start -->
+	 				<%@include file="../../model/NewFooter.jsp"%>
+					<!-- footer-End -->
 
 
-		<!-- Modal for House-Img-Condition -->
+					<!-- Modal for House-Img-Condition -->
 		<div class="modal fade bs-example-modal-lg" id="PhotoCondition" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
@@ -275,6 +276,7 @@
 		<script src="<%=basePath%>static/js/jquery.min.js"></script>
 		<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox-plus-jquery.min.js"></script>
 		<script src="<%=basePath%>static/js/Simple-Slider.js"></script>
 </body>
 </html>
