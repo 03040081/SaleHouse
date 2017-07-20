@@ -115,11 +115,6 @@
 		</div>
 	</div>
 	<div id="Search_Result">
-		<p style="font-size: 20px; padding-left: 20px;">
-			共找到&nbsp; <span
-				style="font-size: 25px; font-weight: bolder; color: darkgoldenrod;">123</span>&nbsp;个楼盘
-		</p>
-		<hr />
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a href="#default"
 				aria-controls="default" role="tab" data-toggle="tab">默认排序</a></li>
@@ -133,25 +128,48 @@
 			<%-- 默认排序 --%>
 			<div role="tabpanel" class="tab-pane active" id="home">
 				<%--<c:forEach items="" var="premises" varStatus="index">--%>
-				<div class="model">
-					<div class="modelLeft">
-						<div>
-							<a href="<%=modelBase%>"> <img src="${iconUrl}">
-							</a>
+				<!-- Tab panes-->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="home">
+						<div class="detail-content">
+							<div class="tit clearfix productTit">
+								<p style="font-size: 20px; padding-left: 20px;">共找到&nbsp;
+								<span style="font-size: 25px; font-weight: bolder; color: darkgoldenrod;">123</span>&nbsp;个楼盘
+								</p>
+							</div>
+							<ul class="hx-list">
+								<!--<c:forEach items="${list}" var='h'}-->
+								<li>
+									<div class="fl">
+										<a href="assets/img/loft.jpg" target="_blank" data-lightbox="photo"><img class="hx-list-img" src="assets/img/loft.jpg" /></a>
+										<div class="show-title">
+											<p class="head">楼盘名字</p>
+											<p class="show-detail">主推户型：</p>
+											<p class="show-detail">开盘时间：</p>
+											<p class="show-detail">入住时间：</p>
+											<p class="show-detail">详细地址：</p>
+											</div>
+									</div>
+									<div class="fr">
+										<p class="price-zero">
+											<span class="price-one">1000</span>
+											<span class="price-two">万</span>
+											<span class="price-three">
+												<em style="font-size: inherit;">(222<em>
+												元/平方米
+											</span>
+										</p>
+										<p style="font-size: 20px; margin-right: 45px;"><i class="glyphicon glyphicon-earphone"></i> 400-8820-8820 转 38</p>
+									</div>
+								</li>
+								<!--</c:forEach>-->
+							</ul>
 						</div>
 					</div>
-					<div class="modelRight">
-						<h3>
-							<b><a href="<%=modelBase%>">为你而选为你而家，绿地海顿公馆 精装10万</a></b>
-						</h3>
-						<br />
-						<ul>
-							<li>世纪新城|2厅2室|92.9平米|南 北|其他</li>
-							<li>高层楼（共33层）楼板 -</li>
-							<li>62人关注 | 共6次带看 | 4个月以前发布</li>
-						</ul>
-					</div>
+					<div role="tabpanel" class="tab-pane" id="profile"></div>
+					<div role="tabpanel" class="tab-pane" id="messages"></div>
 				</div>
+	
 				<%--</c:forEach>--%>
 			</div>
 			<%-- 排序2 --%>
@@ -165,6 +183,28 @@
 	<!-- footer-Start -->
 	 <%@include file="../../model/NewFooter.jsp"%>
 	<!-- footer-End -->
+
+
+	<!-- Modal for Login -->
+	<div class="modal fade" id="UertLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="ModalLabel">用户登陆-注册</h4>
+      			</div>
+     			<div class="modal-body">
+        			<div class="row">
+						<div class="col-md-"></div>
+					</div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+
+
+
+
 
 	<!-- Bootstrap core JavaScript
 			================================================== -->

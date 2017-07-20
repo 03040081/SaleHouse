@@ -189,11 +189,11 @@
 
 		<!-- Modal for House-Img-Condition -->
 		<div class="modal fade bs-example-modal-lg" id="PhotoCondition" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h2 class="modal-title" id="Modal-label-2">帝景山庄</h4>
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h2 class="modal-title" id="Modal-label-2">万科商景城</h4>
 					</div>
 					<div class="modal-body">
 						<div class="row">
@@ -225,15 +225,20 @@
 									</ul>
 								</div>
 			</div>
-		</div>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	</div>
-</div>
-</div>
-</div>	
+			</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				</div>
+				</div>
+			</div>
+		</div>	
+		<!-- Modal for Login -->
+
+		<!-- Modal for House-Img-Condition -->
 		
+
+
 		
 		
 		

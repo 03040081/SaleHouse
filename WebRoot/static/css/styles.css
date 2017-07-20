@@ -346,6 +346,24 @@
     overflow: hidden;
     background: #fff;
 }
+  .detail-content .hx-list .show-title{
+	float: left;
+	margin-left: 30px;
+	height: 200px;
+}
+.detail-content .hx-list .show-title .head{
+	/*margin-top: 5px;*/
+	font-size: 23px;
+    font-weight: bold;
+    display: block;
+}
+.detail-content .hx-list .show-title .show-detail{
+	padding:5px 0;
+  	color:#999;
+  	font-size:14px;
+  	font-weight:300;
+  	line-height: 9px;
+}
 .detail-content .tit{
 	font-size: 18px;
     height: 60px;
@@ -364,7 +382,7 @@
 }
 .detail-content .hx-list li{
 	padding: 15px 20px;
-    height: 163px;
+    height: 188px;
     overflow: hidden;
     border-bottom: 1px dotted #dcdcdc;
 }
