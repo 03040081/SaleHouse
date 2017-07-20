@@ -1,5 +1,9 @@
 package zsc.gof.controller;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,11 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import zsc.gof.biz.CityBiz;
+import zsc.gof.biz.HouseBiz;
 import zsc.gof.biz.HousetypeBiz;
 import zsc.gof.biz.PremiseBiz;
 import zsc.gof.biz.PremisetypeBiz;
 import zsc.gof.biz.RegionBiz;
 import zsc.gof.entity.City;
+import zsc.gof.entity.House;
 import zsc.gof.entity.Housetype;
 import zsc.gof.entity.PageModel;
 import zsc.gof.entity.Premises;
@@ -40,6 +46,8 @@ public class FirstCer {
 	HousetypeBiz houtyBiz;
 	@Autowired
 	CityBiz cityBiz;
+	@Autowired
+	HouseBiz houseBiz;
 
 	/*
 	 * 从首页输入模糊查询 跳转至列表找房子
@@ -51,9 +59,21 @@ public class FirstCer {
 
 		HttpSession session = request.getSession();
 		int cityId = ((City)session.getAttribute("currCity")).getCityId();	//获取当前城市ID
+		System.out.println("Search: cityId=" + cityId);	//输出当前cityId
+		
 		List<Region> listReg = regBiz.listRegById(cityId);	//获取当前城市的所有区
 		List<Premisetype> listPret = pretyBiz.listPremisetypes();	//获取所有楼盘类型
 		List<Housetype> listHout = houtyBiz.listHousetypes();		//获取所有户型
+		//获取当前页所有楼盘的均价
+		List<Integer> avgPrices = new ArrayList<Integer>();
+		System.out.println(listPre.getTotalRecords());
+		for (int i = 0; i < listPre.getTotalRecords(); i++) {
+			int buildId = listPre.getList().get(i).getBuildId();
+			int price = premiseBiz.avgPremisePrice(buildId);
+			System.out.println(buildId + ":" + price);
+			avgPrices.add(price);
+		}
+		session.setAttribute("avgPrices", avgPrices);
 		session.setAttribute("region", listReg);
 		session.setAttribute("premisetype", listPret);
 		System.out.println("PremiseType: " + listPret.size());

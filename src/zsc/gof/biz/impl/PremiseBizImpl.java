@@ -60,4 +60,8 @@ public class PremiseBizImpl implements PremiseBiz {
 		return dao.queryPremisesByBuildId(buildId);
 	}
 	
+	@Override
+	public int avgPremisePrice(int buildId) {
+		return dao.queryAvgPremisesByBuildId(buildId);
+	}
 }

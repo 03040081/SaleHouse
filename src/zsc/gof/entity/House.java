@@ -61,7 +61,4 @@ public class House {
 	public void setHousetype(Housetype housetype) {
 		this.housetype = housetype;
 	}
-	
-	
-	
 }
