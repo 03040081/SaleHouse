@@ -27,14 +27,6 @@
 		<link href="<%=basePath%>static/css/styles.css" rel="stylesheet">
 		<script src="<%=basePath%>static/js/jquery.min.js"></script>
 		
-		<script type="text/javascript">			
-			$(document).ready(function() {
-				alert('a');
-				$('li').click(function() {
-					alert('li');
-				});
-			});
-		</script>
 	</head>
 	
 	<body id="page-top">
@@ -54,14 +46,17 @@
 					<ul class="nav navbar-nav">
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
-								<i class="glyphicon glyphicon-map-marker"></i>广州
+								<i class="glyphicon glyphicon-map-marker"></i>${currCity.cityName}
 								<span class="caret"></span>
 							</a>
 							<ul id="ul_region" class="dropdown-menu" role="menu">
-								<li role="presentation"><a href="#">深圳</a></li>
-								<li role="presentation"><a href="#">佛山</a></li>
-								<li role="presentation"><a href="#">惠州</a></li>
-								<li role="presentation"><a href="#">中山</a></li>
+								<c:forEach items="${listCity}" var="city">
+									<c:if test="${city.cityId != currCity.cityId}">
+										<li class="region-info" role="presentation">
+											<a href="City?cityId=${city.cityId}">${city.cityName}</a>
+										</li>
+									</c:if>
+								</c:forEach>
 							</ul>
 						</li>
 					</ul>
@@ -108,7 +103,7 @@
 						<span class="cur" data-type="rent">找租房</span>
 					</p>
 					<div class="ipt_box">
-						<input id="condition"  type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名" required="required">
+						<input id="keyword" type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名" required="required">
 						<button id="btn_search" href="#" class="ipt_button fl"> <i class="icons"> </i></button>
 					</div>
 				</div>

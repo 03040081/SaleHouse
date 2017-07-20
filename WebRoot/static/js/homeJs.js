@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$('#btn_search').click(function() {
-		var keyword = document.getElementById('condition').value;
+		var keyword = document.getElementById('keyword').value;
 		if (keyword != null && keyword != "")
-			location.href = "Search?condition=" + keyword;
+			location.href = "Search?keyword=" + keyword;
 	});
 });

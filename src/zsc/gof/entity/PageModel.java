@@ -5,7 +5,7 @@ import java.util.List;
 public class PageModel<E> {
 	private int pageIndex;//当前页
 	private int totalRecords;//总计记录数
-	private List<E>list;
+	private List<E> list;
 	private int pageSize;//每页记录数
 	
 	//获取总页数
@@ -36,10 +36,10 @@ public class PageModel<E> {
 	public void setPageIndex(int pageIndex) {
 		this.pageIndex = pageIndex;
 	}
-	public int getToltalRecords() {
+	public int getTotalRecords() {
 		return totalRecords;
 	}
-	public void setToltalRecords(int totalRecords) {
+	public void setTotalRecords(int totalRecords) {
 		this.totalRecords = totalRecords;
 	}
 	public List<E> getList() {

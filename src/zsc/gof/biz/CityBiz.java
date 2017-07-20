@@ -7,9 +7,9 @@ import zsc.gof.entity.City;
 public interface CityBiz {
 	/*
 	 * 搜索
-	 * 城市列表
+	 * 城市
 	 */
-	public List<City> listCityById(int id);
+	public City getCityById(int id);
 	/*
 	 * 
 	 */
