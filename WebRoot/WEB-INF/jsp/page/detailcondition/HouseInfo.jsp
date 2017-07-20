@@ -198,50 +198,58 @@
 
 
 					<!-- Modal for House-Img-Condition -->
-		<div class="modal fade bs-example-modal-lg" id="PhotoCondition" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h2 class="modal-title" id="Modal-label-2">万科商景城</h4>
+<div class="modal fade bs-example-modal-lg" id="PhotoCondition" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h2 class="modal-title" id="Modal-label-2">万科商景城</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="simple-slider modal-bg">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide" style="background-image:url();"></div>
+									<div class="swiper-slide" style="background-image:url();"></div>
+									<div class="swiper-slide" style="background-image:url();"></div>
+								</div>
+								<div class="swiper-pagination"></div>
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+							</div>
+						</div>
 					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-md-8">
-								<div class="simple-slider">
-									<div class="swiper-container">
-										<div class="swiper-wrapper">
-										<c:forEach items="${premise.premisesimg}" var="img">
-										<div class="swiper-slide" style="background-image:url(img.imgUrl);"></div>
-										</c:forEach>
-
-									</div>
-									<div class="swiper-pagination"></div>
-									<div class="swiper-button-prev"></div>
-									<div class="swiper-button-next"></div>
-								</div>
-							</div>
-							<div class="col-md-4">
-								<h2 class="list-group-item-heading">万科商业城</h2>
-								<div class="head-info-list">
-									<ul>
-										<li class="head-info-item">楼盘别名<span>${premise.buildName}</span></li>
-										<li class="head-info-item">物业类型<span>${premise.premisetype.typeName}</span></li>
-										<li class="head-info-item">开盘时间<span>${premise.inOpen}</span></li>
-										<li class="head-info-item">入住时间<span>${premise.inLive}</span></li>
-										<li class="head-info-item">楼盘地址<span>${premise.buildAddress}</span></li>
-										<li class="head-info-item">建筑面积<span>${premise.buildArea}</span></li>
-										<li class="head-info-item">物业费用<span>${premise.propertyCosts}</span></li>
-									</ul>
-								</div>
-							</div>
-						</div>					
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<div class="col-md-4">
+						<p style="font-size: 23px; font-weight:200; ">万科商业城</p>
+						<p style="font-size: 23px; font-weight:200; ">3室2厅1卫, 约79平方米</p>
+						<hr />
+						<div class="head-info-list">
+							<ul>
+								<li class="head-info-item">楼盘别名<span>Text</span></li>
+								<li class="head-info-item">物业类型<span>Text</span></li>
+								<li class="head-info-item">开盘时间<span>Text</span></li>
+								<li class="head-info-item">入住时间<span>Text</span></li>
+								<li class="head-info-item">楼盘地址<span>Text</span></li>
+								<li class="head-info-item">建筑面积<span>Text</span></li>
+							</ul>
+						</div>
+						<hr />
+						<p style="color: rgb(268,199,1);font-size: 28px;">
+							<i class="fa fa-phone"></i>
+							400-8820-8820
+						</p>
 					</div>
 				</div>
 			</div>
-		</div>	
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>	
+		
 		<!-- Modal for Login -->
 
 		<!-- Modal for House-Img-Condition -->
