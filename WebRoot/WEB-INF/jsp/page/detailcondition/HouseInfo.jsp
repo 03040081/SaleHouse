@@ -92,8 +92,8 @@
 									<span>在售户型</span>
 								</div>
 								<ul class="hx-list">
-									<!--<c:forEach items="${list}" var='h'}-->
-									<li>
+									<%--<c:forEach items="${list}" var='h'}--%>
+																	<li>
 										<div class="fl">
 											<a href="jpg" target="_blank" data-lightbox="photo"><img  class="hx-list-img"  src="jpg"/></a>
 											<div class="hx-list-txt">
@@ -125,7 +125,7 @@
 											</p>
 										</div>
 									</li>
-									<!--</c:forEach>-->
+									<%--</c:forEach>--%>
 								</ul>
 							</div>
 							<a id="houseinfo"></a>
@@ -207,7 +207,7 @@
 											<div class="swiper-slide" style="background-image:url();"></div>
 										</div>
 									</li>
-									<!--</c:forEach>-->
+									<%--</c:forEach>--%>
 								</ul>
 							</div>
 							<a id="houseinfo"></a>
