@@ -20,11 +20,15 @@
 				<link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Features-Clean.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Navigation-with-Button1.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Simple-Slider.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
+				<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Footer.css">
+				<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Basic.css">
+				<link rel="stylesheet" href="<%=basePath%>static/fonts/font-awesome.min.css">
 				
 
 			</head>
@@ -93,7 +97,7 @@
 								</div>
 								<ul class="hx-list">
 									<%--<c:forEach items="${list}" var='h'}--%>
-																	<li>
+									<li>
 										<div class="fl">
 											<a href="jpg" target="_blank" data-lightbox="photo"><img  class="hx-list-img"  src="jpg"/></a>
 											<div class="hx-list-txt">
