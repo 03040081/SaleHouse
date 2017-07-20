@@ -15,13 +15,13 @@ public class PremiseimgBizImpl implements PremiseimgBiz {
 	PremisesimgDao premisesimgDao;
 	
 	@Override
-	public void addPremisimg(List<Premisesimg> list) {
+	public void addPremisimg(Premisesimg premisesimg) {
 		// TODO Auto-generated method stub
-		
+		premisesimgDao.insertPremisesimg(premisesimg);
 	}
 
 	@Override
-	public void updatePremisimg(List<Premisesimg> list) {
+	public void updatePremisimg(Premisesimg premisesimg) {
 		// TODO Auto-generated method stub
 		
 	}

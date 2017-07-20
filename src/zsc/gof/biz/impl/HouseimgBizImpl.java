@@ -21,13 +21,13 @@ public class HouseimgBizImpl implements HouseimgBiz {
 	}
 
 	@Override
-	public void addHouseImgs(List<HouseImg> listHouseImgs) {
+	public void addHouseImgs(HouseImg houseImg) {
 		// TODO Auto-generated method stub
-		
+		houseImgDao.insertHouseImg(houseImg);
 	}
 
 	@Override
-	public void updateHouseImgs(List<HouseImg> listHouseImgs) {
+	public void updateHouseImgs(HouseImg houseImg) {
 		// TODO Auto-generated method stub
 		
 	}
