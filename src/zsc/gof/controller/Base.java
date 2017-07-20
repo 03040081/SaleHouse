@@ -1,19 +1,18 @@
 package zsc.gof.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import zsc.gof.biz.CityBiz;
-
 @Controller//标志为控制器
 public class Base {
-	@Autowired
-	CityBiz cityBiz;
+	@RequestMapping("/Home")//访问地址
+	public  ModelAndView index() {
+		return new ModelAndView("index3");
+	}
 	
-	@RequestMapping("/Index")//访问地址
-	public  ModelAndView index() {		
-		return new ModelAndView("forward:City?cityId=1");
+	@RequestMapping("/Test55")//访问地址
+	public  ModelAndView test() {
+		return new ModelAndView("index");
 	}
 }

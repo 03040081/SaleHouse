@@ -33,8 +33,14 @@ public class Premises {
 	private Region region;
 	private String iconUrl;
 	private List<Premisesimg> premisesimg;
-	
+	private List<House> houses;
 
+	public List<House> getHouses() {
+		return houses;
+	}
+	public void setHouses(List<House> houses) {
+		this.houses = houses;
+	}
 	public String getPropertyRight() {
 		return propertyRight;
 	}

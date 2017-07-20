@@ -6,6 +6,7 @@ import java.util.Map;
 import zsc.gof.entity.Premises;
 
 public interface PremiseBiz {
+	
 	/*
 	 * 使用动态SQL，查询楼盘信息
 	 */
@@ -31,4 +32,9 @@ public interface PremiseBiz {
 	 * 计算楼盘数量
 	 */
 	public int totalPremises(Map map);
+	
+	/*
+	 * 查询楼盘均价
+	 */
+	public int avgPremisePrice(int buildId);
 }

@@ -28,7 +28,8 @@ public class TestPremisesDao {
 	
 	@Test public void testsearch(){
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("buildType", "3");
+		map.put("buildType", "1");
+		map.put("cityId", "1");
 		List<Premises> premises= dao.search(map);
 		System.out.println(premises.size());
 	}
@@ -39,7 +40,7 @@ public class TestPremisesDao {
 		map.put("max", null);
 		map.put("regionId",null);
 		map.put("housetype","2");
-		map.put("buildType", "2");
+		map.put("buildType", "1");
 		map.put("keyword", "%");
 		int premises= dao.queryTotalRecord(map);
 		System.out.println(premises);

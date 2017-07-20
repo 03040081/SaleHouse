@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+
 import zsc.gof.biz.PremiseBiz;
 import zsc.gof.dao.PremisesDao;
 import zsc.gof.entity.Premises;
@@ -60,4 +62,9 @@ public class PremiseBizImpl implements PremiseBiz {
 		return dao.queryPremisesByBuildId(buildId);
 	}
 	
+	@Override
+	public int avgPremisePrice(int buildId) {
+		Integer avgPrice = dao.queryAvgPremisesByBuildId(buildId);
+		return avgPrice != null ? avgPrice : 0;
+	}
 }

@@ -6,10 +6,10 @@
 			<div class="input-group-addon">
 				<span><i class="glyphicon glyphicon-search"></i></span>
 			</div>
-			<input class="form-control" type="text" placeholder="请输入新房地址或新房名"
+			<input id="keyword-head" class="form-control" type="text" placeholder="请输入新房地址或新房名"
 				value="${keyword}">
 			<div class="input-group-btn">
-				<button class="btn btn-default" type="button">搜索</button>
+				<button id="btn-search-head" class="btn btn-default" type="button">搜索</button>
 			</div>
 		</div>
 	</form>
