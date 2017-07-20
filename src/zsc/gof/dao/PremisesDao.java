@@ -66,4 +66,12 @@ public interface PremisesDao {
 	@Insert("INSERT INTO premises(buildName,inOpen,inLive,households,propertyRight,propertyCosts,buildArea,floorArea,buildAddress,buildType,developer,regionId,iconUrl) VALUES(#{buildName},#{inOpen},#{inLive},#{households},#{propertyRight},#{propertyCosts},#{buildArea},#{floorArea},#{buildAddress},#{premisetype.btypeId},#{developer},#{region.regionId},#{iconUrl})")
 	@SelectKey(statement="select last_insert_id()",before=false,resultType=int.class,keyProperty="buildId")
 	public void insertPremises(Premises premises);
+	
+	/**
+	 * @author lewis
+	 * @param	楼盘id
+	 * @return 	楼盘房子的平均价格
+	 * */
+	@Select("SELECT AVG(h.housePrice) FROM house AS h WHERE h.buildId = #{id}")
+	public int queryAvgPremisesByBuildId(int build) ;
 }

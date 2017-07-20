@@ -11,7 +11,6 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 			<html>
 
 			<head>
@@ -20,12 +19,13 @@
 				<title>HouseInfo</title>
 				<link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/css/lightbox.min.css" />
 				<link rel="stylesheet" href="<%=basePath%>static/css/Features-Clean.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Navigation-with-Button1.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/Simple-Slider.css">
 				<link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
-				<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
+				
 
 			</head>
 
@@ -40,18 +40,16 @@
 
 
 
-					<div id="detail">
+					<div id="detail" style="background:url(../../assets/img/侨鑫汇悦台01.jpg);">
 							<div class="detail-box">
 								<div class="container">
 									<div class="col-md-7 box-left">
 										<div class="simple-slider">
 											<div class="swiper-container">
 												<div class="swiper-wrapper">
-												<c:forEach items="${premise.premisesimg}" var="img">
-													<div class="swiper-slide" style="background-image:url(${img.imgUrl});"></div>
-												</c:forEach>
-													
-													
+													<div class="swiper-slide" style="background-image:url();"></div>
+													<div class="swiper-slide" style="background-image:url();"></div>
+													<div class="swiper-slide" style="background-image:url();"></div>
 												</div>
 												<div class="swiper-pagination"></div>
 												<div class="swiper-button-prev"></div>
@@ -60,16 +58,16 @@
 										</div>
 									</div>
 									<div class="col-md-5 box-right">
-										<h2 class="title">${premise.buildName}</h2><i class="state-label">在售</i>
+										<h2 class="title">万科商景城</h2><i class="state-label">在售</i>
 										<p class="price">均价约<span>Text</span><em>元/平方米</em></p>
 										<hr>
 										<div class="head-info-list">
 											<ul>
-												<li class="head-info-item">楼盘别名<span>${premise.buildName}</span></li>
-												<li class="head-info-item">物业类型<span>${premise.premisetype.typeName}</span></li>
-												<li class="head-info-item">开盘时间<span>${premise.inOpen}</span></li>
-												<li class="head-info-item">入住时间<span>${premise.inLive}</span></li>
-												<li class="head-info-item">楼盘地址<span>${premise.buildAddress}</span></li>
+												<li class="head-info-item">楼盘别名<span>Text</span></li>
+												<li class="head-info-item">物业类型<span>Text</span></li>
+												<li class="head-info-item">开盘时间<span>Text</span></li>
+												<li class="head-info-item">入住时间<span>Text</span></li>
+												<li class="head-info-item">楼盘地址<span>Text</span></li>
 											</ul>
 										</div>
 										<div class="tel-style"><i class="icons glyphicon glyphicon-earphone"> </i><b>400-8820-8820 转38</b></div>
@@ -95,14 +93,13 @@
 								</div>
 								<ul class="hx-list">
 									<%--<c:forEach items="${list}" var='h'}--%>
-									<c:forEach items="${listHouses}" var="house">
 																	<li>
 										<div class="fl">
-											<a href="#${urlHouse}"><img  class="hx-list-img"  src="${urlHouse}"/></a>
+											<a href="jpg" target="_blank" data-lightbox="photo"><img  class="hx-list-img"  src="jpg"/></a>
 											<div class="hx-list-txt">
 												<p>
-													<strong>${premise.buildName}
-													<span>${house.houseDesc}，${house.houseArea}</span>
+													<strong>楼盘名字
+													<span>房子名字，房子面积</span>
 													</strong>
 												</p>
 												<p>详细的户型解读，请拨打我们的热线电话:400-8820-8820</p>
@@ -111,7 +108,7 @@
 										<div class="fr">
 											<p class="price-zero">
 												<span class="downpayment">参考总价:</span>
-												<span class="price-one">${house.housePrice}</span>
+												<span class="price-one">222</span>
 												<span class="price-two">万</span>
 												<span class="price-three">
 												<em style="font-size: inherit;">(222</em>
@@ -128,7 +125,7 @@
 											</p>
 										</div>
 									</li>
-									</c:forEach>
+									<%--</c:forEach>--%>
 								</ul>
 							</div>
 							<a id="houseinfo"></a>
@@ -137,7 +134,7 @@
 								<div class="detail-data">
 									<div class="data-box">
 										<p class="data-tit">
-										<strong>${premise.buildName}</strong>
+										<strong>楼盘名字</strong>
 										</p>
 									</div>
 									<div class="data-box parameter">
@@ -146,53 +143,95 @@
 										</p>
 										<dl class="parameter-one">
 											<dt style="display: none;"></dt>
-											<dd>楼盘地址： ${premise.buildAddress}</dd>
-											<dd>开发商：${premise.developer} </dd>
-											<dd>产权： ${premise.propertyRight}</dd>
-											<dd>区域： ${premise.region.regionName}</dd>
-											<dd>楼盘类型： ${premise.premisetype.typeName}</dd>
-											<dd>占地面积： ${premise.floorArea}</dd>
+											<dd>楼盘地址： </dd>
+											<dd>开发商： </dd>
+											<dd>产权： </dd>
+											<dd>区域： </dd>
+											<dd>楼盘类型： </dd>
+											<dd>占地面积： </dd>
 										</dl>
 										<dl class="parameter-two">
 											<dt style="display: none;"></dt>
-											<dd>开盘时间：  ${premise.inOpen}</dd>
-											<dd>入住时间： ${premise.inLive}</dd>
-											<dd>建筑面积： ${premise.buildArea}</dd>
-											<dd>物业费用： ${premise.propertyCosts}</dd>
-											<dd>规划户数： ${premise.households}</dd>
+											<dd>开盘时间： </dd>
+											<dd>入住时间： </dd>
+											<dd>建筑面积： </dd>
+											<dd>物业费用： </dd>
+											<dd>规划户数： </dd>
 										</dl>
 									</div>
 								</div>
 							</div>
-			<a id="houseimg"></a>
-			<div class="detail-content">
-				<p class="tit clearfix">楼盘相册</p>
-				<div class="photo-wrap">
-					<ul class="photo-list">
-						<li style="background: url(${premise.premisesimg[0].imgUrl}) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-						<li style="background: url(${premise.premisesimg[1].imgUrl}) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-						<li style="background: url(${premise.premisesimg[2].imgUrl}) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-						<li style="background: url(${premise.premisesimg[3].imgUrl}) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
-					</ul>
-				</div>
-			</div>
-			<a id="houseard"></a>
-			<div class="detail-content">
-				<p class="tit clearfix">周边配套</p>
-			</div>
-		</div>
+							<a id="houseimg"></a>
+							<div class="detail-content">
+								<p class="tit clearfix">楼盘相册</p>
+								<div class="photo-wrap">
+									<ul class="photo-list">
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+										<li style="background: url(assets/img/loft.jpg) center 1px no-repeat;" href="#" data-toggle="modal" data-target="#PhotoCondition"></li>
+									</ul>
+								</div>
+							</div>
+							<a id="houseard"></a>
+							<div class="detail-content">
+								<p class="tit clearfix">周边配套</p>
+							</div>
+					</div>
 	
 
 
 
 
-		<!-- footer-Start -->
-	 	<%@include file="../../model/NewFooter.jsp"%>
-		<!-- footer-End -->
+					<!-- footer-Start -->
+	 				<%@include file="../../model/NewFooter.jsp"%>
+					<!-- footer-End -->
 
 
-		<!-- Modal for House-Img-Condition -->
-		
+					<!-- Modal for House-Img-Condition -->
+		<div class="modal fade bs-example-modal-lg" id="PhotoCondition" tabindex="-1" role="dialog" aria-labelledby="Modal-label-2">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h2 class="modal-title" id="Modal-label-2">万科商景城</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="simple-slider">
+									<div class="swiper-container">
+										<div class="swiper-wrapper">
+										<div class="swiper-slide" style="background-image:url();"></div>
+										<div class="swiper-slide" style="background-image:url();"></div>
+										<div class="swiper-slide" style="background-image:url();"></div>
+									</div>
+									<div class="swiper-pagination"></div>
+									<div class="swiper-button-prev"></div>
+									<div class="swiper-button-next"></div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<h2 class="list-group-item-heading">万科商业城</h2>
+								<div class="head-info-list">
+									<ul>
+										<li class="head-info-item">楼盘别名<span>Text</span></li>
+										<li class="head-info-item">物业类型<span>Text</span></li>
+										<li class="head-info-item">开盘时间<span>Text</span></li>
+										<li class="head-info-item">入住时间<span>Text</span></li>
+										<li class="head-info-item">楼盘地址<span>Text</span></li>
+										<li class="head-info-item">建筑面积<span>Text</span></li>
+										<li class="head-info-item">物业费用<span>Text</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>	
 		<!-- Modal for Login -->
 
 		<!-- Modal for House-Img-Condition -->
@@ -206,6 +245,7 @@
 		<script src="<%=basePath%>static/js/jquery.min.js"></script>
 		<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.9.0/js/lightbox-plus-jquery.min.js"></script>
 		<script src="<%=basePath%>static/js/Simple-Slider.js"></script>
 </body>
 </html>
