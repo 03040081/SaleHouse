@@ -51,14 +51,14 @@
 			<p>售价：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<li><a href="#">50万以下</a></li>
-				<li><a href="#">50-80万</a></li>
-				<li><a href="#">80-100万</a></li>
-				<li><a href="#">100-120万</a></li>
-				<li><a href="#">120-150万</a></li>
-				<li><a href="#">150-200万</a></li>
-				<li><a href="#">200-300万</a></li>
-				<li><a href="#">300万以上</a></li>
+				<li><a href="DetailsSearch?min=0%max=50">50万以下</a></li>
+				<li><a href="DetailsSearch?min=0%max=80">50-80万</a></li>
+				<li><a href="DetailsSearch?min=0%max=100">80-100万</a></li>
+				<li><a href="DetailsSearch?min=0%max=120">100-120万</a></li>
+				<li><a href="DetailsSearch?min=0%max=150">120-150万</a></li>
+				<li><a href="DetailsSearch?min=0%max=200">150-200万</a></li>
+				<li><a href="DetailsSearch?min=200%max=300">200-300万</a></li>
+				<li><a href="DetailsSearch?min=300">300万以上</a></li>
 			</ul>
 			<p>类型:</p>
 			<ul>

@@ -97,12 +97,14 @@ public class FirstCer {
 		//获取当前页所有楼盘的均价
 		List<Integer> avgPrices = new ArrayList<Integer>();
 		System.out.println(listPre.getTotalRecords());
+		List<Premises> premisesList = listPre.getList();
 		
-		for (int i = 0; i < listPre.getTotalRecords(); i++) {
-			List<Premises> premisesList = listPre.getList();
+		for (int i = 0; i < premisesList.size(); i++) {
+			System.out.println("premiseList.size():" + premisesList.size());
 			if (premisesList.size() == 0)
 				continue;
 			
+			System.out.println("i:" + i);
 			int buildId = premisesList.get(i).getBuildId();
 			int price = premiseBiz.avgPremisePrice(buildId);
 			System.out.println(buildId + ":" + price);
@@ -114,15 +116,5 @@ public class FirstCer {
 		modelAndView.addObject("pagePre", listPre);
 		modelAndView.addObject("totalPage", listPre.getTotalPage());
 		return modelAndView;
-	}
-
-	@RequestMapping("/Location")
-	public ModelAndView location(@RequestParam("cityId") int cityId) {
-		System.out.println("Location:" + cityId);
-		City currCity = cityBiz.getCityById(cityId);
-		List<City> listCity = cityBiz.listCitys();
-		request.getSession().setAttribute("currCity", currCity);
-		request.getSession().setAttribute("listCity", listCity);
-		return new ModelAndView("Home");
 	}
 }

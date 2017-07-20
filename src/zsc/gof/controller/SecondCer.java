@@ -113,7 +113,7 @@ public class SecondCer {
 	 * 区域 、 均价 、 户型 、 类型 
 	 * 时查询出楼盘信息
 	 */
-	@RequestMapping("/changeC")
+	@RequestMapping("/DetailsSearch")
 	public ModelAndView changeCondition(HttpServletRequest request){
 		
 		String keyword=request.getParameter("keyword");
@@ -213,7 +213,7 @@ public class SecondCer {
 		System.out.println("regionId###:"+map.get("regionId"));
 		
 		listPre.setList(premiseBiz.find(map));
-		ModelAndView modelAndView=new ModelAndView("index2");
+		ModelAndView modelAndView=new ModelAndView("searchlist/Defaultlist");
 		
 		modelAndView.addObject("pagePre",listPre);//楼盘信息
 		modelAndView.addObject("totalPage",listPre.getTotalPage());//总页数
