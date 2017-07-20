@@ -8,9 +8,9 @@ public interface HouseimgBiz {
 	
 	public List<HouseImg> listHouseImgs(int houseId);
 	
-	public void addHouseImgs(List<HouseImg> listHouseImgs);
+	public void addHouseImgs(HouseImg houseImg);
 	
-	public void updateHouseImgs(List<HouseImg> listHouseImgs);
+	public void updateHouseImgs(HouseImg houseImg);
 	
 	public void deleteHouseImg(int imgId);
 }
