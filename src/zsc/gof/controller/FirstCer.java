@@ -91,7 +91,7 @@ public class FirstCer {
 		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
-		// map.put("cityId", String.valueOf(cityId));
+		// ma	p.put("cityId", String.valueOf(cityId));
 		listPre.setList(premiseBiz.find(map));	//获取查询结果
 		
 		//获取当前页所有楼盘的均价

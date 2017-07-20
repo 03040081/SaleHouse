@@ -15,6 +15,6 @@ public class Base {
 	
 	@RequestMapping("/Index")//访问地址
 	public  ModelAndView index() {		
-		return new ModelAndView("forward:City?cityId=1");
+		return new ModelAndView("forward:City?pageNo=1&cityId=1");
 	}
 }

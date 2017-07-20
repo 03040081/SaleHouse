@@ -10,7 +10,6 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	System.out.println(modelBase + " " + basePath);
 %>
 
 <!DOCTYPE html>
@@ -27,6 +26,36 @@
 	href="<%=basePath%>static/css/Pretty-Search-Form.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
+
+<style type="text/css">
+	.condition-list {
+		display: inline;
+		margin: 5px 0;
+	}
+	
+	.condition-name{
+		background: #fff;
+		padding: 1px 5px;
+		margin: 0px;
+		cursor: pointer;
+	}
+	
+	.condition-close {
+		background: #efefef;
+		padding: 1px 3px;
+		margin: 0px;
+		cursor: pointer;
+	}
+	
+	.condition {
+		display: inline;
+		margin: 0 5px;
+	}
+	
+	.condition-close a{
+		text-decoration: none;
+	}
+</style>
 </head>
 
 <body>
@@ -51,13 +80,13 @@
 			<p>售价：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<li><a href="DetailsSearch?min=0%max=50">50万以下</a></li>
-				<li><a href="DetailsSearch?min=0%max=80">50-80万</a></li>
-				<li><a href="DetailsSearch?min=0%max=100">80-100万</a></li>
-				<li><a href="DetailsSearch?min=0%max=120">100-120万</a></li>
-				<li><a href="DetailsSearch?min=0%max=150">120-150万</a></li>
-				<li><a href="DetailsSearch?min=0%max=200">150-200万</a></li>
-				<li><a href="DetailsSearch?min=200%max=300">200-300万</a></li>
+				<li><a href="DetailsSearch?min=0&max=50">50万以下</a></li>
+				<li><a href="DetailsSearch?min=0&max=80">50-80万</a></li>
+				<li><a href="DetailsSearch?min=0&max=100">80-100万</a></li>
+				<li><a href="DetailsSearch?min=0&max=120">100-120万</a></li>
+				<li><a href="DetailsSearch?min=0&max=150">120-150万</a></li>
+				<li><a href="DetailsSearch?min=0&max=200">150-200万</a></li>
+				<li><a href="DetailsSearch?min=200&max=300">200-300万</a></li>
 				<li><a href="DetailsSearch?min=300">300万以上</a></li>
 			</ul>
 			<p>类型:</p>
@@ -84,11 +113,24 @@
 	</div>
 
 	<div id="Search_Tag" class="light-bg">
-		<p>已选条件：</p>
-		<ul style="display: inline;">
-			<li style="display: inline;"><a href="#">sdd</a></li>
-			<li style="display: inline;"><a href="#">sdd</a></li>
-		</ul>
+		<span>已选条件：</span>
+		<div class="condition-list">
+			<div class="condition">
+				<span class="condition-name">南山区</span><span class="condition-close"><a>×</a></span>
+			</div>
+			<div class="condition">
+				<span class="condition-name">50万以下</span><span class="condition-close"><a>×</a></span>
+			</div>
+			<div class="condition">
+				<span class="condition-name">住宅</span><span class="condition-close"><a>×</a></span>
+			</div>
+			<div class="condition">
+				<span class="condition-name">五室</span><span class="condition-close"><a>×</a></span>
+			</div>
+			<div class="condition">
+				<span class="condition-name">在售</span><span class="condition-close"><a>×</a></span>
+			</div>
+		</div>
 	</div>
 	<div id="Search_Result">
 		<ul class="nav nav-tabs" role="tablist">
@@ -120,7 +162,7 @@
 										<div class="fl">
 											<a href="assets/img/loft.jpg" target="_blank"
 												data-lightbox="photo"><img class="hx-list-img"
-												src="assets/img/loft.jpg" /></a>
+												src="<%=modelBase%>${premises.iconUrl != null ? premises.iconUrl : 'upload/m_size/example.jpg'}" /></a>
 											<div class="show-title">
 												<p class="head">${premises.buildName}</p>
 												<p class="show-detail">主推户型：
@@ -135,9 +177,17 @@
 										</div>
 										<div class="fr">
 											<p class="price-zero">
-												<span class="price-one">${avgPrices[index.index]}</span> <span class="price-two">万</span>
-												<span class="price-three"> <em
-													style="font-size: inherit;">(222<em> 元/平方米 </span>
+												<c:choose>
+													<c:when test="${avgPrices[index.index] == 0}">
+														<span class="price-one">价格待定</span>
+													</c:when>
+													<c:otherwise>
+														<span class="price-one">${avgPrices[index.index]}</span> <span class="price-two">万</span>
+														<span class="price-three"> 
+															<em style="font-size: inherit;">(222<em> 元/平方米)
+														</span>
+													</c:otherwise>
+												</c:choose>
 											</p>
 											<p style="font-size: 20px; margin-right: 45px;">
 												<i class="glyphicon glyphicon-earphone"></i> 400-8820-8820 转

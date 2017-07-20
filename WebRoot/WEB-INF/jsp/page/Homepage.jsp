@@ -53,7 +53,7 @@
 								<c:forEach items="${listCity}" var="city">
 									<c:if test="${city.cityId != currCity.cityId}">
 										<li class="region-info" role="presentation">
-											<a href="City?cityId=${city.cityId}">${city.cityName}</a>
+											<a href="City?pageNo=1&cityId=${city.cityId}">${city.cityName}</a>
 										</li>
 									</c:if>
 								</c:forEach>
