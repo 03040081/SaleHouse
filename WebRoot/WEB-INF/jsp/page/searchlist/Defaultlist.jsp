@@ -124,7 +124,9 @@
 											<div class="show-title">
 												<p class="head">${premises.buildName}</p>
 												<p class="show-detail">主推户型：
-													
+													<c:forEach items="${premises.houses}" var="house">
+														${house.houseDesc}&nbsp;
+													</c:forEach>
 												</p>
 												<p class="show-detail">开盘时间：${premises.inOpen}</p>
 												<p class="show-detail">入住时间：${premises.inLive}</p>

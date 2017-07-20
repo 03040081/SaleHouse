@@ -103,7 +103,7 @@
 						<span class="cur" data-type="rent">找租房</span>
 					</p>
 					<div class="ipt_box">
-						<input id="keyword" type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名" required="required">
+						<input id="keyword" type="text" class="seek fl" style="height:50px;width:600px;" placeholder="请输入房源特征，房型，地址或小区名">
 						<button id="btn_search" href="#" class="ipt_button fl"> <i class="icons"> </i></button>
 					</div>
 				</div>

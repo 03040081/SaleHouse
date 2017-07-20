@@ -64,16 +64,7 @@ public class FirstCer {
 		List<Region> listReg = regBiz.listRegById(cityId);	//获取当前城市的所有区
 		List<Premisetype> listPret = pretyBiz.listPremisetypes();	//获取所有楼盘类型
 		List<Housetype> listHout = houtyBiz.listHousetypes();		//获取所有户型
-		//获取当前页所有楼盘的均价
-		List<Integer> avgPrices = new ArrayList<Integer>();
-		System.out.println(listPre.getTotalRecords());
-		for (int i = 0; i < listPre.getTotalRecords(); i++) {
-			int buildId = listPre.getList().get(i).getBuildId();
-			int price = premiseBiz.avgPremisePrice(buildId);
-			System.out.println(buildId + ":" + price);
-			avgPrices.add(price);
-		}
-		session.setAttribute("avgPrices", avgPrices);
+
 		session.setAttribute("region", listReg);
 		session.setAttribute("premisetype", listPret);
 		System.out.println("PremiseType: " + listPret.size());
@@ -97,12 +88,29 @@ public class FirstCer {
 
 		///////////////////////////////////////////////////////////////////
 
+		//查询楼盘数据
 		map.put("keyword", "%" + keyword + "%");
 		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
 		// map.put("cityId", String.valueOf(cityId));
 		listPre.setList(premiseBiz.find(map));	//获取查询结果
+		
+		//获取当前页所有楼盘的均价
+		List<Integer> avgPrices = new ArrayList<Integer>();
+		System.out.println(listPre.getTotalRecords());
+		
+		for (int i = 0; i < listPre.getTotalRecords(); i++) {
+			List<Premises> premisesList = listPre.getList();
+			if (premisesList.size() == 0)
+				continue;
+			
+			int buildId = premisesList.get(i).getBuildId();
+			int price = premiseBiz.avgPremisePrice(buildId);
+			System.out.println(buildId + ":" + price);
+			avgPrices.add(price);
+		}
+		session.setAttribute("avgPrices", avgPrices);
 
 		ModelAndView modelAndView = new ModelAndView("searchlist/Defaultlist");
 		modelAndView.addObject("pagePre", listPre);
