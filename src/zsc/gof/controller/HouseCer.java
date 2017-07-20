@@ -45,7 +45,7 @@ public class HouseCer {
 		Premises premises=premiseBiz.findOne(buildId);
 		List<House> listHouses = houseBiz.listHouse(buildId);
 		
-		System.out.println("&&&&&&&&&&   :  "+listHouses.size());
+		
 		
 		ModelAndView modelAndView=new ModelAndView("detailcondition/HouseInfo");
 		//ModelAndView modelAndView=new ModelAndView("index3");
@@ -53,10 +53,9 @@ public class HouseCer {
 		modelAndView.addObject("listHouses", listHouses);
 		System.out.println(listHouses.size());
 		HttpSession session=request.getSession();
-		
-		for(House house:listHouses)
-			System.out.println("户型：：："+house.getHouseDesc());
-		String url=listHouses.get(0).getHouseimg().get(0).getImgUrl();
+		String url="";
+		if(listHouses.size()>0)
+			url=listHouses.get(0).getHouseimg().get(0).getImgUrl();
 		session.setAttribute("urlHouse", url);
 		return modelAndView;
 	}

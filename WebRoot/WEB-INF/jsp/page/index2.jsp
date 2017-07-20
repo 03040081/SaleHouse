@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <table>
   <form action="changeC" method="post">
-    	</form>
+    </form>
 	<tr>
 	区域：<a href="changeC?regionId=0">不限</a>&nbsp;&nbsp;
   		<c:forEach items="${region}" var="reg">
