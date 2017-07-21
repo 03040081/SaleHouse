@@ -185,12 +185,18 @@
 #detail {
   height:592px;
   width:100%;
-  filter:url(blur.svg#blur);
   background-repeat:no-repeat;
   background-size:cover;
   position:relative;
   overflow:hidden;
 }
+
+.blur {
+   filter: blur(1250px);
+  -webkit-filter: blur(1250px);  /* chrome, opera */
+  -ms-filter: blur(1250px);
+  -moz-filter: blur(1250px);
+£ý
 
 #detail .detail-box {
   position:absolute;

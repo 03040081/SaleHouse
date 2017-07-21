@@ -46,7 +46,7 @@
 
 
 
-					<div id="detail" style="background:url(<%=modelBase%>${premise.premisesimg[0].imgUrl})">
+					<div id="detail" style="background:url(<%=modelBase%>${premise.premisesimg[0].imgUrl})" class="blur">
 							<div class="detail-box">
 								<div class="container">
 									<div class="col-md-7 box-left">
