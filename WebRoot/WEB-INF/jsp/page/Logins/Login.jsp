@@ -48,9 +48,9 @@
         <div class="cont_img_back_grey"> <img src="bg.jpg" alt="" /></div>
       </div>
       <div class="cont_forms" > 
-        
+     
         <div class="cont_img_back_"> <img src="bg.jpg" alt="" /></div>
-        <form action="loginU" method="post">
+        <form action="Login" method="post">
         <div class="cont_form_login"> <a href="#" onClick="ocultar_login_sign_up()" ><i class="material-icons">&#xE5C4;</i></a>
           <h2>登陆</h2>
           <input type="text" name="username" placeholder="账号" />

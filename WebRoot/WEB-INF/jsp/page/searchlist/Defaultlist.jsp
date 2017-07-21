@@ -20,13 +20,13 @@
 <title>SaleHouseList</title>
 <link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="<%=basePath%>static/css/Features-Clean.css">
-<link rel="stylesheet"
-	href="<%=basePath%>static/css/Navigation-with-Button1.css">
-<link rel="stylesheet"
-	href="<%=basePath%>static/css/Pretty-Search-Form.css">
+<link rel="stylesheet" href="<%=basePath%>static/css/Navigation-with-Button1.css">
+<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Search-Form.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
+<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Footer.css">
+<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Basic.css">
+<link rel="stylesheet" href="<%=basePath%>static/fonts/font-awesome.min.css">
 
-<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
 
 <style type="text/css">
 	.condition-list {
@@ -67,9 +67,7 @@
 	}
 </style>
 
-<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Footer.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Basic.css">
-<link rel="stylesheet" href="<%=basePath%>static/fonts/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -286,7 +284,7 @@
 
 
 	<!-- Modal for Login -->
-	<div class="modal fade" id="UserLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+	<!-- <div class="modal fade" id="UserLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
   		<div class="modal-dialog" role="document">
     		<div class="modal-content">
       			<div class="modal-header">
@@ -314,7 +312,7 @@
                                         <input name="remember" type="checkbox" value="Remember Me">记住我的账号
                                     </label>
                                 </div>
-                                <!-- Change this to a button or input when using this as a form -->
+                                Change this to a button or input when using this as a form
                                 <button type="submit" class="btn btn-lg btn-success btn-block">登陆</button>
                             </fieldset>
                         </form>
@@ -328,11 +326,11 @@
 		</div>
 	</div>
 		
+ -->
 
 
 
-
-
+ 
 	<!-- Bootstrap core JavaScript
 			================================================== -->
 

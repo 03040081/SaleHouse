@@ -47,12 +47,13 @@
 					</c:choose>
 					<c:choose>
 						<c:when test="${empty userInfo}">
-							<a class="btn btn-default action-button" role="button"  href="Login" style="background-color:rgb(268,199,1)">
+							<a class="btn btn-default action-button" role="button"  href="ToLogin" style="background-color:rgb(268,199,1)">
 							登陆
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a class="btn btn-default action-button" role="button" href="Logout" style="background-color:#F1F1F1">
+							<a class="btn btn-default action-button" role="button" href="Logout" style="background-color:rgb(268,199,1)">
+							注销
 							</a>
 						</c:otherwise>
 					</c:choose>

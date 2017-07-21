@@ -55,8 +55,8 @@ public class UserInfoCer {
 			}
 		}
 		userinfo=userInfoBiz.login(username, password);
-		if(userinfo==null)
-			return modelAndView;
+//		if(userinfo==null)
+//			return modelAndView;
 		if(userinfo.getLocked()==0){//用户被锁定，不能登录
 			return modelAndView;
 		}
@@ -109,7 +109,7 @@ public class UserInfoCer {
 			role.setRoleId(1);
 			userinfo.setRole(role);
 			Biz.register(userinfo);
-			return "loginU";
+			return "Logins/Login";
 		}else{
 			return "register";
 		}
