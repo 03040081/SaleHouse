@@ -28,8 +28,9 @@ public class TestPremisesDao {
 	
 	@Test public void testsearch(){
 		Map<String, String> map = new HashMap<String, String>();
-	
-		map.put("keyword", "%天誉半岛花园%");
+		map.put("min", "0");
+		map.put("max", "100");
+		map.put("housetype", "3");
 		List<Premises> premises= dao.search(map);
 		System.out.println(premises.size());
 	}
