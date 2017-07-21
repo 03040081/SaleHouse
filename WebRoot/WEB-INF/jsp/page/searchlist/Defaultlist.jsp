@@ -220,7 +220,7 @@
 								<div class="tit clearfix productTit">
 									<p style="font-size: 20px; padding-left: 20px;">
 										共找到&nbsp; <span
-											style="font-size: 25px; font-weight: bolder; color: darkgoldenrod;">${pagePre.totalRecords}</span>&nbsp;个楼盘
+											style="font-size: 25px; font-weight: bolder; color: darkgoldenrod;">${pagePre.totalRecords != null ? pagePre.totalRecords : 0}</span>&nbsp;个楼盘
 									</p>
 								</div>
 								<ul class="hx-list">
@@ -275,6 +275,7 @@
 		<%-- 排序3 --%>
 		<div role="tabpanel" class="tab-pane" id="messages"></div>
 	</div>
+	<%@include file="../../model/paging.jsp"%>
 	<hr>
 	</div>
 
@@ -300,7 +301,7 @@
                        		 	<h3 class="panel-title">请登录</h3>
                     			</div>
                    			 <div class="panel-body">
-                        	<form role="form" action="loginU" method="post">
+                        	<form role="form" action="Login" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="账号" name="username" type="text" autofocus>

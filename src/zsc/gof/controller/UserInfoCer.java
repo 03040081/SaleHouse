@@ -35,7 +35,7 @@ public class UserInfoCer {
 	@Autowired
 	UserInfoBiz userInfoBiz;
 	
-	@RequestMapping("/loginU")
+	@RequestMapping("/Login")
 	public ModelAndView Login(@RequestParam("username") String username,@RequestParam("password") String password,
 			HttpServletRequest request,HttpServletResponse response){
 		/*
@@ -80,7 +80,7 @@ public class UserInfoCer {
 	/*
 	 * 注销
 	 */
-	@RequestMapping("/logout")
+	@RequestMapping("/Logout")
 	public ModelAndView logout(HttpServletRequest request){
 		HttpSession session=request.getSession();
 		session.invalidate();
