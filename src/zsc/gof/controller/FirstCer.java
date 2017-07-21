@@ -87,27 +87,23 @@ public class FirstCer {
 
 		//查询楼盘数据
 		map.put("keyword", "%" + keyword + "%");
-
+		map.put("cityId", ""+ cityId);
 		listPre.setTotalRecords(premiseBiz.totalPremises(map));
 		map.put("pageIndex", "0");
 		map.put("pageSize", "12");
-		// map.put("cityId", String.valueOf(cityId));
+		// ma	p.put("cityId", String.valueOf(cityId));
 		listPre.setList(premiseBiz.find(map));	//获取查询结果
 		
 		//获取当前页所有楼盘的均价
 		List<Integer> avgPrices = new ArrayList<Integer>();
-		System.out.println(listPre.getTotalRecords());
 		List<Premises> premisesList = listPre.getList();
 		
 		for (int i = 0; i < premisesList.size(); i++) {
-			System.out.println("premiseList.size():" + premisesList.size());
 			if (premisesList.size() == 0)
 				continue;
 			
-			System.out.println("i:" + i);
 			int buildId = premisesList.get(i).getBuildId();
 			int price = premiseBiz.avgPremisePrice(buildId);
-			System.out.println(buildId + ":" + price);
 			avgPrices.add(price);
 		}
 		session.setAttribute("avgPrices", avgPrices);

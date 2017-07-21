@@ -40,7 +40,7 @@ public class HouseCer {
 	 * 显示楼盘信息
 	 * 显示房子信息
 	 */
-	@RequestMapping("/houseInfo")
+	@RequestMapping("/HouseInfo")
 	public ModelAndView premisAndHouse(@RequestParam("buildId")int buildId){
 		Premises premises=premiseBiz.findOne(buildId);
 		List<House> listHouses = houseBiz.listHouse(buildId);
