@@ -85,6 +85,7 @@ public class UserInfoCer {
 		HttpSession session=request.getSession();
 		session.invalidate();
 		ModelAndView modelAndView = new ModelAndView(Homepage);
+		return modelAndView;
 
 	}
 	
