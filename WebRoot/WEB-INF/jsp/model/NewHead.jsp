@@ -34,11 +34,11 @@
 							<a class="navbar-link login" href="#" ></a> 
 						</c:when>
 						<c:otherwise>
-							<a class="navbar-link login" href="#" >${userInfo}</a> 
+							<a class="navbar-link login" href="#" >${userInfo.username}</a> 
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${empty }">
+						<c:when test="${empty userInfo}">
 							<a class="btn btn-default action-button" role="button" data-toggle="modal" data-target="#UserLogin" href="#" style="background-color:rgb(268,199,1)">
 							登陆
 							</a>
