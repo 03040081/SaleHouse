@@ -46,15 +46,17 @@
 
 
 
-					<div id="detail" style="background:url(<%=modelBase%>${premise.premisesimg[0].imgUrl})" class="blur">
+
+
+					<div id="detail" style="background:url(<%=modelBase%>${premise.premisesimgBiggest[0].imgUrl})" class="blur">
 							<div class="detail-box">
 								<div class="container">
 									<div class="col-md-7 box-left">
 										<div class="simple-slider">
 											<div class="swiper-container">
 												<div class="swiper-wrapper">
-												<c:forEach items="${premise.premisesimg}" var="img">
-													<div class="swiper-slide" style="background-image:url(${img.imgUrl});"></div>
+												<c:forEach items="${premise.premisesimgLesser}" var="img">
+													<div class="swiper-slide" style="background-image:url(<%=modelBase %>${img.imgUrl});"></div>
 												</c:forEach>
 												</div>
 												<div class="swiper-pagination"></div>

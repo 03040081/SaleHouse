@@ -112,6 +112,7 @@ public class SecondCer {
 		String regionId = request.getParameter("regionId");
 		String housetype = request.getParameter("houseType");
 		String buildType = request.getParameter("buildType");
+		String pageIndex = request.getParameter("pageIndex");
 
 		PageModel<Premises> listPre = new PageModel<Premises>();
 		HttpSession session = request.getSession();
@@ -224,7 +225,7 @@ public class SecondCer {
 	/*
 	 * 上一页
 	 */
-	@RequestMapping("/previousPage")
+	@RequestMapping("/PreviousPage")
 	public ModelAndView previousPage(@RequestParam("pageIndex") int pageIndex) {
 		PageModel<Premises> listPre = new PageModel<Premises>();
 		HttpSession session = request.getSession();
@@ -236,7 +237,7 @@ public class SecondCer {
 		String min = (String) session.getAttribute("min");
 		String max = (String) session.getAttribute("max");
 		String regionId = (String) session.getAttribute("regionId");
-		String housetype = (String) session.getAttribute("housetype");
+		String housetype = (String) session.getAttribute("houseType");
 		String buildType = (String) session.getAttribute("buildType");
 
 		int flag = 0;
@@ -268,7 +269,7 @@ public class SecondCer {
 		map.put("pageSize", String.valueOf(listPre.getPageSize()));
 		listPre.setList(premiseBiz.find(map));
 
-		ModelAndView modelAndView = new ModelAndView("index2");
+		ModelAndView modelAndView = new ModelAndView("searchlist/Defaultlist");
 		modelAndView.addObject("pagePre", listPre);
 		modelAndView.addObject("totalPage", listPre.getTotalPage());
 		return modelAndView;
@@ -277,7 +278,7 @@ public class SecondCer {
 	/*
 	 * 下一页
 	 */
-	@RequestMapping("/nextPage")
+	@RequestMapping("/NextPage")
 	public ModelAndView nextPage(@RequestParam("pageIndex") int pageIndex) {
 		PageModel<Premises> listPre = new PageModel<Premises>();
 		HttpSession session = request.getSession();
@@ -289,7 +290,7 @@ public class SecondCer {
 		String min = (String) session.getAttribute("min");
 		String max = (String) session.getAttribute("max");
 		String regionId = (String) session.getAttribute("regionId");
-		String housetype = (String) session.getAttribute("housetype");
+		String housetype = (String) session.getAttribute("houseType");
 		String buildType = (String) session.getAttribute("buildType");
 
 		int flag = 0;
@@ -322,7 +323,7 @@ public class SecondCer {
 
 		listPre.setList(premiseBiz.find(map));
 
-		ModelAndView modelAndView = new ModelAndView("index2");
+		ModelAndView modelAndView = new ModelAndView("searchlist/Defaultlist");
 		modelAndView.addObject("pagePre", listPre);
 		modelAndView.addObject("totalPage", listPre.getTotalPage());
 		return modelAndView;
@@ -331,7 +332,7 @@ public class SecondCer {
 	/*
 	 * 跳到第 几 页
 	 */
-	@RequestMapping("/indexPage")
+	@RequestMapping("/IndexPage")
 	public ModelAndView indexPage(@RequestParam("pageIndex") int pageIndex) {
 		PageModel<Premises> listPre = new PageModel<Premises>();
 		HttpSession session = request.getSession();
@@ -343,7 +344,7 @@ public class SecondCer {
 		String min = (String) session.getAttribute("min");
 		String max = (String) session.getAttribute("max");
 		String regionId = (String) session.getAttribute("regionId");
-		String housetype = (String) session.getAttribute("housetype");
+		String housetype = (String) session.getAttribute("houseType");
 		String buildType = (String) session.getAttribute("buildType");
 
 		int flag = 0;
@@ -377,7 +378,7 @@ public class SecondCer {
 
 		listPre.setList(premiseBiz.find(map));
 
-		ModelAndView modelAndView = new ModelAndView("index2");
+		ModelAndView modelAndView = new ModelAndView("searchlist/Defaultlist");
 		modelAndView.addObject("pagePre", listPre);
 		modelAndView.addObject("totalPage", listPre.getTotalPage());
 		return modelAndView;

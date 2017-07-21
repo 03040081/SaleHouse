@@ -110,6 +110,8 @@ public class FirstCer {
 
 		ModelAndView modelAndView = new ModelAndView("searchlist/Defaultlist");
 		modelAndView.addObject("pagePre", listPre);
+		session.setAttribute("totalPage", listPre.getTotalPage());
+		session.setAttribute("pageIndex", listPre.getPageIndex());
 		modelAndView.addObject("totalPage", listPre.getTotalPage());
 		return modelAndView;
 	}

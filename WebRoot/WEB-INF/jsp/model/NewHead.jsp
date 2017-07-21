@@ -52,8 +52,7 @@
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a class="btn btn-default action-button" role="button" href="logout" style="background-color:#F1F1F1">
-							注销
+							<a class="btn btn-default action-button" role="button" href="Logout" style="background-color:#F1F1F1">
 							</a>
 						</c:otherwise>
 					</c:choose>
