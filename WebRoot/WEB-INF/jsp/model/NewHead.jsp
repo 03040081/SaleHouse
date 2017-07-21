@@ -42,7 +42,7 @@
 							<a class="navbar-link login" href="#" ></a> 
 						</c:when>
 						<c:otherwise>
-							<a class="navbar-link login" href="#" >${userInfo}</a> 
+							<a class="navbar-link login" href="#" >${userInfo.username}</a> 
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
@@ -52,7 +52,7 @@
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a class="btn btn-default action-button" role="button" href="/logout" style="background-color:#F1F1F1">
+							<a class="btn btn-default action-button" role="button" href="logout" style="background-color:#F1F1F1">
 							注销
 							</a>
 						</c:otherwise>
