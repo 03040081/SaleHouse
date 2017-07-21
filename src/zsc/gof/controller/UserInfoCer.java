@@ -81,10 +81,11 @@ public class UserInfoCer {
 	 * 注销
 	 */
 	@RequestMapping("/logout")
-	public void logout(HttpServletRequest request){
+	public ModelAndView logout(HttpServletRequest request){
 		HttpSession session=request.getSession();
 		session.invalidate();
-		ModelAndView modelAndView = new ModelAndView()
+		ModelAndView modelAndView = new ModelAndView("Homepage");
+		return modelAndView;
 	}
 	
 	/*

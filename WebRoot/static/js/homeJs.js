@@ -1,11 +1,11 @@
 $(document).ready(function() {
 	$('#btn_search').click(function() {
-		var keyword = $('#keyword').value;
+		var keyword = document.getElementById("keyword").value;
 		location.href = "Search?keyword=" + keyword;
 	});
 	
 	$('#btn-search-head').click(function() {
-		var keyword = $('#keyword-head').value;
+		var keyword = document.getElementById("keyword-head").value;
 		location.href = "DetailsSearch?keyword=" + keyword;
 	});
 });

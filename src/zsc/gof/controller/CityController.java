@@ -22,12 +22,16 @@ public class CityController {
 	CityBiz cityBiz;
 	
 	@RequestMapping("/City")
-	public  ModelAndView index(@RequestParam("cityId") int cityId) {
+	public  ModelAndView index(
+			@RequestParam("cityId") int cityId, 
+			@RequestParam("pageNo") int pageNo) {
 		System.out.println("Location:" + cityId);
 		City currCity = cityBiz.getCityById(cityId);
 		List<City> listCity = cityBiz.listCitys();
 		request.getSession().setAttribute("currCity", currCity);
 		request.getSession().setAttribute("listCity", listCity);
+		if (pageNo == 2)
+			return new ModelAndView("searchlist/Defaultlist");
 		return new ModelAndView("Homepage");
 	}
 	

@@ -6,11 +6,13 @@
 			<div class="input-group-addon">
 				<span><i class="glyphicon glyphicon-search"></i></span>
 			</div>
-			<input id="keyword-head" class="form-control" type="text" placeholder="请输入新房地址或新房名"
+			<form action="DetailsSearch">
+				<input id="keyword-head" name="keyword" class="form-control" type="text" placeholder="请输入新房地址或新房名"
 				value="${keyword}">
-			<div class="input-group-btn">
-				<button id="btn-search-head" class="btn btn-default" type="button">搜索</button>
-			</div>
+				<div class="input-group-btn">
+					<button id="btn-search-head" class="btn btn-default" type="submit">搜索</button>
+				</div>
+			</form>
 		</div>
 	</form>
 	<a class="find-hourse"> <i class="glyphicon glyphicon-map-marker"></i>地图找房

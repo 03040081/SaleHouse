@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!--navbar-Start-->
 	<div>
@@ -15,19 +16,26 @@
 				</button>
 			</div>
 			<div class="collapse navbar-collapse" id="navcol-1">
-				<ul class="nav navbar-nav">
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" aria-expanded="false" href="#"><i
-							class="glyphicon glyphicon-map-marker"></i>广州<span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="#">深圳</a></li>
-							<li role="presentation"><a href="#">佛山</a></li>
-							<li role="presentation"><a href="#">惠州</a></li>
-							<li role="presentation"><a href="#">中山</a></li>
-						</ul></li>
-					<li role="presentation"><a href="#">成交</a></li>
-					<li role="presentation"><a href="#">小区</a></li>
-				</ul>
+				<%-- 定位 --%>
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">
+								<i class="glyphicon glyphicon-map-marker"></i>${currCity.cityName}
+								<span class="caret"></span>
+							</a>
+							<ul id="ul_region" class="dropdown-menu" role="menu">
+								<c:forEach items="${listCity}" var="city">
+									<c:if test="${city.cityId != currCity.cityId}">
+										<li class="region-info" role="presentation">
+											<a href="City?pageNo=2&cityId=${city.cityId}">${city.cityName}</a>
+										</li>
+									</c:if>
+								</c:forEach>
+							</ul>
+						</li>
+						<li role="presentation"><a href="#">成交</a></li>
+						<li role="presentation"><a href="#">小区</a></li>
+					</ul>
 				<p class="navbar-text navbar-right actions">
 					<c:choose>
 						<c:when test="${empty userInfo}">
@@ -38,7 +46,7 @@
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${empty }">
+						<c:when test="${empty userInfo}">
 							<a class="btn btn-default action-button" role="button" data-toggle="modal" data-target="#UserLogin" href="#" style="background-color:rgb(268,199,1)">
 							登陆
 							</a>
@@ -54,4 +62,3 @@
 		</div>
 		</nav>
 	</div>
-	<!--nav-bar End-->

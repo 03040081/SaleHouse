@@ -10,7 +10,6 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	System.out.println(modelBase + " " + basePath);
 %>
 
 <!DOCTYPE html>
@@ -26,6 +25,48 @@
 <link rel="stylesheet"
 	href="<%=basePath%>static/css/Pretty-Search-Form.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
+
+<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
+
+<style type="text/css">
+	.condition-list {
+		display: inline;
+		margin: 5px 0;
+	}
+	
+	.condition-name{
+		background: #fff;
+		padding: 1px 5px;
+		margin: 0px;
+		cursor: pointer;
+	}
+	
+	.condition-close {
+		background: #efefef;
+		padding: 1px 3px;
+		margin: 0px;
+		cursor: pointer;
+	}
+	
+	.condition {
+		display: none;
+		margin: 0 5px;
+	}
+	
+	.condition-show {
+		display: inline;
+		margin: 0 5px;
+	}
+	
+	.condition-close a{
+		text-decoration: none;
+	}
+	
+	.condition-selected {
+		color: navy;
+	}
+</style>
+
 <link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Footer.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/Footer-Basic.css">
 <link rel="stylesheet" href="<%=basePath%>static/fonts/font-awesome.min.css">
@@ -47,50 +88,116 @@
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
 				<c:forEach items="${region}" var="reg" varStatus="index">
-					<li><a href="#">${reg.regionName}</a></li>
+					<c:choose>
+						<c:when test="${reg.regionId == regId}">
+							<li><a href="DetailsSearch?regionId=${reg.regionId}" class="condition-selected"><b>${reg.regionName}</b></a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="DetailsSearch?regionId=${reg.regionId}">${reg.regionName}</a></li>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</ul>
 			<p>售价：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<li><a href="DetailsSearch?min=0%max=50">50万以下</a></li>
-				<li><a href="DetailsSearch?min=0%max=80">50-80万</a></li>
-				<li><a href="DetailsSearch?min=0%max=100">80-100万</a></li>
-				<li><a href="DetailsSearch?min=0%max=120">100-120万</a></li>
-				<li><a href="DetailsSearch?min=0%max=150">120-150万</a></li>
-				<li><a href="DetailsSearch?min=0%max=200">150-200万</a></li>
-				<li><a href="DetailsSearch?min=200%max=300">200-300万</a></li>
+				<li>
+					<c:choose>
+						<c:when test="${min==0 && max == 50}">
+							<a class='condition-selected' href="DetailsSearch?min=0&max=50">50万以下</a></li>
+						</c:when>
+						<c:otherwise>
+							<a href="DetailsSearch?min=0&max=50">50万以下</a></li>
+						</c:otherwise>
+					</c:choose>
+				<li><a href="DetailsSearch?min=0&max=80">50-80万</a></li>
+				<li><a href="DetailsSearch?min=0&max=100">80-100万</a></li>
+				<li><a href="DetailsSearch?min=0&max=120">100-120万</a></li>
+				<li><a href="DetailsSearch?min=0&max=150">120-150万</a></li>
+				<li><a href="DetailsSearch?min=0&max=200">150-200万</a></li>
+				<li><a href="DetailsSearch?min=200&max=300">200-300万</a></li>
 				<li><a href="DetailsSearch?min=300">300万以上</a></li>
 			</ul>
 			<p>类型:</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<c:forEach items="${premisetype}" var="ptype" varStatus="index">
-					<li><a href="#">${ptype.typeName}</a></li>
+				<c:forEach items="${premisetype}" var="pretype" varStatus="index">
+					<c:choose>
+						<c:when test="${pretype.btypeId == btype}">
+							<li><a class="condition-selected" href="DetailsSearch?buildType=${pretype.btypeId}"><b>${pretype.typeName}</b></a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="DetailsSearch?buildType=${pretype.btypeId}">${pretype.typeName}</a></li>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</ul>
 			<p>户型：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<c:forEach items="${housetype}" var="htype" varStatus="index">
-					<li><a href="#">${htype.typeName}</a></li>
+				<c:forEach items="${housetype}" var="type" varStatus="index">
+					<c:choose>
+						<c:when test="${type.htypeId == htype}">
+							<li><a class="condition-selected" href="DetailsSearch?houseType=${type.htypeId}"><b>${type.typeName}</b></a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="DetailsSearch?houseType=${type.htypeId}">${type.typeName}</a></li>
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</ul>
 			<p>销售状态：</p>
 			<ul>
 				<li class="headlight"><a href="#">不限</a></li>
-				<li><a href="#">在售</a></li>
+				<li><a href="#" class="conditon-selected"><b>在售</b></a></li>
 				<li><a href="#">售罄</a></li>
 			</ul>
 		</div>
 	</div>
 
 	<div id="Search_Tag" class="light-bg">
-		<p>已选条件：</p>
-		<ul style="display: inline;">
-			<li style="display: inline;"><a href="#">sdd</a></li>
-			<li style="display: inline;"><a href="#">sdd</a></li>
-		</ul>
+		<span>已选条件：</span>
+		<div class="condition-list">
+			<!-- 区域 -->
+			<c:forEach items="${region}" var="reg" varStatus="index">
+				<c:if test="${reg.regionId == regId}">
+					<div class="condition-show">
+						<span class="condition-name">${reg.regionName}</span><span
+							class="condition-close"><a>×</a></span>
+					</div>
+				</c:if>
+			</c:forEach>
+			<div class="condition">
+				<span class="condition-name">50万以下</span><span class="condition-close"><a>×</a></span>
+			</div>
+			<!-- 户型 -->
+			<c:forEach items="${housetype}" var="type" varStatus="index">
+				<c:choose>
+					<c:when test="${type.htypeId == htype}">
+						<div class="condition-show">
+							<span class="condition-name">${type.typeName}</span><span class="condition-close"><a>×</a></span>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="condition">
+							<span class="condition-name">${type.typeName}</span><span class="condition-close"><a>×</a></span>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<!-- 类型 -->
+			<c:forEach items="${premisetype}" var="pretype" varStatus="index">
+				<c:if test="${pretype.btypeId == btype}">
+					<div class="condition-show">
+						<span class="condition-name">${pretype.typeName}</span><span class="condition-close"><a>×</a></span>
+					</div>
+				</c:if>
+			</c:forEach>
+			<!-- 在售 -->
+			<div class="condition-show">
+				<span class="condition-name">在售</span><span class="condition-close"><a>×</a></span>
+			</div>
+		</div>
 	</div>
 	<div id="Search_Result">
 		<ul class="nav nav-tabs" role="tablist">
@@ -120,11 +227,11 @@
 									<c:forEach items="${pagePre.list}" var="premises" varStatus="index">
 									<li>
 										<div class="fl">
-											<a href="assets/img/loft.jpg" target="_blank"
+											<a href="HouseInfo?buildId=${premises.buildId}" target="_blank"
 												data-lightbox="photo"><img class="hx-list-img"
-												src="assets/img/loft.jpg" /></a>
+												src="<%=modelBase%>${premises.iconUrl != null ? premises.iconUrl : 'upload/m_size/example.jpg'}" /></a>
 											<div class="show-title">
-												<p class="head">${premises.buildName}</p>
+												<p class="head"><a href="HouseInfo?buildId=${premises.buildId}">${premises.buildName}</a></p>
 												<p class="show-detail">主推户型：
 													<c:forEach items="${premises.houses}" var="house">
 														${house.houseDesc}&nbsp;
@@ -137,9 +244,17 @@
 										</div>
 										<div class="fr">
 											<p class="price-zero">
-												<span class="price-one">${avgPrices[index.index]}</span> <span class="price-two">万</span>
-												<span class="price-three"> <em
-													style="font-size: inherit;">(222<em> 元/平方米 </span>
+												<c:choose>
+													<c:when test="${avgPrices[index.index] == 0}">
+														<span class="price-one">价格待定</span>
+													</c:when>
+													<c:otherwise>
+														<span class="price-one">${avgPrices[index.index]}</span> <span class="price-two">万</span>
+														<span class="price-three"> 
+															<em style="font-size: inherit;">(222<em> 元/平方米)
+														</span>
+													</c:otherwise>
+												</c:choose>
 											</p>
 											<p style="font-size: 20px; margin-right: 45px;">
 												<i class="glyphicon glyphicon-earphone"></i> 400-8820-8820 转

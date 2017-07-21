@@ -6,13 +6,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller//标志为控制器
 public class Base {
-	@RequestMapping("/Home")//访问地址
-	public  ModelAndView index() {
-		return new ModelAndView("index3");
-	}
-	
-	@RequestMapping("/Test55")//访问地址
-	public  ModelAndView test() {
-		return new ModelAndView("index");
+	@RequestMapping("/Index")//访问地址
+	public  ModelAndView index() {		
+		return new ModelAndView("forward:City?pageNo=1&cityId=1");
 	}
 }
