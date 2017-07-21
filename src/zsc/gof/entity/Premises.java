@@ -34,7 +34,20 @@ public class Premises {
 	private String iconUrl;
 	private List<Premisesimg> premisesimg;
 	private List<House> houses;
-
+	private List<Premisesimg> premisesimgLesser;
+	private List<Premisesimg> premisesimgBiggest;
+	public List<Premisesimg> getPremisesimgLesser() {
+		return premisesimgLesser;
+	}
+	public void setPremisesimgLesser(List<Premisesimg> premisesimgLesser) {
+		this.premisesimgLesser = premisesimgLesser;
+	}
+	public List<Premisesimg> getPremisesimgBiggest() {
+		return premisesimgBiggest;
+	}
+	public void setPremisesimgBiggest(List<Premisesimg> premisesimgBiggest) {
+		this.premisesimgBiggest = premisesimgBiggest;
+	}
 	public List<House> getHouses() {
 		return houses;
 	}
