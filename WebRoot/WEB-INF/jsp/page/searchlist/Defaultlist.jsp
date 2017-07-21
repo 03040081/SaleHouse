@@ -26,7 +26,9 @@
 <link rel="stylesheet"
 	href="<%=basePath%>static/css/Pretty-Search-Form.css">
 <link rel="stylesheet" href="<%=basePath%>static/css/styles.css">
-<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Dark.css">
+<link rel="stylesheet" href="<%=basePath%>static/css/Pretty-Footer.css">
+<link rel="stylesheet" href="<%=basePath%>static/css/Footer-Basic.css">
+<link rel="stylesheet" href="<%=basePath%>static/fonts/font-awesome.min.css">
 </head>
 
 <body>

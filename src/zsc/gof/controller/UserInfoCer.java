@@ -84,6 +84,7 @@ public class UserInfoCer {
 	public void logout(HttpServletRequest request){
 		HttpSession session=request.getSession();
 		session.invalidate();
+		ModelAndView modelAndView = new ModelAndView()
 	}
 	
 	/*

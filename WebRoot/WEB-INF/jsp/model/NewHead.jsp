@@ -29,8 +29,26 @@
 					<li role="presentation"><a href="#">小区</a></li>
 				</ul>
 				<p class="navbar-text navbar-right actions">
-					<a class="navbar-link login" href="#" data-toggle="modal" data-target="#UserLogin">登陆</a> 
-					<a class="btn btn-default action-button" role="button" href="#" style="background-color:rgb(268,199,1)">注销</a>
+					<c:choose>
+						<c:when test="${empty userInfo}">
+							<a class="navbar-link login" href="#" ></a> 
+						</c:when>
+						<c:otherwise>
+							<a class="navbar-link login" href="#" >${userInfo}</a> 
+						</c:otherwise>
+					</c:choose>
+					<c:choose>
+						<c:when test="${empty }">
+							<a class="btn btn-default action-button" role="button" data-toggle="modal" data-target="#UserLogin" href="#" style="background-color:rgb(268,199,1)">
+							登陆
+							</a>
+						</c:when>
+						<c:otherwise>
+							<a class="btn btn-default action-button" role="button" href="/logout" style="background-color:#F1F1F1">
+							注销
+							</a>
+						</c:otherwise>
+					</c:choose>
 				</p>
 			</div>
 		</div>

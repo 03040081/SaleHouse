@@ -46,7 +46,7 @@
 
 
 
-					<div id="detail" style="background:url(../../assets/img/侨鑫汇悦台01.jpg);">
+					<div id="detail" style="background:url(<%=modelBase%>${premise.premisesimg[0].imgUrl})">
 							<div class="detail-box">
 								<div class="container">
 									<div class="col-md-7 box-left">
@@ -250,7 +250,49 @@
 	</div>
 </div>	
 		
+		
 		<!-- Modal for Login -->
+	<div class="modal fade" id="UserLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        			<h4 class="modal-title" id="ModalLabel">欢迎登陆我爱我家</h4>
+      			</div>
+     			<div class="modal-body">
+        			<div class="row" >
+						 <div class="col-md-12">
+                			<div class="login-panel panel panel-default">
+                   			 	<div class="panel-heading">
+                       		 	<h3 class="panel-title">请登录</h3>
+                    			</div>
+                   			 <div class="panel-body">
+                        	<form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="账号" name="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="密码" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">记住我的账号
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a href="index.html" class="btn btn-lg btn-success btn-block">登陆</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+  
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 		<!-- Modal for House-Img-Condition -->
 		
