@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import zsc.gof.biz.PremiseBiz;
 import zsc.gof.dao.PremisesDao;
 import zsc.gof.entity.Premises;
 
@@ -19,6 +20,7 @@ public class TestPremisesDao {
 	@Autowired
 	PremisesDao dao;
 	
+	@Autowired PremiseBiz biz;
 	@Test public void testqueryPremisesById(){
 		Premises premises = dao.queryPremisesByBuildId(233);
 		System.out.println(premises.getBuildId());
@@ -28,19 +30,20 @@ public class TestPremisesDao {
 	
 	@Test public void testsearch(){
 		Map<String, String> map = new HashMap<String, String>();
+		
 		map.put("min", "0");
-		map.put("max", "100");
-		map.put("housetype", "3");
-		List<Premises> premises= dao.search(map);
+		map.put("max", "50");
+		map.put("housetype","1");
+		List<Premises> premises= biz.find(map);
 		System.out.println(premises.size());
 	}
 	
 	@Test public void testsearchRecord(){
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("min", null);
-		map.put("max", null);
-	
-		map.put("keyword", "%天誉半岛花园%");
+		map.put("min", "0");
+		map.put("max", "50");
+		
+		//map.put("keyword", "%天誉半岛花园%");
 		int premises= dao.queryTotalRecord(map);
 		System.out.println(premises);
 	}

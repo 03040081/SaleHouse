@@ -27,6 +27,18 @@ public class PremiseBizImpl implements PremiseBiz {
 			System.out.println(list.get(i).getRegion().getRegionName());
 			System.out.println(i);
 		}*/
+		System.out.println("--------biz-----------");
+		System.out.println("cityId"+map.get("cityId"));
+		System.out.println("min"+map.get("min"));
+		System.out.println("max"+map.get("max"));
+		System.out.println("regionId"+map.get("regionId"));
+		System.out.println("housetype"+map.get("housetype"));
+		System.out.println("buildType"+map.get("buildType"));
+		System.out.println("keyword"+map.get("keyword"));
+		System.out.println("pageIndex"+map.get("pageIndex"));
+		System.out.println("pageSize"+map.get("pageSize"));
+		System.out.println("listSize:"+list.size());
+		System.out.println("--------biz-----------");
 		return dao.search(map);
 	}
 

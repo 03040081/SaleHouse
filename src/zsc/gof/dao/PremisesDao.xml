@@ -84,11 +84,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="queryTotalRecord" parameterType="Map" resultType="java.lang.Integer">
 		 SELECT COUNT(buildId) FROM premises AS p 
 		<where>
+			<!--城市约束cityId -->
+			<if test="cityId!=null">
+					 AND
+					 p.regionId IN (SELECT regionId FROM region AS r WHERE r.cityId = #{cityId})
+			</if>
 			<if test="min!=null">
 				<!-- 房屋价格查询 -->
 				<if test="max!=null">
 					AND
-					p.regionId IN(SELECT regionId FROM house WHERE housePrice BETWEEN #{min} AND #{max}) 
+					p.buildId IN(SELECT buildId FROM house AS h WHERE h.housePrice BETWEEN #{min} AND #{max}) 
 				</if>
 			</if>
 			<if test="regionId!=null">
@@ -99,13 +104,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="housetype!=null">
 				<!-- 户型查询 -->
 				AND
-				p.regionId IN (SELECT regionId FROM house WHERE housetype = #{housetype} ) 
+				p.buildId IN (SELECT buildId FROM house AS h  WHERE h.houseType = #{housetype} ) 
 			</if>
 			<if test="buildType!=null">
 				<!-- 类型查询 -->
 				AND 
 				p.buildType = #{buildType}	
 			</if>
+			
 			<if test="keyword!=null">
 			<!-- 关键字模糊查询 -->
 				AND 
