@@ -203,7 +203,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h2 class="modal-title" id="Modal-label-2">万科商景城</h4>
+				<h2 class="modal-title" id="Modal-label-2">${premise.buildName}</h4>
 			</div>
 			<div class="modal-body">
 				<div class="row">
@@ -211,28 +211,29 @@
 						<div class="simple-slider modal-bg">
 							<div class="swiper-container">
 								<div class="swiper-wrapper">
-									<div class="swiper-slide" style="background-image:url();"></div>
-									<div class="swiper-slide" style="background-image:url();"></div>
-									<div class="swiper-slide" style="background-image:url();"></div>
+								<c:forEach items="${premise.premisesimgBiggest}" var="img">
+									<div class="swiper-slide" style="background-image:url(<%=modelBase %>${img.imgUrl});"></div>
+								</c:forEach>
+
 								</div>
-								<div class="swiper-pagination"></div>
+								
 								<div class="swiper-button-prev"></div>
 								<div class="swiper-button-next"></div>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
-						<p style="font-size: 23px; font-weight:200; ">万科商业城</p>
-						<p style="font-size: 23px; font-weight:200; ">3室2厅1卫, 约79平方米</p>
+						<p style="font-size: 23px; font-weight:200; ">${premise.buildName}</p>
+						<p style="font-size: 23px; font-weight:200; ">户型解读：更多户型信息请详询经销商</p>
 						<hr />
 						<div class="head-info-list">
 							<ul>
-								<li class="head-info-item">楼盘别名<span>Text</span></li>
-								<li class="head-info-item">物业类型<span>Text</span></li>
-								<li class="head-info-item">开盘时间<span>Text</span></li>
-								<li class="head-info-item">入住时间<span>Text</span></li>
-								<li class="head-info-item">楼盘地址<span>Text</span></li>
-								<li class="head-info-item">建筑面积<span>Text</span></li>
+								<li class="head-info-item">楼盘别名<span>${premise.buildName}</span></li>
+								<li class="head-info-item">物业类型<span>${premise.premisetype.typeName}</span></li>
+								<li class="head-info-item">开盘时间<span>${premise.inOpen}</span></li>
+								<li class="head-info-item">入住时间<span>${premise.inLive}</span></li>
+								<li class="head-info-item">楼盘地址<span>${premise.buildAddress}</span></li>
+								<li class="head-info-item">建筑面积<span>${premise.buildArea}</span></li>
 							</ul>
 						</div>
 						<hr />
