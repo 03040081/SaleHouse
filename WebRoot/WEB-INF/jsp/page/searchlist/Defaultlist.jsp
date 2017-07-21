@@ -10,7 +10,6 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-	String imgPath = "C:\\Users\\Cysar Lai\\GitProject\\SaleHouse";
 %>
 
 <!DOCTYPE html>
@@ -228,11 +227,11 @@
 									<c:forEach items="${pagePre.list}" var="premises" varStatus="index">
 									<li>
 										<div class="fl">
-											<a href="assets/img/loft.jpg" target="_blank"
+											<a href="HouseInfo?buildId=${premises.buildId}" target="_blank"
 												data-lightbox="photo"><img class="hx-list-img"
 												src="<%=modelBase%>${premises.iconUrl != null ? premises.iconUrl : 'upload/m_size/example.jpg'}" /></a>
 											<div class="show-title">
-												<p class="head">${premises.buildName}</p>
+												<p class="head"><a href="HouseInfo?buildId=${premises.buildId}">${premises.buildName}</a></p>
 												<p class="show-detail">主推户型：
 													<c:forEach items="${premises.houses}" var="house">
 														${house.houseDesc}&nbsp;

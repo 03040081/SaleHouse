@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!--navbar-Start-->
 	<div>
@@ -45,7 +46,7 @@
 						</c:otherwise>
 					</c:choose>
 					<c:choose>
-						<c:when test="${empty }">
+						<c:when test="${empty userInfo}">
 							<a class="btn btn-default action-button" role="button" data-toggle="modal" data-target="#UserLogin" href="#" style="background-color:rgb(268,199,1)">
 							登陆
 							</a>
